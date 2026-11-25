@@ -30,9 +30,7 @@
           <!-- 限时折扣/会员价的优惠信息 -->
           <view
             class="discount"
-            v-if="
-              state.settlementSku && state.settlementSku.id && state.settlementSku.promotionPrice
-            "
+            v-if="hasSettlementPromotion"
           >
             <image class="disImg" :src="sheep.$url.static('/static/img/shop/goods/dis.png')" />
             <view class="discountCont">
@@ -79,7 +77,7 @@
             <!-- 没有限时折扣/会员价的优惠信息时，展示的价格信息 -->
             <view
               class="ss-flex ss-row-between ss-col-center ss-m-b-26"
-              v-if="!state.settlementSku.promotionPrice"
+              v-if="!hasSettlementPromotion"
             >
               <view class="price-box ss-flex ss-col-bottom">
                 <view class="price-text ss-m-r-16">
@@ -160,18 +158,17 @@
           />
         </view>
 
+        <detail-activity-tip
+          v-if="state.activityList.length > 0"
+          :activity-list="state.activityList"
+        />
+
         <!-- 评价 -->
         <detail-comment-card class="detail-comment-selector" :goodsId="state.goodsId" />
         <!-- 详情 -->
         <detail-content-card
           class="detail-content-selector"
           :content="state.goodsInfo.description"
-        />
-
-        <!-- 活动跳转：拼团/秒杀/砍价活动 -->
-        <detail-activity-tip
-          v-if="state.activityList.length > 0"
-          :activity-list="state.activityList"
         />
 
         <!-- 详情 tabbar -->
@@ -245,6 +242,16 @@
     isDay: true,
   };
   const isLogin = computed(() => sheep.$store('user').isLogin);
+  const hasSettlementPromotion = computed(() => {
+    const sku = state.settlementSku;
+    return Boolean(
+      sku?.id &&
+        [4, 6].includes(sku.promotionType) &&
+        Number.isFinite(sku.promotionPrice) &&
+        sku.promotionPrice > 0 &&
+        sku.promotionPrice < sku.price,
+    );
+  });
   let state = reactive({
     goodsId: 0,
     skeletonLoading: true, // SPU 加载中
@@ -362,7 +369,14 @@
 
     // 选择有 promotionPrice 且最小的
     state.settlementSku = state.goodsInfo.skus
-      .filter((sku) => sku.stock > 0 && sku.promotionPrice > 0)
+      .filter(
+        (sku) =>
+          sku.stock > 0 &&
+          [4, 6].includes(sku.promotionType) &&
+          Number.isFinite(sku.promotionPrice) &&
+          sku.promotionPrice > 0 &&
+          sku.promotionPrice < sku.price,
+      )
       .reduce((prev, curr) => (prev.promotionPrice < curr.promotionPrice ? prev : curr), []);
 
     // 设置满减送活动
@@ -429,7 +443,7 @@
 
 <style lang="scss" scoped>
   .detail-card {
-    background-color: #ffff;
+    background-color: var(--ui-BG, #fff);
     margin: 14rpx 20rpx;
     border-radius: 10rpx;
     overflow: hidden;
@@ -441,7 +455,7 @@
       .price-text {
         font-size: 42rpx;
         font-weight: 500;
-        color: #ff3000;
+        color: var(--shop-price, var(--ui-BG-Main));
         line-height: 30rpx;
         font-family: OPPOSANS;
 
@@ -455,7 +469,7 @@
         font-size: 26rpx;
         font-weight: 400;
         text-decoration: line-through;
-        color: $gray-c;
+        color: var(--ui-TC-2, $gray-c);
         font-family: OPPOSANS;
 
         &::before {
@@ -467,7 +481,7 @@
     .sales-text {
       font-size: 26rpx;
       font-weight: 500;
-      color: $gray-c;
+      color: var(--ui-TC-2, $gray-c);
     }
 
     .discounts-box {
@@ -516,7 +530,7 @@
     .subtitle-text {
       font-size: 26rpx;
       font-weight: 400;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
       line-height: 42rpx;
     }
   }
@@ -541,7 +555,7 @@
 
       border-radius: 0 40rpx 40rpx 0;
       background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-      color: $white;
+      color: var(--ui-BG-Main-TC, $white);
     }
 
     .disabled-btn {
@@ -563,13 +577,13 @@
     .title {
       font-size: 36rpx;
       font-weight: bold;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
 
     .subtitle {
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
   }
 
@@ -640,7 +654,7 @@
     text-align: center;
     font-weight: bold;
     background-color: white;
-    color: #ff3000;
+    color: var(--shop-price, var(--ui-BG-Main));
     font-size: 23rpx;
     border-radius: 20rpx;
     margin-left: 10rpx;

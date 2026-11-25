@@ -240,7 +240,7 @@
 
       .time-text {
         font-size: 26rpx;
-        color: $gray-b;
+        color: var(--ui-TC-2, $gray-b);
       }
 
       .close-icon {
@@ -258,12 +258,12 @@
       .pay-title {
         font-size: 26rpx;
         font-weight: 500;
-        color: #333333;
+        color: var(--ui-TC, #333333);
       }
 
       .pay-tip {
         font-size: 26rpx;
-        color: #bbbbbb;
+        color: var(--ui-TC-2, #bbbbbb);
       }
 
       .pay-item {
@@ -271,13 +271,13 @@
       }
       .disabled-pay-item {
         .pay-title {
-          color: #999999;
+          color: var(--ui-TC-2, #999999);
         }
       }
 
       .userInfo-money {
         font-size: 26rpx;
-        color: #bbbbbb;
+        color: var(--ui-TC-2, #bbbbbb);
         line-height: normal;
       }
     }
@@ -287,11 +287,11 @@
       height: 80rpx;
       border-radius: 40rpx;
       background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-      color: $white;
+      color: var(--ui-BG-Main-TC, $white);
     }
     .disabled-btn {
-      background: #e5e5e5;
-      color: #999999;
+      background: var(--ui-BG-2, #e5e5e5);
+      color: var(--ui-TC-2, #999999);
     }
 
     .past-due-btn {

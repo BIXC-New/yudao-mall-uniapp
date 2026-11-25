@@ -2,6 +2,12 @@
 <template>
   <!-- 商品卡片 -->
   <view>
+    <view
+      v-if="state.loaded && !state.goodsList.length"
+      class="ss-p-30 ui-TC-2"
+      style="text-align: center"
+      >好物正在准备中，试试搜索或浏览分类</view
+    >
     <!-- 布局1. 单列大图（上图，下内容）-->
     <view
       v-if="layoutType === LayoutTypeEnum.ONE_COL_BIG_IMG && state.goodsList.length"
@@ -158,6 +164,7 @@
   };
 
   const state = reactive({
+    loaded: false,
     goodsList: [],
     leftGoodsList: [],
     rightGoodsList: [],
@@ -239,7 +246,8 @@
   // 初始化
   onMounted(async () => {
     // 加载商品列表
-    state.goodsList = await getGoodsListByIds(spuIds.join(','));
+    state.goodsList = (spuIds?.length ? await getGoodsListByIds(spuIds.join(',')) : []) || [];
+    state.loaded = true;
     // 拼接结算信息（营销）
     await OrderApi.getSettlementProduct(state.goodsList.map((item) => item.id).join(',')).then(
       (res) => {

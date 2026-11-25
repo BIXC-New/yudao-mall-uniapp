@@ -109,7 +109,7 @@
       height: 100rpx;
       line-height: 100rpx;
       padding: 0 26rpx;
-      background: #fff;
+      background: var(--ui-BG, #fff);
       border-radius: 20rpx 20rpx 0 0;
 
       span {
@@ -136,7 +136,7 @@
     }
 
     .item {
-      background: #fff;
+      background: var(--ui-BG, #fff);
       margin: 26rpx 26rpx 0;
       border-radius: 20rpx;
 

@@ -1,5 +1,5 @@
 <template>
-  <s-layout :bgStyle="{ color: '#fff' }" tabbar="/pages/index/cart" title="购物车">
+  <s-layout navbar="tab" :bgStyle="{ color: '#fff' }" tabbar="/pages/index/cart" title="购物车">
     <s-empty
       v-if="state.list.length === 0"
       icon="/static/cart-empty.png"
@@ -8,21 +8,14 @@
 
     <!-- 头部 -->
     <view v-if="state.list.length" class="cart-box ss-flex ss-flex-col ss-row-between">
-      <view class="cart-header ss-flex ss-col-center ss-row-between ss-p-x-30">
-        <view class="header-left ss-flex ss-col-center ss-font-26">
-          共
-          <text class="goods-number ui-TC-Main ss-flex">{{ state.list.length }}</text>
-          件商品
-        </view>
-        <view class="header-right">
-          <button v-if="state.editMode" class="ss-reset-button" @tap="onChangeEditMode(false)">
-            取消
-          </button>
-          <button v-else class="ss-reset-button ui-TC-Main" @tap="onChangeEditMode(true)">
-            编辑
+      <su-fixed placeholder>
+        <view class="cart-header ss-flex ss-col-center ss-row-between">
+          <text class="cart-item-count">共 {{ state.list.length }} 件商品</text>
+          <button class="ss-reset-button cart-edit" @tap="onChangeEditMode(!state.editMode)">
+            {{ state.editMode ? '取消' : '编辑' }}
           </button>
         </view>
-      </view>
+      </su-fixed>
       <!-- 内容 -->
       <view class="cart-content ss-flex-1 ss-p-x-30 ss-m-b-40">
         <view v-for="item in state.list" :key="item.id" class="goods-box ss-r-10 ss-m-b-14">
@@ -53,7 +46,7 @@
               "
               :title="item.spu.name"
               :titleWidth="400"
-              priceColor="#FF3000"
+              priceColor="var(--shop-price, var(--shop-accent-text))"
             >
               <template v-if="!state.editMode" v-slot:tool>
                 <su-number-box
@@ -122,7 +115,6 @@
     fail: () => {},
   });
 
-  const sys_navBar = sheep.$platform.navbar;
   const cart = sheep.$store('cart');
 
   const state = reactive({
@@ -256,27 +248,35 @@
 </script>
 
 <style lang="scss" scoped>
-  :deep(.ui-fixed) {
-    height: 72rpx;
-  }
-
   .cart-box {
     width: 100%;
 
     .cart-header {
-      height: 70rpx;
-      background-color: #f6f6f6;
-      width: 100%;
-      position: fixed;
-      left: 0;
-      top: v-bind('sys_navBar') rpx;
-      z-index: 1000;
+      min-height: 84rpx;
+      padding: 0 var(--page-gutter, 32rpx);
+      background-color: var(--ui-BG-1, #f6f6f6);
       box-sizing: border-box;
+    }
+
+    .cart-item-count {
+      color: var(--ui-TC-2, #666);
+      font-size: 26rpx;
+    }
+
+    .cart-edit {
+      min-width: 88rpx;
+      height: 56rpx;
+      padding: 0 20rpx;
+      border: 1px solid var(--ui-Border, #ddd);
+      border-radius: 28rpx;
+      color: var(--shop-accent-text, var(--ui-TC));
+      font-size: 26rpx;
+      line-height: 1.2;
     }
 
     .cart-footer {
       height: 100rpx;
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
 
       .pay-btn {
         width: 180rpx;
@@ -289,10 +289,8 @@
     }
 
     .cart-content {
-      margin-top: 70rpx;
-
       .goods-box {
-        background-color: #fff;
+        background-color: var(--ui-BG, #fff);
         position: relative;
       }
       // 下架商品
@@ -307,7 +305,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #999;
+        color: var(--ui-TC-2, #999);
         font-size: 32rpx;
       }
     }

@@ -248,19 +248,19 @@
     position: relative;
     justify-content: center;
     .register-btn {
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
       font-size: 30rpx;
       font-weight: 500;
     }
     .register-title {
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
       font-size: 30rpx;
       font-weight: 400;
       margin-right: 24rpx;
     }
     .or-title {
       margin: 0 16rpx;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
       font-size: 30rpx;
       font-weight: 400;
     }
@@ -289,12 +289,12 @@
   }
 
   .agreement-text {
-    color: $dark-9;
+    color: var(--ui-TC-2, #777777);
   }
   
   .agreement-title {
     font-size: 28rpx;
-    color: $dark-9;
+    color: var(--ui-TC-2, #777777);
     text-align: left;
     width: 100%;
     padding-left: 60rpx;

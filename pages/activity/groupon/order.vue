@@ -1,7 +1,7 @@
 <!-- 我的拼团订单列表 -->
 <template>
   <s-layout title="我的拼团">
-    <su-sticky bgColor="#fff">
+    <su-sticky bgColor="var(--ui-BG)">
       <su-tabs
         :list="tabMaps"
         :scrollable="false"
@@ -18,7 +18,7 @@
       >
         <view class="order-card-header ss-flex ss-col-center ss-row-between ss-p-x-20">
           <view class="order-no">拼团编号：{{ record.id }}</view>
-          <view class="ss-font-26" :class="formatOrderColor(record)">
+          <view class="record-status" :class="{ 'is-failed': record.status === 2 }">
             {{ tabMaps.find((item) => item.value === record.status).name }}
           </view>
         </view>
@@ -68,7 +68,6 @@
   import { onLoad, onReachBottom, onPullDownRefresh } from '@dcloudio/uni-app';
   import sheep from '@/sheep';
   import { concat } from '@/sheep/helper/lodash';
-  import { formatOrderColor } from '@/sheep/hooks/useGoods';
   import { resetPagination } from '@/sheep/helper/utils';
   import CombinationApi from '@/sheep/api/promotion/combination';
 
@@ -174,6 +173,21 @@
       .order-no {
         font-size: 26rpx;
         font-weight: 500;
+        color: var(--ui-TC, #303030);
+      }
+
+      .record-status {
+        padding: 4rpx 14rpx;
+        border-radius: 22rpx;
+        background: var(--ui-BG-Main-opacity-1, rgba(0, 0, 0, 0.08));
+        color: var(--shop-accent-text, var(--ui-BG-Main));
+        font-size: 23rpx;
+        line-height: 1.4;
+      }
+
+      .record-status.is-failed {
+        background: var(--ui-BG-2, rgba(127, 127, 127, 0.12));
+        color: var(--ui-TC-2, #777777);
       }
     }
 
@@ -183,11 +197,12 @@
       .detail-btn {
         width: 210rpx;
         height: 66rpx;
-        border: 2rpx solid #dfdfdf;
+        border: 2rpx solid var(--ui-Border, #dfdfdf);
         border-radius: 33rpx;
         font-size: 26rpx;
         font-weight: 400;
-        color: #999999;
+        color: var(--shop-accent-text, var(--ui-BG-Main));
+        background: var(--ui-BG-2, #302c27);
         margin-right: 20rpx;
       }
       .tool-btn {
@@ -197,16 +212,16 @@
         font-size: 26rpx;
         font-weight: 400;
         margin-right: 20rpx;
-        background: #f6f6f6;
+        background: var(--ui-BG-2, #f6f6f6);
+        color: var(--shop-accent-text, var(--ui-BG-Main));
       }
 
       .invite-btn {
         width: 210rpx;
         height: 66rpx;
-        background: linear-gradient(90deg, #fe832a, #ff6600);
-        box-shadow: 0px 8rpx 6rpx 0px rgba(255, 104, 4, 0.22);
+        background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
         border-radius: 33rpx;
-        color: #fff;
+        color: var(--ui-BG-Main-TC, #ffffff);
         font-size: 26rpx;
         font-weight: 500;
       }
@@ -215,26 +230,17 @@
 
   .sales-title {
     height: 32rpx;
-    background: rgba(#ffe0e2, 0.29);
+    background: var(--shop-promo-bg, var(--ui-BG-Main-opacity-1));
     border-radius: 16rpx;
     font-size: 24rpx;
     font-weight: 400;
     padding: 6rpx 20rpx;
-    color: #f7979c;
+    color: var(--shop-promo-text, var(--shop-accent-text, var(--ui-BG-Main)));
   }
 
   .num-title {
     font-size: 24rpx;
     font-weight: 400;
-    color: #999999;
-  }
-  .warning-color {
-    color: #faad14;
-  }
-  .danger-color {
-    color: #ff3000;
-  }
-  .success-color {
-    color: #52c41a;
+    color: var(--ui-TC-2, #999999);
   }
 </style>

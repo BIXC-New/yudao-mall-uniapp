@@ -54,18 +54,18 @@
       .discounts-title {
         font-size: 24rpx;
         line-height: normal;
-        color: #999999;
+        color: var(--ui-TC-2, #999999);
       }
 
       .discounts-money {
         font-size: 24rpx;
         line-height: normal;
-        color: #999;
+        color: var(--ui-TC-2, #999);
         font-family: OPPOSANS;
       }
 
       .pay-color {
-        color: #333;
+        color: var(--ui-TC, #333);
       }
     }
     .order-card-footer {
@@ -84,13 +84,13 @@
       }
 
       .more-btn {
-        color: $dark-9;
+        color: var(--ui-TC-2, $dark-9);
         font-size: 24rpx;
       }
 
       .content {
         width: 154rpx;
-        color: #333333;
+        color: var(--ui-TC, #333333);
         font-size: 26rpx;
         font-weight: 500;
       }
@@ -109,6 +109,6 @@
   }
 
   .info-color {
-    color: #999999;
+    color: var(--ui-TC-2, #999999);
   }
 </style>

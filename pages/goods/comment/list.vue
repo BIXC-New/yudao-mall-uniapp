@@ -9,7 +9,7 @@
     />
     <!-- 评论列表 -->
     <view class="ss-m-t-20">
-      <view class="list-item" v-for="item in state.pagination.list" :key="item">
+      <view class="list-item" v-for="item in state.pagination.list" :key="item.id">
         <comment-item :item="item" />
       </view>
     </view>
@@ -102,8 +102,10 @@
 
 <style lang="scss" scoped>
   .list-item {
-    padding: 32rpx 30rpx 20rpx 20rpx;
-    background: #fff;
+    margin: 0 32rpx 24rpx;
+    padding: 28rpx;
+    border-radius: var(--lux-radius, 24rpx);
+    background: var(--ui-BG, #fff);
 
     .avatar {
       width: 52rpx;
@@ -114,19 +116,19 @@
     .nickname {
       font-size: 26rpx;
       font-weight: 500;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
     }
 
     .create-time {
       font-size: 24rpx;
       font-weight: 500;
-      color: #c4c4c4;
+      color: var(--ui-TC-2, #c4c4c4);
     }
 
     .content-title {
       font-size: 26rpx;
       font-weight: 400;
-      color: #666666;
+      color: var(--ui-TC-1, #525252);
       line-height: 42rpx;
     }
 
@@ -137,32 +139,32 @@
 
     .cicon-info-o {
       font-size: 26rpx;
-      color: #c4c4c4;
+      color: var(--ui-TC-2, #c4c4c4);
     }
 
     .foot-title {
       font-size: 24rpx;
       font-weight: 500;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
     }
   }
 
   .btn-box {
     width: 100%;
     height: 120rpx;
-    background: #fff;
-    border-top: 2rpx solid #eee;
+    background: var(--ui-BG, #fff);
+    border-top: 2rpx solid var(--ui-Border, #eee);
   }
 
   .tab-btn {
     width: 130rpx;
     height: 62rpx;
-    background: #eeeeee;
+    background: var(--ui-BG-2, #eeeeee);
     border-radius: 31rpx;
     font-size: 28rpx;
     font-weight: 400;
-    color: #999999;
-    border: 1px solid #e5e5e5;
+    color: var(--ui-TC-2, #777777);
+    border: 1px solid var(--ui-Border, #e5e5e5);
     margin-right: 10rpx;
   }
 </style>

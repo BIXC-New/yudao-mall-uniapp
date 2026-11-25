@@ -170,7 +170,7 @@
     subtitleStyle: {
       type: Object,
       default: () => ({
-        activeColor: '#333',
+        activeColor: 'var(--ui-TC, #333)',
         color: '#C42222',
       }),
     },

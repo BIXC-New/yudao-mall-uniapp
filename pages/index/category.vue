@@ -1,11 +1,11 @@
 <!-- 商品分类列表 -->
 <template>
-  <s-layout :bgStyle="{ color: '#fff' }" tabbar="/pages/index/category" title="分类">
+  <s-layout navbar="tab" tabbar="/pages/index/category" title="商品分类">
     <view class="s-category">
       <view class="three-level-wrap ss-flex ss-col-top">
         <!-- 商品分类（左） -->
-        <view class="side-menu-wrap" :style="[{ top: Number(statusBarHeight + 88) + 'rpx' }]">
-          <scroll-view scroll-y :style="[{ height: pageHeight + 'px' }]">
+        <view class="side-menu-wrap">
+          <scroll-view scroll-y :style="scrollStyle">
             <view
               class="menu-item ss-flex"
               v-for="(item, index) in state.categoryList"
@@ -21,7 +21,7 @@
         </view>
         <!-- 商品分类（右） -->
         <view class="goods-list-box" v-if="state.categoryList?.length">
-          <scroll-view scroll-y :style="[{ height: pageHeight + 'px' }]">
+          <scroll-view scroll-y :style="scrollStyle">
             <image
               v-if="state.categoryList[state.activeMenu].picUrl"
               class="banner-img"
@@ -61,7 +61,7 @@
   import CategoryApi from '@/sheep/api/product/category';
   import SpuApi from '@/sheep/api/product/spu';
   import { onLoad, onShow } from '@dcloudio/uni-app';
-  import { computed, reactive } from 'vue';
+  import { reactive } from 'vue';
   import { concat } from '@/sheep/helper/lodash';
   import { handleTree } from '@/sheep/helper/utils';
 
@@ -80,9 +80,9 @@
     loadStatus: '',
   });
 
-  const { safeArea } = sheep.$platform.device;
-  const pageHeight = computed(() => safeArea.height - 44 - 50);
-  const statusBarHeight = sheep.$platform.device.statusBarHeight * 2;
+  const { navbar, device } = sheep.$platform;
+  const tabbarHeight = 56 + (device.safeAreaInsets?.bottom || 0);
+  const scrollStyle = { height: `calc(100vh - ${navbar + tabbarHeight}px)` };
 
   // 加载商品分类
   async function getList() {
@@ -143,6 +143,7 @@
     onMenu(foundCategory ? state.categoryList.indexOf(foundCategory) : 0);
   }
   onShow(async () => {
+    uni.hideTabBar({ fail: () => {} });
     await getList();
     initMenuIndex();
   });
@@ -156,12 +157,10 @@
   .s-category {
     :deep() {
       .side-menu-wrap {
-        width: 200rpx;
-        height: 100%;
+        flex: 0 0 212rpx;
         padding-left: 12rpx;
-        background-color: #f6f6f6;
-        position: fixed;
-        left: 0;
+        background-color: var(--ui-BG-2);
+        box-sizing: border-box;
 
         .menu-item {
           width: 100%;
@@ -173,7 +172,7 @@
             line-height: 32rpx;
             font-size: 30rpx;
             font-weight: 400;
-            color: #333;
+            color: var(--ui-TC);
             margin-left: 28rpx;
             position: relative;
             z-index: 0;
@@ -196,7 +195,7 @@
           }
 
           &.menu-item-active {
-            background-color: #fff;
+            background-color: var(--ui-BG);
             border-radius: 20rpx 0 0 20rpx;
 
             &::before {
@@ -206,7 +205,7 @@
               bottom: -20rpx;
               width: 20rpx;
               height: 20rpx;
-              background: radial-gradient(circle at 0 100%, transparent 20rpx, #fff 0);
+              background: radial-gradient(circle at 0 100%, transparent 20rpx, var(--ui-BG) 0);
             }
 
             &::after {
@@ -216,11 +215,12 @@
               right: 0;
               width: 20rpx;
               height: 20rpx;
-              background: radial-gradient(circle at 0% 0%, transparent 20rpx, #fff 0);
+              background: radial-gradient(circle at 0% 0%, transparent 20rpx, var(--ui-BG) 0);
             }
 
             .menu-title {
               font-weight: 600;
+              color: var(--ui-BG-Main);
 
               &::before {
                 left: 0;
@@ -231,15 +231,17 @@
       }
 
       .goods-list-box {
-        background-color: #fff;
-        width: calc(100vw - 200rpx);
-        padding: 10px;
-        margin-left: 200rpx;
+        background-color: var(--ui-BG);
+        flex: 1;
+        min-width: 0;
+        padding: 0 10px;
+        box-sizing: border-box;
       }
 
       .banner-img {
-        width: calc(100vw - 130px);
+        width: 100%;
         border-radius: 5px;
+        margin-top: 10px;
         margin-bottom: 20rpx;
       }
     }

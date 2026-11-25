@@ -78,7 +78,7 @@
   .empty-text {
     font-size: 26rpx;
     font-weight: 500;
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
   }
 
   .empty-btn {

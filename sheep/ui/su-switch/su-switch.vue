@@ -82,7 +82,7 @@
         width: 20px;
         height: 20px;
         margin: 3px;
-        background-color: #fff;
+        background-color: var(--ui-BG, #fff);
       }
       &.ui-switch-input-checked {
         &:after {

@@ -4,17 +4,17 @@
 			@click="searchClick">
 			<view class="uni-searchbar__box-icon-search">
 				<slot name="searchIcon">
-					<uni-icons color="#c0c4cc" size="18" type="search" />
+					<uni-icons color="var(--ui-TC-2, #737373)" size="18" type="search" />
 				</slot>
 			</view>
 			<input v-if="show || searchVal" :focus="showSync" :disabled="readonly" :placeholder="placeholderText" :maxlength="maxlength"
-				class="uni-searchbar__box-search-input" confirm-type="search" type="text" v-model="searchVal"
+				class="uni-searchbar__box-search-input" placeholder-style="color: var(--ui-Placeholder, #737373)" confirm-type="search" type="text" v-model="searchVal"
 				@confirm="confirm" @blur="blur" @focus="emitFocus" />
 			<text v-else class="uni-searchbar__text-placeholder">{{ placeholder }}</text>
 			<view v-if="show && (clearButton==='always'||clearButton==='auto'&&searchVal!=='') &&!readonly"
 				class="uni-searchbar__box-icon-clear" @click="clear">
 				<slot name="clearIcon">
-					<uni-icons color="#c0c4cc" size="20" type="clear" />
+					<uni-icons color="var(--ui-TC-2, #737373)" size="20" type="clear" />
 				</slot>
 			</view>
 		</view>
@@ -84,7 +84,7 @@
 			},
 			bgColor: {
 				type: String,
-				default: "#F8F8F8"
+				default: "var(--ui-Input-BG, #F8F8F8)"
 			},
 			maxlength: {
 				type: [Number, String],
@@ -262,13 +262,13 @@
 		padding: 0 8px;
 		justify-content: center;
 		align-items: center;
-		color: #B3B3B3;
+		color: var(--ui-Placeholder, #737373);
 	}
 
 	.uni-searchbar__box-search-input {
 		flex: 1;
 		font-size: 14px;
-		color: #333;
+		color: var(--ui-TC, #333);
 	}
 
 	.uni-searchbar__box-icon-clear {
@@ -282,7 +282,7 @@
 
 	.uni-searchbar__text-placeholder {
 		font-size: 14px;
-		color: #B3B3B3;
+		color: var(--ui-Placeholder, #737373);
 		margin-left: 5px;
 	}
 
@@ -290,7 +290,7 @@
 		padding-left: 10px;
 		line-height: $uni-searchbar-height;
 		font-size: 14px;
-		color: #333333;
+		color: var(--ui-TC, #333333);
 		/* #ifdef H5 */
 		cursor: pointer;
 		/* #endif */

@@ -1,15 +1,21 @@
 import $store from '@/sheep/store';
 import { staticUrl } from '@/sheep/config';
 
+const demoAssetUrl = /^(?:https?:)?\/\/(?:test\.yudao|static)\.iocoder\.cn\.?(?=[:/?#]|$)/i;
+
 const cdn = (url = '', cdnurl = '') => {
-  if (!url) return '';
-  if (url.indexOf('http') === 0) {
+  url = url?.trim();
+  if (!url || demoAssetUrl.test(url)) return '';
+  // Bundled theme assets are local on H5, App and mini programs.
+  if (url.startsWith('/static/theme/')) return url;
+  if (/^(?:https?:)?\/\//i.test(url)) {
     return url;
   }
   if (cdnurl === '') {
     cdnurl = $store('app').info.cdnurl;
   }
-  return cdnurl + url;
+  const resolvedUrl = cdnurl + url;
+  return demoAssetUrl.test(resolvedUrl) ? '' : resolvedUrl;
 };
 export default {
   // 添加cdn域名前缀
@@ -17,7 +23,7 @@ export default {
   // 对象存储自动剪裁缩略图
   thumb: (url = '', params) => {
     url = cdn(url);
-    return append_thumbnail_params(url, params);
+    return url ? append_thumbnail_params(url, params) : '';
   },
   // 静态资源地址
   static: (url = '', staticurl = '') => {
@@ -27,7 +33,7 @@ export default {
     if (staticurl !== 'local') {
       url = cdn(url, staticurl);
     }
-    return url;
+    return demoAssetUrl.test(url?.trim()) ? '' : url;
   },
   // css背景图片地址
   css: (url = '', staticurl = '') => {
@@ -37,6 +43,7 @@ export default {
     if (staticurl !== 'local') {
       url = cdn(url, staticurl);
     }
+    if (!url || demoAssetUrl.test(url.trim())) return 'none';
     // #ifdef APP-PLUS
     if (staticurl === 'local') {
       url = plus.io.convertLocalFileSystemURL(url);

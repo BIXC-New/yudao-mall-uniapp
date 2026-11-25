@@ -412,7 +412,7 @@ export default {
 	position: relative;
 	padding: 0px;
 	text-align: left;
-	color: #333;
+	color: var(--ui-TC, #333);
 	font-size: 14px;
 	// margin-bottom: 22px;
 }
@@ -456,7 +456,7 @@ export default {
 
 	.label-text {
 		font-size: 28rpx;
-		color: #333333;
+		color: var(--ui-TC, #333333);
 	}
 	.label-seat {
 		margin-right: 5px;
@@ -480,7 +480,7 @@ export default {
 // 必填
 .is-required {
 	// color: $uni-color-error;
-	color: #dd524d;
+	color: var(--ui-Error, #dd524d);
 	font-weight: bold;
 }
 
@@ -493,7 +493,7 @@ export default {
 
 .uni-error-message-text {
 	line-height: 44rpx;
-	color: #dd524d;
+	color: var(--ui-Error, #dd524d);
 	font-size: 24rpx;
 }
 
@@ -504,7 +504,7 @@ export default {
 }
 
 .is-input-error-border {
-	border-color: #dd524d;
+	border-color: var(--ui-Error, #dd524d);
 }
 
 .uni-forms-item--border {

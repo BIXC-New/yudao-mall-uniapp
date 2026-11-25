@@ -73,7 +73,7 @@
             placeholder="请绑定手机号"
             :inputBorder="false"
             disabled
-            :styles="{ disableColor: '#fff' }"
+            :styles="{ disableColor: 'var(--ui-BG)', color: 'var(--ui-TC)' }"
             :placeholderStyle="placeholderStyle"
             :clearable="false"
           >
@@ -93,7 +93,7 @@
             v-model="userInfo.password"
             placeholder="点击修改登录密码"
             :inputBorder="false"
-            :styles="{ disableColor: '#fff' }"
+            :styles="{ disableColor: 'var(--ui-BG)', color: 'var(--ui-TC)' }"
             disabled
             placeholderStyle="color:#BBBBBB;font-size:28rpx;line-height:normal"
             :clearable="false"
@@ -319,7 +319,7 @@
 
     .uni-list-item__content-title {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: var(--ui-TC, #333333) !important;
       line-height: normal !important;
     }
 
@@ -328,7 +328,7 @@
     }
 
     .is-disabled {
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
   }
 
@@ -340,13 +340,13 @@
     font-size: 28rpx;
     font-weight: 500;
     line-height: normal;
-    color: #333333;
+    color: var(--ui-TC, #303030);
   }
 
   .title-box {
     font-size: 28rpx;
     font-weight: 500;
-    color: #666666;
+    color: var(--ui-TC-1, #525252);
     line-height: 100rpx;
   }
 
@@ -357,7 +357,7 @@
     border-radius: 40rpx;
     font-size: 30rpx;
     font-weight: 500;
-    color: $white;
+    color: var(--ui-BG-Main-TC, $white);
   }
 
   .radio-dark {
@@ -397,7 +397,7 @@
 
   // 绑定项
   .account-list {
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     height: 100rpx;
     padding: 0 20rpx;
 
@@ -409,7 +409,7 @@
 
     .list-name {
       font-size: 28rpx;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
 
     .info {
@@ -423,7 +423,7 @@
       .name {
         font-size: 28rpx;
         font-weight: 400;
-        color: $dark-9;
+        color: var(--ui-TC-2, #777777);
       }
     }
 
@@ -440,8 +440,8 @@
         width: 100%;
         height: 100%;
         border-radius: 25rpx;
-        background: #f4f4f4;
-        color: #999999;
+        background: var(--ui-BG-2, #f4f4f4);
+        color: var(--ui-TC-2, #777777);
       }
       .relieve-btn {
         width: 100%;
@@ -456,8 +456,8 @@
   .list-border {
     font-size: 28rpx;
     font-weight: 400;
-    color: #333333;
-    border-bottom: 2rpx solid #eeeeee;
+    color: var(--ui-TC, #303030);
+    border-bottom: 2rpx solid var(--ui-Border, #eeeeee);
   }
 
   image {

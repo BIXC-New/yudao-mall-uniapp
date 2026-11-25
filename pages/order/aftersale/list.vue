@@ -2,7 +2,7 @@
 <template>
   <s-layout title="售后列表">
     <!-- tab -->
-    <su-sticky bgColor="#fff">
+    <su-sticky bgColor="var(--ui-BG)">
       <su-tabs
         :list="tabMaps"
         :scrollable="false"
@@ -173,7 +173,7 @@
 
 <style lang="scss" scoped>
   .list-box {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
 
     .order-head {
       padding: 0 25rpx;
@@ -189,7 +189,7 @@
 
       .value {
         font-size: 22rpx;
-        color: $dark-6;
+        color: var(--ui-TC-1, #525252);
       }
     }
 
@@ -199,7 +199,7 @@
       .tool-btn {
         width: 160rpx;
         height: 60rpx;
-        background: #f6f6f6;
+        background: var(--ui-BG-1, #f6f6f6);
         border-radius: 30rpx;
         font-size: 26rpx;
         font-weight: 400;

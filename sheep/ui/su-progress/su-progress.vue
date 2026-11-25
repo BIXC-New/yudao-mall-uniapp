@@ -197,7 +197,7 @@
 
   .content {
     margin-bottom: 10px;
-    color: #666;
+    color: var(--ui-TC-1, #525252);
     font-size: 32rpx;
   }
 </style>

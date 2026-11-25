@@ -67,12 +67,12 @@
       font-size: 36rpx;
       height: 80rpx;
       font-weight: bold;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
     .subtitle {
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
   }
   .model-content {
@@ -81,7 +81,7 @@
   .modal-footer {
     width: 100%;
     height: 120rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
   }
   .confirm-btn {
     width: 710rpx;
@@ -89,7 +89,7 @@
     height: 80rpx;
     background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
     border-radius: 40rpx;
-    color: #fff;
+    color: var(--ui-BG-Main-TC, #fff);
   }
   // 优惠券按钮
   .card-btn {
@@ -98,7 +98,7 @@
     height: 50rpx;
     border-radius: 40rpx;
     background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-    color: #ffffff;
+    color: var(--ui-BG-Main-TC, #ffffff);
     font-size: 24rpx;
     font-weight: 400;
   }

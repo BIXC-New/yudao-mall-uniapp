@@ -166,7 +166,7 @@
 		line-height: 40rpx;
 		text-align:center;
 		border-radius: 6px;
-		background: #fff;
+		background: var(--ui-BG, #fff);
 		font-size: 24rpx; */
 		color: #E93323;
 	}

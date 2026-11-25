@@ -6,7 +6,7 @@
     round="20"
     @close="emits('close')"
     showClose
-    backgroundColor="#f2f2f2"
+    backgroundColor="var(--ui-BG, #24211f)"
   >
     <view class="model-box">
       <view class="title ss-m-t-16 ss-m-l-20 ss-flex">优惠券</view>
@@ -105,13 +105,13 @@
     font-size: 36rpx;
     height: 80rpx;
     font-weight: bold;
-    color: #333333;
+    color: var(--ui-TC, #303030);
   }
 
   .subtitle {
     font-size: 26rpx;
     font-weight: 500;
-    color: #333333;
+    color: var(--ui-TC, #303030);
   }
 
   .model-content {
@@ -121,7 +121,7 @@
   .modal-footer {
     width: 100%;
     height: 120rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
   }
 
   .confirm-btn {
@@ -130,7 +130,7 @@
     height: 80rpx;
     background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
     border-radius: 40rpx;
-    color: #fff;
+    color: var(--ui-BG-Main-TC, #fff);
   }
 
   .reason-title {
@@ -144,6 +144,6 @@
     font-weight: 600;
     font-size: 20rpx;
     line-height: 26rpx;
-    color: #434343;
+    color: var(--ui-TC, #434343);
   }
 </style>

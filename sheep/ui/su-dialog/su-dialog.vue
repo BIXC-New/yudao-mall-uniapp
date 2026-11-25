@@ -172,7 +172,7 @@
   .uni-popup-dialog {
     width: 300px;
     border-radius: 11px;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
   }
 
   .uni-dialog-title {
@@ -201,7 +201,7 @@
 
   .uni-dialog-content-text {
     font-size: 14px;
-    color: #6c6c6c;
+    color: var(--ui-TC-2, #6c6c6c);
   }
 
   .uni-dialog-button-group {
@@ -209,7 +209,7 @@
     display: flex;
     /* #endif */
     flex-direction: row;
-    border-top-color: #f5f5f5;
+    border-top-color: var(--ui-Border, #f5f5f5);
     border-top-style: solid;
     border-top-width: 1px;
   }
@@ -227,28 +227,28 @@
   }
 
   .uni-border-left {
-    border-left-color: #f0f0f0;
+    border-left-color: var(--ui-Border, #f0f0f0);
     border-left-style: solid;
     border-left-width: 1px;
   }
 
   .uni-dialog-button-text {
     font-size: 16px;
-    color: #333;
+    color: var(--ui-TC, #303030);
   }
 
   .uni-button-color {
-    color: #007aff;
+    color: var(--shop-accent-text, #007aff);
   }
 
   .uni-dialog-input {
     flex: 1;
     font-size: 14px;
-    border: 1px #eee solid;
+    border: 1px var(--ui-Border, #eee) solid;
     height: 40px;
     padding: 0 10px;
     border-radius: 5px;
-    color: #555;
+    color: var(--ui-TC, #555);
   }
 
   .uni-popup__success {

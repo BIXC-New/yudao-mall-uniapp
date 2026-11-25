@@ -19,11 +19,19 @@
             <!-- 评分 -->
             <view class="star-box ss-flex ss-col-center">
               <view class="star-title ss-m-r-40">商品质量</view>
-              <uni-rate v-model="state.commentList[index].descriptionScores" />
+              <uni-rate
+                v-model="state.commentList[index].descriptionScores"
+                active-color="var(--shop-accent-text, var(--ui-BG-Main))"
+                color="var(--ui-TC-3, #9e9e9e)"
+              />
             </view>
             <view class="star-box ss-flex ss-col-center">
               <view class="star-title ss-m-r-40">服务态度</view>
-              <uni-rate v-model="state.commentList[index].benefitScores" />
+              <uni-rate
+                v-model="state.commentList[index].benefitScores"
+                active-color="var(--shop-accent-text, var(--ui-BG-Main))"
+                color="var(--ui-TC-3, #9e9e9e)"
+              />
             </view>
             <!-- 评价 -->
             <view class="area-box">
@@ -146,12 +154,12 @@
   .goods-card {
     margin: 10rpx 0;
     padding: 20rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
   }
 
   // 评论，选择图片
   .form-item {
-    background: #fff;
+    background: var(--ui-BG, #fff);
 
     .star-box {
       height: 100rpx;

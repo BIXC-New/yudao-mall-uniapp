@@ -21,6 +21,8 @@
 
 <style lang="scss" scoped>
   .detail-content-card {
+    color: var(--ui-TC, #303030);
+
     .card-header {
       .line {
         width: 6rpx;
@@ -32,11 +34,12 @@
       .title {
         font-size: 30rpx;
         font-weight: bold;
+        color: var(--ui-TC, #303030);
       }
 
       .des {
         font-size: 24rpx;
-        color: $dark-9;
+        color: var(--ui-TC-2, #777777);
       }
 
       .more-btn {

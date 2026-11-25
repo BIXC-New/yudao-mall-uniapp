@@ -179,7 +179,7 @@
     }
   }
   .tip-box {
-    background: #fff0e7;
+    background: var(--shop-promo-bg, var(--ui-BG-2));
     padding: 20rpx;
     width: 100%;
     position: relative;
@@ -201,13 +201,13 @@
     .type-text {
       font-size: 26rpx;
       font-weight: 500;
-      color: #ff6000;
+      color: var(--shop-accent-text, var(--ui-BG-Main));
       line-height: 42rpx;
     }
     .tip-content {
       font-size: 26rpx;
       font-weight: 500;
-      color: #ff6000;
+      color: var(--shop-accent-text, var(--ui-BG-Main));
       line-height: 42rpx;
     }
   }

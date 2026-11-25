@@ -76,7 +76,7 @@
         全场通用
       </view>
 
-      <su-sticky v-else bgColor="#fff">
+      <su-sticky v-else bgColor="var(--ui-BG)">
         <view class="goods-title ss-p-20">
           {{ state.coupon.productScope === 2 ? '指定商品可用' : '指定分类可用' }}
         </view>
@@ -276,17 +276,11 @@
   .goods-title {
     font-size: 34rpx;
     font-weight: bold;
-    color: #333333;
+    color: var(--ui-TC, #333333);
   }
 
   .detail-wrap {
-    background: linear-gradient(
-      180deg,
-      var(--ui-BG-Main),
-      var(--ui-BG-Main-gradient),
-      var(--ui-BG-Main),
-      #fff
-    );
+    background: linear-gradient(180deg, var(--ui-BG-1), var(--ui-BG));
   }
 
   .detail-box {
@@ -313,7 +307,7 @@
     }
 
     .top {
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
       border-radius: 20rpx 20rpx 0 0;
       -webkit-mask: radial-gradient(circle at 16rpx 100%, #0000 16rpx, red 0) -16rpx;
       padding: 110rpx 0 0 0;
@@ -322,13 +316,13 @@
 
       .title {
         font-size: 40rpx;
-        color: #333;
+        color: var(--ui-TC, #333);
         font-weight: bold;
       }
 
       .subtitle {
         font-size: 28rpx;
-        color: #333333;
+        color: var(--ui-TC, #333333);
       }
 
       .use-btn {
@@ -337,46 +331,46 @@
         line-height: 80rpx;
         background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
         border-radius: 40rpx;
-        color: $white;
+        color: var(--ui-BG-Main-TC, $white);
       }
 
       .disable-btn {
         width: 386rpx;
         height: 80rpx;
         line-height: 80rpx;
-        background: #e5e5e5;
+        background: var(--ui-BG-2, #e5e5e5);
         border-radius: 40rpx;
-        color: $white;
+        color: var(--ui-TC-1, #525252);
       }
 
       .time {
         font-size: 26rpx;
         font-weight: 400;
-        color: #999999;
+        color: var(--ui-TC-2, #999999);
       }
 
       .coupon-line {
         width: 95%;
-        border-bottom: 2rpx solid #eeeeee;
+        border-bottom: 2rpx solid var(--ui-Border, #eeeeee);
       }
     }
 
     .bottom {
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
       border-radius: 0 0 20rpx 20rpx;
       -webkit-mask: radial-gradient(circle at 16rpx 0%, #0000 16rpx, red 0) -16rpx;
       padding: 40rpx 30rpx;
 
       .type {
         height: 96rpx;
-        border-bottom: 2rpx solid #eeeeee;
+        border-bottom: 2rpx solid var(--ui-Border, #eeeeee);
       }
     }
 
     .des {
       font-size: 24rpx;
       font-weight: 400;
-      color: #666666;
+      color: var(--ui-TC-2, #666666);
     }
   }
 
@@ -385,6 +379,6 @@
     height: 300rpx;
     font-size: 34rpx;
     font-weight: bold;
-    color: #333333;
+    color: var(--ui-TC, #333333);
   }
 </style>

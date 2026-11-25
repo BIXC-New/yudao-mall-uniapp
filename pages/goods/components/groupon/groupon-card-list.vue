@@ -80,7 +80,7 @@
 
 <style lang="scss" scoped>
   .detail-card {
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     margin: 14rpx 20rpx;
     border-radius: 10rpx;
     overflow: hidden;
@@ -89,7 +89,7 @@
     .join-activity {
       font-size: 28rpx;
       font-weight: 500;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
 
       .cicon-forward {
         font-weight: 400;
@@ -99,39 +99,39 @@
     .user-avatar {
       width: 60rpx;
       height: 60rpx;
-      background: #ececec;
+      background: var(--ui-BG-2, #ececec);
       border-radius: 60rpx;
     }
 
     .user-nickname {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       width: 160rpx;
     }
 
     .title {
       font-size: 24rpx;
       font-weight: 500;
-      color: #666666;
+      color: var(--ui-TC-1, #525252);
 
       .num {
-        color: #ff6000;
+        color: var(--shop-accent-text, var(--ui-BG-Main));
       }
     }
 
     .end-time {
       font-size: 24rpx;
       font-weight: 500;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
     }
 
     .go-btn {
       width: 140rpx;
       height: 60rpx;
-      background: linear-gradient(90deg, #ff6000 0%, #fe832a 100%);
+      background: var(--ui-BG-Main);
       border-radius: 30rpx;
-      color: #fff;
+      color: var(--ui-BG-Main-TC, #fff);
       font-weight: 500;
       font-size: 26rpx;
       line-height: normal;

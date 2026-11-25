@@ -54,10 +54,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     width: 612rpx;
     min-height: 658rpx;
-    background: #ffffff;
+    background: var(--ui-BG, #ffffff);
     padding: 30rpx;
     border-radius: 20rpx;
     .img-wrap {
@@ -70,13 +70,13 @@
     .notice-title {
       font-size: 35rpx;
       font-weight: bold;
-      color: #333;
+      color: var(--ui-TC, #333);
       margin-bottom: 28rpx;
     }
     .notice-detail {
       font-size: 28rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #999999);
       line-height: 36rpx;
       margin-bottom: 50rpx;
     }

@@ -136,7 +136,7 @@
   }
 
   .poster-title {
-    color: #999;
+    color: var(--ui-TC-2, #777777);
   }
 
   // 分享海报
@@ -151,11 +151,11 @@
       width: 240rpx;
       height: 70rpx;
       line-height: 70rpx;
-      background: $white;
+      background: var(--ui-BG, #fff);
       border-radius: 35rpx;
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
     }
 
     .save-btn {

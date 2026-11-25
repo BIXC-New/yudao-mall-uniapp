@@ -192,7 +192,7 @@
     padding: 8rpx 16rpx;
     margin-bottom: 16rpx;
     background-color: var(--ui-BG-3);
-    color: #999;
+    color: var(--ui-TC-2, #999);
     font-size: 24rpx;
   }
 
@@ -203,7 +203,7 @@
   }
 
   .send-status {
-    color: #333;
+    color: var(--ui-TC, #333);
     height: 80rpx;
     margin-right: 8rpx;
     display: flex;
@@ -258,8 +258,8 @@
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     &.admin {
-      background: #fff;
-      color: #333;
+      background: var(--ui-BG, #fff);
+      color: var(--ui-TC, #333);
       margin-top: 3px;
       margin-bottom: 9px;
       border-radius: 0 10px 10px 10px;

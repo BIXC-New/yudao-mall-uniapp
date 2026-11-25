@@ -89,20 +89,20 @@
 	}
 
 	.apply-return .list {
-		background-color: #fff;
+		background-color: var(--ui-BG, #fff);
 		margin-top: 18rpx;
 		padding: 0 24rpx 70rpx 24rpx;
 	}
 
 	.apply-return .list .item {
 		min-height: 90rpx;
-		border-bottom: 1rpx solid #eee;
+		border-bottom: 1rpx solid var(--ui-Border, #eee);
 		font-size: 30rpx;
-		color: #333;
+		color: var(--ui-TC, #303030);
 	}
 
 	.apply-return .list .item .num {
-		color: #282828;
+		color: var(--ui-TC, #282828);
 		margin-left: 27rpx;
 		// width: 227rpx;
 		// text-align: right;
@@ -113,7 +113,7 @@
 	}
 
 	.apply-return .list .item .num .picker .iconfont {
-		color: #666;
+		color: var(--ui-TC-1, #525252);
 		font-size: 30rpx;
 		margin-top: 2rpx;
 	}
@@ -128,7 +128,7 @@
 	}
 
 	.apply-return .list .item .placeholder {
-		color: #bbb;
+		color: var(--ui-TC-2, #bbb);
 	}
 
 	.apply-return .list .item .title {
@@ -138,7 +138,7 @@
 
 	.apply-return .list .item .title .tip {
 		font-size: 30rpx;
-		color: #bbb;
+		color: var(--ui-TC-2, #bbb);
 	}
 
 	.apply-return .list .item .upload {
@@ -152,7 +152,7 @@
 		height: 156rpx;
 		position: relative;
 		font-size: 24rpx;
-		color: #bbb;
+		color: var(--ui-TC-2, #bbb);
 	}
 
 	.apply-return .list .item .upload .pictrue:nth-of-type(4n) {
@@ -173,18 +173,18 @@
 	}
 
 	.apply-return .list .item .upload .pictrue .icon-icon25201 {
-		color: #bfbfbf;
+		color: var(--ui-TC-2, #bfbfbf);
 		font-size: 50rpx;
 	}
 
 	.apply-return .list .item .upload .pictrue:nth-last-child(1) {
-		border: 1rpx solid #ddd;
+		border: 1rpx solid var(--ui-Border, #ddd);
 		box-sizing: border-box;
 	}
 
 	.apply-return .returnBnt {
 		font-size: 32rpx;
-		color: #fff;
+		color: var(--ui-BG-Main-TC, #fff);
 		width: 100%;
 		height: 86rpx;
 		border-radius: 50rpx;

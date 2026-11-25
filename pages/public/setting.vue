@@ -174,14 +174,14 @@
     .name {
       font-size: 42rpx;
       font-weight: 400;
-      color: $dark-3;
+      color: var(--ui-TC, $dark-3);
     }
 
     .version {
       font-size: 32rpx;
       font-weight: 500;
       line-height: 32rpx;
-      color: $gray-b;
+      color: var(--ui-TC-2, $gray-b);
     }
   }
 
@@ -191,7 +191,7 @@
     .copyright-text {
       font-size: 22rpx;
       font-weight: 500;
-      color: $gray-c;
+      color: var(--ui-TC-2, $gray-c);
       line-height: 30rpx;
     }
 
@@ -204,7 +204,7 @@
       }
 
       .agreement-text {
-        color: $dark-9;
+        color: var(--ui-TC-2, $dark-9);
       }
     }
   }
@@ -219,18 +219,18 @@
   .list-border {
     font-size: 28rpx;
     font-weight: 400;
-    color: #333333;
-    border-bottom: 2rpx solid #eeeeee;
+    color: var(--ui-TC, #333333);
+    border-bottom: 2rpx solid var(--ui-Border, #eeeeee);
   }
 
   :deep(.uni-list-item__content-title) {
     font-size: 28rpx;
     font-weight: 500;
-    color: #333;
+    color: var(--ui-TC, #333);
   }
 
   :deep(.uni-list-item__extra-text) {
-    color: #bbbbbb;
+    color: var(--ui-TC-2, #bbbbbb);
     font-size: 28rpx;
   }
 </style>

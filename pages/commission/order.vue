@@ -179,7 +179,7 @@
     .team-data-box {
       .data-card {
         width: 305rpx;
-        background: #ffffff;
+        background: var(--ui-BG, #ffffff);
         border-radius: 20rpx;
         padding: 20rpx;
 
@@ -189,7 +189,7 @@
           .item-title {
             font-size: 24rpx;
             font-weight: 500;
-            color: #999999;
+            color: var(--ui-TC-2, #999999);
             line-height: normal;
             margin-bottom: 20rpx;
           }
@@ -197,7 +197,7 @@
           .total-num {
             font-size: 38rpx;
             font-weight: 500;
-            color: #333333;
+            color: var(--ui-TC, #333333);
             font-family: OPPOSANS;
           }
         }
@@ -205,7 +205,7 @@
         .category-num {
           font-size: 26rpx;
           font-weight: 500;
-          color: #333333;
+          color: var(--ui-TC, #333333);
           font-family: OPPOSANS;
         }
       }
@@ -217,7 +217,7 @@
 
       .direct-item {
         width: 340rpx;
-        background: #ffffff;
+        background: var(--ui-BG, #ffffff);
         border-radius: 20rpx;
         padding: 20rpx;
         box-sizing: border-box;
@@ -225,14 +225,14 @@
         .item-title {
           font-size: 22rpx;
           font-weight: 500;
-          color: #999999;
+          color: var(--ui-TC-2, #999999);
           margin-bottom: 6rpx;
         }
 
         .item-value {
           font-size: 38rpx;
           font-weight: 500;
-          color: #333333;
+          color: var(--ui-TC, #333333);
           font-family: OPPOSANS;
         }
       }
@@ -242,14 +242,14 @@
   // 订单
   .order-box {
     .order-item {
-      background: #ffffff;
+      background: var(--ui-BG, #ffffff);
       border-radius: 10rpx;
       margin: 20rpx;
 
       .order-footer {
         padding: 20rpx;
         font-size: 24rpx;
-        color: #999;
+        color: var(--ui-TC-2, #999);
       }
 
       .order-header {
@@ -259,7 +259,7 @@
           .order-code {
             font-size: 26rpx;
             font-weight: 500;
-            color: #333333;
+            color: var(--ui-TC, #333333);
           }
 
           .order-state {
@@ -275,7 +275,7 @@
           .from-user {
             font-size: 24rpx;
             font-weight: 400;
-            color: #666666;
+            color: var(--ui-TC-2, #666666);
 
             .user-avatar {
               width: 26rpx;
@@ -287,14 +287,14 @@
             .user-name {
               font-size: 24rpx;
               font-weight: 400;
-              color: #999999;
+              color: var(--ui-TC-2, #999999);
             }
           }
 
           .order-time {
             font-size: 24rpx;
             font-weight: 400;
-            color: #999999;
+            color: var(--ui-TC-2, #999999);
           }
         }
       }
@@ -303,7 +303,7 @@
         .name {
           font-size: 24rpx;
           font-weight: 400;
-          color: #999999;
+          color: var(--ui-TC-2, #999999);
         }
       }
 

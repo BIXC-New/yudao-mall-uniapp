@@ -37,7 +37,7 @@
       <!-- 退款金额 -->
       <view class="refund-item ss-flex ss-col-center ss-row-between" @tap="state.showModal = true">
         <text class="item-title">退款金额</text>
-        <view class="ss-flex refund-cause ss-col-center">
+        <view class="ss-flex refund-cause ss-col-center price-emphasis">
           <text class="ss-m-r-20">￥{{ fen2yuan(state.item.payPrice) }}</text>
         </view>
       </view>
@@ -231,14 +231,18 @@
   .item-title {
     font-size: 30rpx;
     font-weight: bold;
-    color: rgba(51, 51, 51, 1);
+    color: var(--ui-TC);
     // margin-bottom: 20rpx;
+  }
+
+  .price-emphasis {
+    color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
   }
 
   // 售后项目
   .refund-item {
-    background-color: #fff;
-    border-bottom: 1rpx solid #f5f5f5;
+    background-color: var(--ui-BG, #fff);
+    border-bottom: 1rpx solid var(--ui-Border, #f5f5f5);
     padding: 30rpx;
 
     &:last-child {
@@ -248,7 +252,7 @@
     // 留言
     .describe-box {
       width: 690rpx;
-      background: rgba(249, 250, 251, 1);
+      background: var(--ui-BG-2, #f1f1f1);
       padding: 30rpx;
       box-sizing: border-box;
       border-radius: 20rpx;
@@ -257,20 +261,20 @@
         height: 200rpx;
         font-size: 24rpx;
         font-weight: 400;
-        color: #333;
+        color: var(--ui-TC, #303030);
       }
     }
 
     // 联系方式
     .input-box {
       height: 84rpx;
-      background: rgba(249, 250, 251, 1);
+      background: var(--ui-BG-2, #f1f1f1);
       border-radius: 20rpx;
     }
   }
 
   .goods-box {
-    background: #fff;
+    background: var(--ui-BG, #fff);
     padding: 20rpx;
     margin-bottom: 20rpx;
   }
@@ -282,7 +286,7 @@
 
   .foot_box {
     height: 100rpx;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
 
     .sub-btn {
       width: 336rpx;
@@ -295,11 +299,11 @@
     .contcat-btn {
       width: 336rpx;
       line-height: 74rpx;
-      background: rgba(238, 238, 238, 1);
+      background: var(--ui-BG-2, #eeeeee);
       border-radius: 38rpx;
       font-size: 28rpx;
       font-weight: 400;
-      color: rgba(51, 51, 51, 1);
+      color: var(--ui-TC);
     }
   }
 
@@ -307,7 +311,7 @@
     width: 750rpx;
     // height: 680rpx;
     border-radius: 30rpx 30rpx 0 0;
-    background: #fff;
+    background: var(--ui-BG, #fff);
 
     .modal-head {
       height: 100rpx;
@@ -339,7 +343,7 @@
 
     .success-title {
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       font-size: 32rpx;
     }
 

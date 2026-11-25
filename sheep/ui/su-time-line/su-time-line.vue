@@ -30,7 +30,7 @@
     top: 12rpx;
     width: 1px;
     bottom: 0;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid var(--ui-Border, #ddd);
     transform-origin: 0 0;
     transform: scaleX(0.5);
   }

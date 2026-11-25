@@ -640,12 +640,12 @@
 
   .file-title {
     font-size: 14px;
-    color: #333;
+    color: var(--ui-TC, #303030);
   }
 
   .file-count {
     font-size: 14px;
-    color: #999;
+    color: var(--ui-TC-2, #777777);
   }
 
   .is-add {

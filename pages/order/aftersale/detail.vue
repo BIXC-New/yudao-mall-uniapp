@@ -54,7 +54,7 @@
             {{ sheep.$helper.timeFormat(state.info.updateTime, 'yyyy-mm-dd hh:MM:ss') }}
           </view>
         </view>
-        <text class="ss-iconfont _icon-forward" style="color: #666" />
+        <text class="ss-iconfont _icon-forward status-forward" />
       </view>
 
       <!-- 退款金额 -->
@@ -147,7 +147,6 @@
   import AfterSaleApi from '@/sheep/api/trade/afterSale';
 
   const statusBarHeight = sheep.$platform.device.statusBarHeight * 2;
-  const headerBg = sheep.$url.css('/static/img/shop/order/order_bg.png');
   const state = reactive({
     id: 0, // 售后编号
     info: {}, // 收货信息
@@ -224,15 +223,14 @@
   .steps-box {
     width: 100%;
     height: 190rpx;
-    background: v-bind(headerBg) no-repeat,
-      linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
+    background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
     background-size: 750rpx 100%;
     padding-left: 72rpx;
 
     .steps-item {
       .sicon-circleclose {
         font-size: 24rpx;
-        color: #fff;
+        color: var(--ui-BG-Main-TC, #ffffff);
       }
 
       .sicon-circlecheck {
@@ -251,19 +249,24 @@
   }
 
   .activity-color {
-    color: #fff;
+    color: var(--ui-BG-Main-TC, #ffffff);
   }
 
   .info-color {
-    color: rgba(#fff, 0.4);
+    color: var(--ui-BG-Main-TC, #ffffff);
+    opacity: 0.6;
   }
 
   .activity-bg {
-    background: #fff;
+    background: var(--ui-BG-Main);
   }
 
   .info-bg {
-    background: rgba(#fff, 0.4);
+    background: var(--ui-BG-Main-light);
+  }
+
+  .status-forward {
+    color: var(--ui-TC-2, #666666);
   }
 
   .line {
@@ -275,7 +278,7 @@
   .status-box {
     position: relative;
     z-index: 3;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     border-radius: 20rpx 20rpx 0px 0px;
     padding: 20rpx;
     margin-top: -20rpx;
@@ -284,7 +287,7 @@
       font-size: 28rpx;
 
       font-weight: 500;
-      color: rgba(51, 51, 51, 1);
+      color: var(--ui-TC);
       margin-bottom: 20rpx;
     }
 
@@ -292,13 +295,13 @@
       font-size: 24rpx;
 
       font-weight: 400;
-      color: rgba(153, 153, 153, 1);
+      color: var(--ui-TC-2);
     }
   }
 
   // 退款金额
   .aftersale-money {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     height: 98rpx;
     padding: 0 20rpx;
     margin: 20rpx;
@@ -307,27 +310,27 @@
       font-size: 28rpx;
 
       font-weight: 500;
-      color: rgba(51, 51, 51, 1);
+      color: var(--ui-TC);
     }
 
     .aftersale-money--num {
       font-size: 28rpx;
       font-family: OPPOSANS;
       font-weight: 500;
-      color: #ff3000;
+      color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
     }
   }
 
   // order-shop
   .order-shop {
     padding: 20rpx;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     margin: 0 20rpx 20rpx 20rpx;
   }
 
   // 服务内容
   .aftersale-content {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     padding: 20rpx;
     margin: 0 20rpx;
 
@@ -335,8 +338,8 @@
       height: 60rpx;
 
       .copy-btn {
-        background: #eeeeee;
-        color: #333;
+        background: var(--ui-BG-2, #eeeeee);
+        color: var(--ui-TC, #303030);
         border-radius: 20rpx;
         width: 75rpx;
         height: 40rpx;
@@ -344,12 +347,12 @@
       }
 
       .item-title {
-        color: #999;
+        color: var(--ui-TC-2, #777777);
         font-size: 28rpx;
       }
 
       .item-content {
-        color: #333;
+        color: var(--ui-TC, #303030);
         font-size: 28rpx;
       }
     }
@@ -358,7 +361,7 @@
   // 底部功能
   .foot_box {
     height: 100rpx;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -366,14 +369,14 @@
     .btn {
       width: 160rpx;
       line-height: 60rpx;
-      background: rgba(238, 238, 238, 1);
+      background: var(--ui-BG-2, #eeeeee);
       border-radius: 30rpx;
       padding: 0;
       margin-right: 20rpx;
       font-size: 26rpx;
 
       font-weight: 400;
-      color: rgba(51, 51, 51, 1);
+      color: var(--ui-TC);
     }
   }
 </style>

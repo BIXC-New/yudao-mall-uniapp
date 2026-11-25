@@ -75,27 +75,27 @@
     .area-text {
       font-size: 26rpx;
       font-weight: 400;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
     }
 
     .address-text {
       font-size: 32rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       line-height: 48rpx;
     }
 
     .person-text {
       font-size: 28rpx;
       font-weight: 400;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
     }
   }
 
   .edit-btn {
     width: 44rpx;
     height: 44rpx;
-    background: $gray-f;
+    background: var(--ui-BG-2);
     border-radius: 50%;
 
     .edit-icon {

@@ -176,27 +176,27 @@
       fields: {
         name: {
           show: true,
-          color: '#000',
+          color: 'var(--ui-TC)',
         },
         introduction: {
           show: true,
-          color: '#999',
+          color: 'var(--ui-TC-2)',
         },
         price: {
           show: true,
-          color: '#ff3000',
+          color: 'var(--shop-price)',
         },
         marketPrice: {
           show: true,
-          color: '#c4c4c4',
+          color: 'var(--ui-TC-2)',
         },
         salesCount: {
           show: true,
-          color: '#c4c4c4',
+          color: 'var(--ui-TC-2)',
         },
         stock: {
           show: true,
-          color: '#c4c4c4',
+          color: 'var(--ui-TC-2)',
         },
       },
       badge: {
@@ -206,8 +206,8 @@
       btnBuy: {
         type: 'text',
         text: '立即兑换',
-        bgBeginColor: '#FF6000',
-        bgEndColor: '#FE832A',
+        bgBeginColor: 'var(--ui-BG-Main)',
+        bgEndColor: 'var(--ui-BG-Main-gradient)',
         imgUrl: '',
       },
       borderRadiusTop: 8,
@@ -380,7 +380,7 @@
       padding: 0 20rpx;
       border-radius: 25rpx;
       font-size: 24rpx;
-      color: #fff;
+      color: var(--ui-BG-Main-TC);
     }
   }
 </style>

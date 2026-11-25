@@ -2,7 +2,7 @@
 <template>
   <s-layout title="订单详情" class="index-wrap" navbar="inner">
     <view
-      class="state-box ss-flex-col ss-col-center ss-row-right"
+      class="state-box"
       :style="[
         {
           marginTop: '-' + Number(statusBarHeight + 88) + 'rpx',
@@ -10,41 +10,36 @@
         },
       ]"
     >
-      <view class="ss-flex ss-m-t-32 ss-m-b-20">
-        <!-- 待支付 -->
-        <image
-          v-if="state.orderInfo.status === 0"
-          class="state-img"
-          :src="sheep.$url.static('/static/img/shop/order/no_pay.png')"
-        />
-        <!-- 待发货 -->
-        <image
-          v-if="state.orderInfo.status === 10"
-          class="state-img"
-          :src="sheep.$url.static('/static/img/shop/order/order_loading.png')"
-        />
-        <!-- 已完成 -->
-        <image
-          v-else-if="state.orderInfo.status === 30"
-          class="state-img"
-          :src="sheep.$url.static('/static/img/shop/order/order_success.png')"
-        />
-        <!-- 已关闭 -->
-        <image
-          v-else-if="state.orderInfo.status === 40"
-          class="state-img"
-          :src="sheep.$url.static('/static/img/shop/order/order_close.png')"
-        />
-        <!-- 已发货 -->
-        <image
-          v-else-if="state.orderInfo.status === 20"
-          class="state-img"
-          :src="sheep.$url.static('/static/img/shop/order/order_express.png')"
-        />
-        <view class="ss-font-30">{{ formatOrderStatus(state.orderInfo) }}</view>
-      </view>
-      <view class="ss-font-26 ss-m-x-20 ss-m-b-70">
-        {{ formatOrderStatusDescription(state.orderInfo) }}
+      <view class="state-content">
+        <view class="state-heading">
+          <view class="state-mark" :class="{ 'is-closed': state.orderInfo.status === 40 }">
+            <text v-if="state.orderInfo.status === 30" class="state-mark-check">✓</text>
+            <text v-else-if="state.orderInfo.status === 40" class="state-mark-close">×</text>
+            <text v-else class="state-mark-dot"></text>
+          </view>
+          <text class="state-title">{{ formatOrderStatus(state.orderInfo) }}</text>
+        </view>
+        <text class="state-description">
+          {{ formatOrderStatusDescription(state.orderInfo) }}
+        </text>
+
+        <view v-if="statusProgress.length" class="status-progress">
+          <view
+            v-for="(step, index) in statusProgress"
+            :key="step.label"
+            class="progress-step"
+            :class="{ 'is-done': step.done, 'is-current': step.current }"
+          >
+            <view class="progress-track" v-if="index < statusProgress.length - 1">
+              <view class="progress-track-fill" v-if="step.done"></view>
+            </view>
+            <view class="progress-node">
+              <text v-if="step.done">✓</text>
+              <view v-else class="progress-node-dot"></view>
+            </view>
+            <text class="progress-label">{{ step.label }}</text>
+          </view>
+        </view>
       </view>
     </view>
 
@@ -259,7 +254,7 @@
 <script setup>
   import sheep from '@/sheep';
   import { onLoad, onShow } from '@dcloudio/uni-app';
-  import { reactive, ref, watch } from 'vue';
+  import { computed, reactive, ref, watch } from 'vue';
   import { isEmpty } from '@/sheep/helper/lodash';
   import {
     fen2yuan,
@@ -273,10 +268,29 @@
   import PickUpVerify from '@/pages/order/pickUpVerify.vue';
 
   const statusBarHeight = sheep.$platform.device.statusBarHeight * 2;
-  const headerBg = sheep.$url.css('/static/img/shop/order/order_bg.png');
 
   const state = reactive({
     orderInfo: {},
+  });
+
+  const statusProgress = computed(() => {
+    const { status, deliveryType } = state.orderInfo;
+    if (status === undefined || status === null || status === 40) {
+      return [];
+    }
+
+    const currentIndex = status === 0 ? 0 : status === 10 ? 1 : status === 20 ? 2 : 3;
+    const labels = [
+      '待付款',
+      deliveryType === 2 ? '待核销' : '待发货',
+      '待收货',
+      '已完成',
+    ];
+    return labels.map((label, index) => ({
+      label,
+      done: status === 30 || index < currentIndex,
+      current: status !== 30 && index === currentIndex,
+    }));
   });
 
   // ========== 门店自提（核销） ==========
@@ -467,35 +481,166 @@
     height: 50rpx;
     border-radius: 25rpx;
     font-size: 24rpx;
-    border: 2rpx solid #dcdcdc;
+    border: 2rpx solid var(--shop-accent-text, var(--ui-BG-Main));
+    background: var(--ui-BG-Main-opacity-1, transparent);
+    color: var(--shop-accent-text, var(--ui-BG-Main));
     line-height: normal;
     margin-left: 16rpx;
   }
 
   .state-box {
-    color: rgba(#fff, 0.9);
+    color: var(--ui-BG-Main-TC, #ffffff);
     width: 100%;
-    background: v-bind(headerBg) no-repeat,
-      linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
+    background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
     background-size: 750rpx 100%;
     box-sizing: border-box;
 
-    .state-img {
-      width: 60rpx;
-      height: 60rpx;
-      margin-right: 20rpx;
+    .state-content {
+      padding: 28rpx 32rpx 70rpx;
+      text-align: center;
+    }
+
+    .state-heading {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56rpx;
+    }
+
+    .state-mark {
+      position: absolute;
+      right: calc(50% + 74rpx);
+      width: 42rpx;
+      height: 42rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 32rpx;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .state-mark.is-closed {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .state-mark-check {
+      font-size: 28rpx;
+    }
+
+    .state-mark-close {
+      font-size: 36rpx;
+      font-weight: 400;
+    }
+
+    .state-mark-dot,
+    .progress-node-dot {
+      width: 12rpx;
+      height: 12rpx;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .state-title {
+      font-size: 34rpx;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .state-description {
+      display: block;
+      max-width: 620rpx;
+      margin: 8rpx auto 0;
+      font-size: 24rpx;
+      line-height: 1.5;
+      opacity: 0.86;
+      overflow-wrap: anywhere;
+    }
+
+    .status-progress {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin: 30rpx auto 0;
+      max-width: 650rpx;
+    }
+
+    .progress-step {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      align-items: center;
+      color: inherit;
+      opacity: 0.55;
+    }
+
+    .progress-step.is-done,
+    .progress-step.is-current {
+      opacity: 1;
+    }
+
+    .progress-track {
+      position: absolute;
+      z-index: 0;
+      top: 11rpx;
+      left: 50%;
+      width: 100%;
+      height: 2rpx;
+      background: currentColor;
+      opacity: 0.3;
+    }
+
+    .progress-track-fill {
+      width: 100%;
+      height: 100%;
+      background: currentColor;
+      opacity: 1;
+    }
+
+    .progress-node {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      width: 24rpx;
+      height: 24rpx;
+      align-items: center;
+      justify-content: center;
+      border: 2rpx solid currentColor;
+      border-radius: 50%;
+      box-sizing: border-box;
+      background: var(--ui-BG-Main, #27231e);
+      font-size: 16rpx;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .is-done .progress-node {
+      color: var(--ui-BG-Main, #27231e);
+      border-color: currentColor;
+      background: var(--ui-BG-Main-TC, #ffffff);
+    }
+
+    .progress-label {
+      margin-top: 10rpx;
+      font-size: 20rpx;
+      line-height: 1.35;
+      white-space: nowrap;
     }
   }
 
   .order-address-box {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     border-radius: 10rpx;
     margin: -50rpx 20rpx 16rpx 20rpx;
     padding: 44rpx 34rpx 42rpx 20rpx;
     font-size: 30rpx;
     box-sizing: border-box;
     font-weight: 500;
-    color: rgba(51, 51, 51, 1);
+    color: var(--ui-TC);
 
     .address-username {
       margin-right: 20rpx;
@@ -504,7 +649,7 @@
     .address-detail {
       font-size: 26rpx;
       font-weight: 500;
-      color: rgba(153, 153, 153, 1);
+      color: var(--ui-TC-2);
       margin-top: 20rpx;
     }
   }
@@ -515,7 +660,7 @@
 
     .order-list {
       margin-bottom: 20rpx;
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
 
       .order-card {
         padding: 20rpx 0;
@@ -524,7 +669,7 @@
           font-size: 24rpx;
 
           font-weight: 400;
-          color: rgba(153, 153, 153, 1);
+          color: var(--ui-TC-2);
           width: 450rpx;
           margin-bottom: 20rpx;
 
@@ -537,8 +682,8 @@
           margin-left: 16rpx;
           font-size: 24rpx;
           height: 36rpx;
-          color: var(--ui-BG-Main);
-          border: 2rpx solid var(--ui-BG-Main);
+          color: var(--shop-accent-text, var(--ui-BG-Main));
+          border: 2rpx solid var(--shop-accent-text, var(--ui-BG-Main));
           border-radius: 14rpx;
           padding: 0 4rpx;
         }
@@ -548,7 +693,7 @@
 
   // 订单信息。
   .notice-box {
-    background: #fff;
+    background: var(--ui-BG, #fff);
     border-radius: 10rpx;
     margin: 0 20rpx 20rpx 20rpx;
 
@@ -556,9 +701,9 @@
       font-size: 30rpx;
 
       font-weight: 500;
-      color: rgba(51, 51, 51, 1);
+      color: var(--ui-TC);
       line-height: 80rpx;
-      border-bottom: 1rpx solid #dfdfdf;
+      border-bottom: 1rpx solid var(--ui-Border, #dfdfdf);
       padding: 0 25rpx;
     }
 
@@ -585,12 +730,12 @@
 
       .title {
         font-size: 28rpx;
-        color: #999;
+        color: var(--ui-TC-2, #777777);
       }
 
       .detail {
         font-size: 28rpx;
-        color: #333;
+        color: var(--ui-TC, #303030);
         flex: 1;
       }
     }
@@ -601,15 +746,15 @@
     line-height: 50rpx;
     border-radius: 25rpx;
     padding: 0;
-    background: rgba(238, 238, 238, 1);
+    background: var(--ui-BG-2, #eeeeee);
     font-size: 22rpx;
     font-weight: 400;
-    color: rgba(51, 51, 51, 1);
+    color: var(--ui-TC);
   }
 
   // 订单价格信息
   .order-price-box {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     border-radius: 10rpx;
     padding: 20rpx;
     margin: 0 20rpx 20rpx 20rpx;
@@ -619,12 +764,12 @@
 
       .title {
         font-size: 28rpx;
-        color: #999;
+        color: var(--ui-TC-2, #777777);
       }
 
       .detail {
         font-size: 28rpx;
-        color: #333;
+        color: var(--shop-price, var(--shop-accent-text, var(--ui-TC, #303030)));
         font-family: OPPOSANS;
       }
     }
@@ -636,7 +781,7 @@
       .title {
         font-size: 26rpx;
         font-weight: 500;
-        color: #333333;
+        color: var(--ui-TC, #303030);
         line-height: normal;
       }
 
@@ -644,7 +789,7 @@
         font-size: 26rpx;
         font-family: OPPOSANS;
         line-height: normal;
-        color: $red;
+        color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
       }
     }
   }
@@ -660,12 +805,12 @@
     .cancel-btn {
       width: 160rpx;
       height: 60rpx;
-      background: #eeeeee;
+      background: var(--ui-BG-2, #eeeeee);
       border-radius: 30rpx;
       margin-right: 20rpx;
       font-size: 26rpx;
       font-weight: 400;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
 
     .pay-btn {
@@ -674,7 +819,7 @@
       font-size: 26rpx;
       border-radius: 30rpx;
       font-weight: 500;
-      color: #fff;
+      color: var(--ui-BG-Main-TC, #ffffff);
     }
   }
 </style>

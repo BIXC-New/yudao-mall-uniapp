@@ -11,7 +11,12 @@
       <view v-if="tagStyle.show" class="tag-icon-box">
         <image class="tag-icon" :src="sheep.$url.cdn(tagStyle.src || tagStyle.imgUrl)"></image>
       </view>
-      <image class="xs-img-box" :src="sheep.$url.cdn(data.image || data.picUrl)" mode="aspectFit" />
+      <image
+        class="xs-img-box"
+        @error="imageFailed = true"
+        :src="productImageSrc"
+        mode="aspectFit"
+      />
       <view
         v-if="goodsFields.title?.show || goodsFields.name?.show || goodsFields.price?.show"
         class="xs-goods-content ss-flex-col ss-row-around"
@@ -75,7 +80,8 @@
       </view>
       <image
         class="sm-img-box"
-        :src="sheep.$url.cdn(data.image || data.picUrl)"
+        @error="imageFailed = true"
+        :src="productImageSrc"
         mode="aspectFill"
       ></image>
 
@@ -140,19 +146,15 @@
       <view v-if="tagStyle.show" class="tag-icon-box">
         <image class="tag-icon" :src="sheep.$url.cdn(tagStyle.src || tagStyle.imgUrl)" />
       </view>
-      <image
-        v-if="data.image_wh"
-        class="md-img-box"
-        :src="sheep.$url.cdn(data.image || data.picUrl)"
-        mode="widthFix"
-      />
-      <image
-        v-else
-        class="md-img-box"
-        :src="sheep.$url.cdn(data.image || data.picUrl)"
-        :style="[{ height: defaultImgWidth * 2 + 'rpx' }]"
-        mode="aspectFill"
-      />
+      <!-- 固定方形画布，原图比例与设备宽度均不会拉长卡片。 -->
+      <view class="md-image-wrap">
+        <image
+          class="md-img-box"
+          @error="imageFailed = true"
+          :src="productImageSrc"
+          mode="aspectFit"
+        />
+      </view>
       <view
         class="md-goods-content ss-flex-col ss-row-around ss-p-b-20 ss-p-t-20 ss-p-x-16"
         :id="elId"
@@ -266,7 +268,8 @@
       </view>
       <image
         class="lg-img-box"
-        :src="sheep.$url.cdn(data.image || data.picUrl)"
+        @error="imageFailed = true"
+          :src="productImageSrc"
         mode="aspectFill"
       />
       <view class="lg-goods-content ss-flex-1 ss-flex-col ss-row-between ss-p-b-10 ss-p-t-20">
@@ -365,7 +368,8 @@
       </view>
       <image
         class="sl-img-box"
-        :src="sheep.$url.cdn(data.image || data.picUrl)"
+        @error="imageFailed = true"
+        :src="productImageSrc"
         mode="aspectFill"
       />
       <view class="sl-goods-content">
@@ -492,7 +496,7 @@
    * @event {Function()} click                    - 点击卡片
    *
    */
-  import { computed, ref, reactive, getCurrentInstance, nextTick, onMounted } from 'vue';
+  import { computed, ref, reactive, getCurrentInstance, nextTick, onMounted, watch } from 'vue';
   import sheep from '@/sheep';
   import {
     fen2yuan,
@@ -505,7 +509,6 @@
   import { PromotionActivityTypeEnum } from '@/sheep/helper/const';
 
   // 数据
-  let defaultImgWidth = ref(0);
 
   // 接收参数
   const props = defineProps({
@@ -570,7 +573,7 @@
     },
     titleColor: {
       type: String,
-      default: '#333',
+      default: 'var(--ui-TC, #333)',
     },
     priceColor: {
       type: String,
@@ -604,6 +607,19 @@
       type: Boolean,
       default: false,
     },
+  });
+
+  const imageFailed = ref(false);
+  const productImageUrl = computed(
+    () => sheep.$url.cdn(props.data.image) || sheep.$url.cdn(props.data.picUrl),
+  );
+  const productImageSrc = computed(() =>
+    imageFailed.value || !productImageUrl.value
+      ? '/static/img/product-placeholder.svg'
+      : productImageUrl.value,
+  );
+  watch(productImageUrl, () => {
+    imageFailed.value = false;
   });
 
   // 优惠文案
@@ -678,19 +694,10 @@
         scrollOffset: true,
       });
       view.exec((data) => {
-        console.log(data, 'data');
-        let totalHeight = 0;
-        const goodsPriceCard = data[0];
-        defaultImgWidth.value = data[0].width;
-
-        if (props.data.image_wh && Number(props.data.image_wh.w)) {
-          totalHeight =
-            (goodsPriceCard.width / props.data.image_wh.w) * props.data.image_wh.h +
-            goodsPriceCard.height;
-        } else {
-          totalHeight = goodsPriceCard.width + goodsPriceCard.height;
+        const goodsPriceCard = data?.[0];
+        if (goodsPriceCard) {
+          emits('getHeight', goodsPriceCard.width + goodsPriceCard.height);
         }
-        emits('getHeight', totalHeight);
       });
     }
   }
@@ -754,7 +761,7 @@
   .goods-img {
     width: 100%;
     height: 100%;
-    background-color: #f5f5f5;
+    background-color: var(--ui-BG-1, #f6f6f6);
   }
 
   .price-unit {
@@ -766,22 +773,22 @@
     font-size: 24rpx;
     transform: scale(0.8);
     margin-left: 0rpx;
-    color: #c4c4c4;
+    color: var(--ui-TC-2, #c4c4c4);
   }
 
   .activity-tag {
     font-size: 20rpx;
-    color: #ff0000;
+    color: var(--shop-promo-text, var(--shop-accent-text));
     line-height: 30rpx;
     padding: 0 10rpx;
-    border: 1px solid rgba(#ff0000, 0.25);
+    border: 1px solid var(--ui-Border);
     border-radius: 4px;
     flex-shrink: 0;
   }
 
   .goods-origin-price {
     font-size: 20rpx;
-    color: #c4c4c4;
+    color: var(--ui-TC-2, #c4c4c4);
     line-height: 36rpx;
     text-decoration: line-through;
   }
@@ -790,7 +797,7 @@
   .xs-goods-card {
     overflow: hidden;
     // max-width: 375rpx;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     position: relative;
 
     .xs-img-box {
@@ -801,7 +808,7 @@
 
     .xs-goods-title {
       font-size: 26rpx;
-      color: #333;
+      color: var(--ui-TC, #303030);
       font-weight: 500;
     }
 
@@ -816,7 +823,7 @@
     overflow: hidden;
     // width: 223rpx;
     // width: 100%;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     position: relative;
 
     .sm-img-box {
@@ -832,7 +839,7 @@
 
     .sm-goods-title {
       font-size: 26rpx;
-      color: #333;
+      color: var(--ui-TC, #303030);
     }
 
     .sm-goods-price {
@@ -847,23 +854,34 @@
     width: 100%;
     position: relative;
     z-index: 1;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     position: relative;
 
-    .md-img-box {
+    .md-image-wrap {
+      position: relative;
       width: 100%;
+      padding-top: 100%;
+      background: var(--ui-BG-2);
+    }
+
+    .md-img-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .md-goods-title {
       font-size: 26rpx;
-      color: #333;
+      color: var(--ui-TC, #303030);
       width: 100%;
     }
 
     .md-goods-subtitle {
       font-size: 24rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
     }
 
     .md-goods-price {
@@ -894,7 +912,7 @@
     overflow: hidden;
     position: relative;
     z-index: 1;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     height: 280rpx;
 
     .lg-img-box {
@@ -906,7 +924,7 @@
     .lg-goods-title {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       // line-height: 36rpx;
       // width: 410rpx;
     }
@@ -914,7 +932,7 @@
     .lg-goods-subtitle {
       font-size: 24rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
       // line-height: 30rpx;
       // width: 410rpx;
     }
@@ -950,7 +968,7 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
 
     .sl-goods-content {
       padding: 20rpx 20rpx;
@@ -964,14 +982,14 @@
 
     .sl-goods-title {
       font-size: 26rpx;
-      color: #333;
+      color: var(--ui-TC, #303030);
       font-weight: 500;
     }
 
     .sl-goods-subtitle {
       font-size: 24rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
       line-height: 30rpx;
     }
 

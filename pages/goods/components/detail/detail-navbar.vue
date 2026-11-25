@@ -1,12 +1,21 @@
 <!-- 商品详情：商品/评价/详情的 nav -->
 <template>
-  <su-fixed alway :bgStyles="{ background: '#fff' }" :val="0" noNav opacity :placeholder="false">
+  <su-fixed
+    alway
+    :bgStyles="{ background: 'var(--nav-surface, #fff)' }"
+    :val="0"
+    noNav
+    opacity
+    :placeholder="false"
+  >
     <su-status-bar />
     <view
       class="ui-bar ss-flex ss-col-center ss-row-between"
-      :class="[{
-           'ss-p-x-20': sheep.$platform.provider !== 'alipay'
-      }]"
+      :class="[
+        {
+          'ss-p-x-20': sheep.$platform.provider !== 'alipay',
+        },
+      ]"
       :style="[{ height: sys_navBar - sys_statusBar + 'px' }]"
     >
       <!-- 左 -->
@@ -153,6 +162,7 @@
 
 <style lang="scss" scoped>
   .icon-box {
+    background: var(--nav-action-bg, rgba(255, 255, 255, 0.94));
     box-shadow: 0px 0px 4rpx rgba(51, 51, 51, 0.08), 0px 4rpx 6rpx 2rpx rgba(102, 102, 102, 0.12);
     border-radius: 30rpx;
     width: 134rpx;
@@ -166,15 +176,15 @@
     }
     .sicon-back {
       font-size: 32rpx;
-      color: #000;
+      color: var(--ui-TC, #303030);
     }
     .sicon-home {
       font-size: 32rpx;
-      color: #000;
+      color: var(--ui-TC, #303030);
     }
     .sicon-more {
       font-size: 32rpx;
-      color: #000;
+      color: var(--ui-TC, #303030);
     }
     .icon-button {
       width: 67rpx;

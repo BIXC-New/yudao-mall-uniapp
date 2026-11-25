@@ -1,7 +1,13 @@
 <template>
   <view
     class="page-app"
-    :class="['theme-' + sys?.mode, 'main-' + sys?.theme, 'font-' + sys?.fontSize]"
+    :style="themeStyles"
+    :class="[
+      'theme-' + sys?.mode,
+      'main-' + sys?.theme,
+      'font-' + sys?.fontSize,
+      { 'shop-theme': followTheme },
+    ]"
   >
     <view class="page-main" :style="[bgMain]">
       <!-- 顶部导航栏-情况1：默认通用顶部导航栏 -->
@@ -9,18 +15,19 @@
         v-if="navbar === 'normal'"
         :title="title"
         statusBar
-        :color="color"
+        :color="color || 'var(--ui-TC)'"
         :tools="tools"
         :opacityBgUi="opacityBgUi"
-        :backgroundColor="navbarBackgroundColor"
+        :backgroundColor="navbarBackgroundColor || 'var(--ui-BG-1)'"
         @search="(e) => emits('search', e)"
         :defaultSearch="defaultSearch"
       />
 
-      <!-- 顶部导航栏-情况2：装修组件导航栏-标准 -->
+      <!-- 标准装修导航栏及分类、购物车的页面标题 -->
       <s-custom-navbar
-        v-else-if="navbar === 'custom' && navbarMode === 'normal'"
-        :data="navbarStyle"
+        v-else-if="navbarMode === 'normal' && (navbar === 'custom' || navbar === 'tab')"
+        :data="navbar === 'tab' ? tabNavbarStyle : navbarStyle"
+        :pageTitle="navbar === 'tab' ? title : ''"
         :showLeftButton="showLeftButton"
       />
       <view class="page-body" :style="[bgBody]">
@@ -63,6 +70,7 @@
    */
   import { computed, onMounted } from 'vue';
   import sheep from '@/sheep';
+  import { getThemeStyles } from '@/sheep/theme';
   import { isEmpty } from '@/sheep/helper/lodash';
   // #ifdef MP-WEIXIN
   import { onShareAppMessage, onShareTimeline } from '@dcloudio/uni-app';
@@ -150,10 +158,22 @@
   const appStore = sheep.$store('app');
   const modalStore = sheep.$store('modal');
   const sys = computed(() => sysStore);
+  const followTheme = computed(
+    () => appStore.template.basic?.tabbar?.themeConfig?.followTheme !== false,
+  );
+  const themeStyles = computed(() =>
+    getThemeStyles(
+      sysStore.theme,
+      appStore.template.basic?.tabbar?.themeConfig,
+      appStore.template.home?.page?.backgroundColor,
+    ),
+  );
+
+  const tabNavbarStyle = { styleType: 'normal', bgColor: 'var(--nav-surface, var(--ui-BG))' };
 
   // 导航栏模式(因为有自定义导航栏 需要计算)
   const navbarMode = computed(() => {
-    if (props.navbar === 'normal' || props.navbarStyle.styleType === 'normal') {
+    if (['normal', 'tab'].includes(props.navbar) || props.navbarStyle.styleType === 'normal') {
       return 'normal';
     }
     return 'inner';

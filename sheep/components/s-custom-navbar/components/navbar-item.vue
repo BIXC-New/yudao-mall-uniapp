@@ -57,9 +57,15 @@
 
 <style lang="scss" scoped>
   .nav-title {
-    font-size: 36rpx;
-    color: #333;
-    text-align: center;
+    width: 100%;
+    font-size: 34rpx;
+    font-weight: 500;
+    color: var(--ui-TC, #303030);
+    text-align: left;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .menu-icon-wrap {

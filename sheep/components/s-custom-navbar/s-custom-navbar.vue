@@ -10,7 +10,10 @@
     :sticky="sticky"
   >
     <template #item>
-      <view class="nav-box">
+      <view v-if="pageTitle" class="tab-page-title">
+        <text class="tab-page-title__text">{{ pageTitle }}</text>
+      </view>
+      <view v-else class="nav-box">
         <view class="nav-icon" v-if="showLeftButton">
           <view class="icon-box ss-flex" :class="{ 'inner-icon-box': data.styleType === 'inner' }">
             <view class="icon-button icon-button-left ss-flex ss-row-center" @tap="onClickLeft">
@@ -28,7 +31,10 @@
           v-for="(item, index) in navList"
           :key="index"
           :style="[parseImgStyle(item)]"
-          :class="[{ 'ss-flex ss-col-center ss-row-center': item.type !== 'search' }]"
+          :class="[
+            { 'ss-flex ss-col-center ss-row-center': item.type !== 'search' && item.type !== 'text' },
+            { 'nav-item-text': item.type === 'text' },
+          ]"
         >
           <navbar-item :data="item" :width="parseImgStyle(item).width" />
         </view>
@@ -59,6 +65,10 @@
     data: {
       type: Object,
       default: () => ({}),
+    },
+    pageTitle: {
+      type: String,
+      default: '',
     },
     showLeftButton: {
       type: Boolean,
@@ -103,6 +113,12 @@
   });
   // 解析位置
   const parseImgStyle = (item) => {
+    if (item.type === 'text') {
+      return {
+        width: 'calc(100% - 32rpx - 180rpx)',
+        left: '32rpx',
+      };
+    }
     let obj = {
       width: item.width * cell.value + (item.width - 1) * 10 + 'px',
       left: item.left * cell.value + (item.left + 1) * 10 + 'px',
@@ -120,6 +136,12 @@
   );
   const isPlaceholder = computed(() => props.data.styleType === 'normal');
   const bgStyles = computed(() => {
+    if (props.pageTitle) {
+      return {
+        background: props.data.bgColor,
+        boxShadow: 'inset 0 -1px 0 var(--ui-Border, #e5e5e7)',
+      };
+    }
     return {
       background:
         props.data.bgType === 'img' && props.data.bgImg
@@ -144,6 +166,39 @@
 </script>
 
 <style lang="scss" scoped>
+  .tab-page-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 var(--page-gutter, 32rpx);
+    box-sizing: border-box;
+    color: var(--ui-TC, #303030);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: var(--page-gutter, 32rpx);
+      bottom: 0;
+      width: 36rpx;
+      height: 3rpx;
+      border-radius: 3rpx 3rpx 0 0;
+      background: var(--shop-accent-text, var(--ui-BG-Main));
+    }
+
+    &__text {
+      min-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 36rpx;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+  }
+
   .nav-box {
     width: 750rpx;
     position: relative;
@@ -155,6 +210,11 @@
       transform: translateY(-50%);
     }
 
+    .nav-item-text {
+      justify-content: flex-start;
+      text-align: left;
+    }
+
     .nav-icon {
       position: absolute;
       top: 50%;
@@ -163,11 +223,12 @@
 
       .inner-icon-box {
         border: 1px solid rgba(#fff, 0.4);
-        background: none !important;
+        background: var(--nav-action-bg, rgba(255, 255, 255, 0.94)) !important;
       }
 
       .icon-box {
-        background: #ffffff;
+        color: var(--nav-action-color, #303030);
+        background: var(--ui-BG, #fff);
         box-shadow: 0px 0px 4rpx rgba(51, 51, 51, 0.08),
           0px 4rpx 6rpx 2rpx rgba(102, 102, 102, 0.12);
         border-radius: 30rpx;

@@ -18,10 +18,12 @@
               <view class="price-text">
                 {{
                   fen2yuan(
-                    state.selectedSku.promotionPrice || state.selectedSku.price || goodsInfo.price,
+                    hasSettlementPromotion
+                      ? state.selectedSku.promotionPrice
+                      : state.selectedSku.price || goodsInfo.price,
                   )
                 }}
-                <text v-if="state.selectedSku.promotionType > 0">
+                <text v-if="hasSettlementPromotion">
                   <text class="iconBox" v-if="state.selectedSku.promotionType === 4">
                     限时优惠
                   </text>
@@ -120,6 +122,15 @@
   });
 
   const propertyList = convertProductPropertyList(props.goodsInfo.skus);
+  const hasSettlementPromotion = computed(() => {
+    const sku = state.selectedSku;
+    return Boolean(
+      [4, 6].includes(sku.promotionType) &&
+        Number.isFinite(sku.promotionPrice) &&
+        sku.promotionPrice > 0 &&
+        sku.promotionPrice < sku.price,
+    );
+  });
   // SKU 列表
   const skuList = computed(() => {
     let skuPrices = props.goodsInfo.skus;
@@ -332,7 +343,7 @@
       height: 80rpx;
       border-radius: 0 40rpx 40rpx 0;
       background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-      color: #fff;
+      color: var(--ui-BG-Main-TC, #fff);
     }
 
     .score-btn {
@@ -341,7 +352,7 @@
       height: 80rpx;
       border-radius: 40rpx;
       background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-      color: #fff;
+      color: var(--ui-BG-Main-TC, #fff);
     }
   }
 
@@ -375,6 +386,7 @@
         font-size: 28rpx;
         font-weight: 500;
         line-height: 42rpx;
+        color: var(--ui-TC, #303030);
       }
 
       .score-img {
@@ -386,27 +398,27 @@
       .score-text {
         font-size: 30rpx;
         font-weight: 500;
-        color: $red;
+        color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
         font-family: OPPOSANS;
       }
 
       .price-text {
         font-size: 30rpx;
         font-weight: 500;
-        color: $red;
+        color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
         font-family: OPPOSANS;
 
         &::before {
           content: '￥';
           font-size: 30rpx;
           font-weight: 500;
-          color: $red;
+          color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
         }
       }
 
       .stock-text {
         font-size: 26rpx;
-        color: #999999;
+        color: var(--ui-TC-2, #777777);
       }
     }
 
@@ -419,6 +431,7 @@
         .label-text {
           font-size: 26rpx;
           font-weight: 500;
+          color: var(--ui-TC, #303030);
         }
 
         .buy-num-box {
@@ -429,9 +442,9 @@
           height: 60rpx;
           min-width: 100rpx;
           padding: 0 30rpx;
-          background: #f4f4f4;
+          background: var(--ui-BG-2, #f4f4f4);
           border-radius: 30rpx;
-          color: #434343;
+          color: var(--ui-TC, #434343);
           font-size: 26rpx;
           margin-right: 10rpx;
           margin-bottom: 10rpx;
@@ -439,8 +452,8 @@
 
         .disabled-btn {
           font-weight: 400;
-          color: #c6c6c6;
-          background: #f8f8f8;
+          color: var(--ui-TC-2, #c6c6c6);
+          background: var(--ui-BG-1, #f6f6f6);
         }
       }
     }
@@ -450,8 +463,8 @@
     width: fit-content;
     height: fit-content;
     padding: 2rpx 10rpx;
-    background-color: rgb(255, 242, 241);
-    color: #ff2621;
+    background-color: var(--shop-promo-bg, var(--ui-BG-Main-tag));
+    color: var(--shop-promo-text, var(--shop-accent-text, var(--ui-BG-Main)));
     font-size: 24rpx;
     margin-left: 5rpx;
   }
@@ -460,7 +473,7 @@
     font-size: 26rpx;
     font-weight: 400;
     text-decoration: line-through;
-    color: $gray-c;
+    color: var(--ui-TC-2, $gray-c);
     font-family: OPPOSANS;
 
     &::before {

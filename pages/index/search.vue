@@ -87,7 +87,7 @@
   .serach-title {
     font-size: 30rpx;
     font-weight: 500;
-    color: #333333;
+    color: var(--ui-TC, #333333);
   }
 
   .uni-searchbar {
@@ -96,23 +96,23 @@
 
   .serach-history {
     font-weight: bold;
-    color: #333333;
+    color: var(--ui-TC, #333333);
     font-size: 30rpx;
   }
 
   .clean-history {
     font-weight: 500;
-    color: #999999;
+    color: var(--ui-TC-2, #999999);
     font-size: 28rpx;
   }
 
   .history-btn {
     padding: 0 38rpx;
     height: 60rpx;
-    background: #f5f6f8;
+    background: var(--ui-BG-2, #f5f6f8);
     border-radius: 30rpx;
     font-size: 28rpx;
-    color: #333333;
+    color: var(--ui-TC, #333333);
     max-width: 690rpx;
     margin: 0 20rpx 20rpx 0;
   }

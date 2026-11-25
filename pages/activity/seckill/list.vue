@@ -328,7 +328,7 @@
     .item {
       display: inline-block;
       font-size: 20rpx;
-      color: #666;
+      color: var(--ui-TC-2, #666);
       text-align: center;
       box-sizing: border-box;
       margin-right: 30rpx;
@@ -338,7 +338,7 @@
       .time {
         font-size: 36rpx;
         font-weight: 600;
-        color: #333;
+        color: var(--ui-TC, #333);
       }
 
       // 选中的时间段
@@ -354,7 +354,7 @@
           border-radius: 15rpx;
           width: 128rpx;
           background: linear-gradient(90deg, var(--ui-BG-Main) 0%, var(--ui-BG-Main-gradient) 100%);
-          color: #fff;
+          color: var(--ui-BG-Main-TC, #fff);
         }
       }
     }
@@ -365,43 +365,43 @@
     position: relative;
     z-index: 3;
     margin: 0 20rpx 0 20rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
     border-radius: 20rpx 20rpx 0 0;
 
     .content-header {
       width: 100%;
       border-radius: 20rpx 20rpx 0 0;
       height: 150rpx;
-      background: linear-gradient(180deg, #fff4f7, #ffe6ec);
+      background: var(--ui-BG-2);
 
       .content-header-box {
         width: 678rpx;
         height: 64rpx;
-        background: rgba($color: #fff, $alpha: 0.66);
+        background: var(--ui-BG);
         border-radius: 32px;
 
         // 场次倒计时内容
         .countdown-title {
           font-size: 28rpx;
           font-weight: 500;
-          color: #333333;
+          color: var(--ui-TC, #333333);
           line-height: 28rpx;
         }
 
         // 场次倒计时
         .countdown-time {
           font-size: 28rpx;
-          color: rgba(#ed3c30, 0.23);
+          color: var(--shop-accent-text);
 
           // 场次倒计时：小时部分
           .countdown-h {
             font-size: 24rpx;
             font-family: OPPOSANS;
             font-weight: 500;
-            color: #ffffff;
+            color: var(--ui-BG-Main-TC);
             padding: 0 4rpx;
             height: 40rpx;
-            background: rgba(#ed3c30, 0.23);
+            background: var(--ui-BG-Main);
             border-radius: 6rpx;
           }
 
@@ -410,10 +410,10 @@
             font-size: 24rpx;
             font-family: OPPOSANS;
             font-weight: 500;
-            color: #ffffff;
+            color: var(--ui-BG-Main-TC);
             width: 40rpx;
             height: 40rpx;
-            background: rgba(#ed3c30, 0.23);
+            background: var(--ui-BG-Main);
             border-radius: 6rpx;
           }
         }
@@ -451,7 +451,7 @@
         // 秒杀限量商品数
         .limit {
           font-size: 22rpx;
-          color: $dark-9;
+          color: var(--ui-TC-2, $dark-9);
           margin-bottom: 5rpx;
         }
       }

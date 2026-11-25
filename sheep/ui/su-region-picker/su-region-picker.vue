@@ -68,12 +68,12 @@
     // "取消"按钮的颜色
     cancelColor: {
       type: String,
-      default: '#6666',
+      default: 'var(--ui-TC-2, #666666)',
     },
     // "确定"按钮的颜色
     confirmColor: {
       type: String,
-      default: 'var(--ui-BG-Main)',
+      default: 'var(--shop-accent-text, var(--ui-BG-Main))',
     },
     // 取消按钮的文字
     cancelText: {
@@ -191,7 +191,7 @@
     align-items: center;
     box-sizing: border-box;
     font-size: 30rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
     position: relative;
   }
 
@@ -207,14 +207,14 @@
   }
 
   .ui-picker__title {
-    color: #333;
+    color: var(--ui-TC, #303030);
   }
 
   .ui-picker-body {
     width: 100%;
     height: 500rpx;
     overflow: hidden;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
   }
 
   .ui-column-item {
@@ -222,7 +222,7 @@
     align-items: center;
     justify-content: center;
     font-size: 32rpx;
-    color: #333;
+    color: var(--ui-TC, #303030);
     padding: 0 8rpx;
   }
 

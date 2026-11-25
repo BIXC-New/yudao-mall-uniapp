@@ -212,6 +212,6 @@
     }
   }
   .inset-bottom {
-    background: #fff;
+    background: var(--ui-BG, #fff);
   }
 </style>

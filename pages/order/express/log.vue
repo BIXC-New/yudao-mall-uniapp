@@ -143,7 +143,7 @@
 
 <style lang="scss" scoped>
   .highlight {
-    color: red; /* 高亮颜色 */
+    color: var(--shop-accent-text, var(--ui-BG-Main));
     font-weight: bold;
   }
 
@@ -153,9 +153,9 @@
   }
 
   .log-card {
-    border-top: 2rpx solid rgba(#dfdfdf, 0.5);
+    border-top: 2rpx solid var(--ui-Border, #dfdfdf);
     padding: 20rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
     margin-bottom: 20rpx;
 
     .log-card-img {
@@ -168,17 +168,17 @@
       font-size: 28rpx;
       font-weight: 500;
       width: 490rpx;
-      color: #333333;
+      color: var(--ui-TC, #303030);
 
       .warning-color {
-        color: #999;
+        color: var(--ui-TC-2, #777777);
       }
     }
   }
 
   .log-content {
     padding: 34rpx 20rpx 0rpx 20rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
 
     .log-content-box {
       align-items: stretch;
@@ -188,24 +188,24 @@
       height: inherit;
 
       .cicon-title {
-        color: #ccc;
+        color: var(--ui-TC-2, #ccc);
         font-size: 40rpx;
       }
 
       .activity-color {
-        color: #f0c785;
+        color: var(--shop-accent-text, var(--ui-BG-Main));
         font-size: 40rpx;
       }
 
       .info-color {
-        color: #ccc;
+        color: var(--ui-TC-2, #ccc);
         font-size: 40rpx;
       }
 
       .line {
         width: 1px;
         height: 100%;
-        background: #d8d8d8;
+        background: var(--ui-Border, #d8d8d8);
       }
     }
 
@@ -213,20 +213,20 @@
       .log-msg-title {
         font-size: 28rpx;
         font-weight: bold;
-        color: #333333;
+        color: var(--ui-TC, #303030);
       }
 
       .log-msg-desc {
         font-size: 24rpx;
         font-weight: 400;
-        color: #333333;
+        color: var(--ui-TC, #303030);
         line-height: 36rpx;
       }
 
       .log-msg-date {
         font-size: 24rpx;
         font-weight: 500;
-        color: #000000;
+        color: var(--ui-TC, #303030);
       }
     }
   }

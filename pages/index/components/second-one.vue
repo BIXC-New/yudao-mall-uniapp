@@ -19,7 +19,9 @@
           })
         "
       >
-        <image class="goods-img" :src="item.picUrl" mode="aspectFill" />
+        <view class="goods-image-wrap">
+          <image class="goods-img" :src="item.picUrl" mode="aspectFill" />
+        </view>
         <view class="ss-p-10">
           <view class="goods-title ss-line-1">{{ item.name }}</view>
         </view>
@@ -46,7 +48,7 @@
     .title-line-right {
       width: 15px;
       height: 1px;
-      background: #d2d2d2;
+      background: var(--ui-Line);
     }
   }
 
@@ -59,15 +61,23 @@
       margin-right: 0;
     }
 
+    .goods-image-wrap {
+      position: relative;
+      padding-top: 100%;
+    }
+
     .goods-img {
-      width: calc((100vw - 140px) / 3);
-      height: calc((100vw - 140px) / 3);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .goods-title {
       font-size: 26rpx;
       font-weight: bold;
-      color: #333333;
+      color: var(--ui-TC);
       line-height: 40rpx;
       text-align: center;
     }

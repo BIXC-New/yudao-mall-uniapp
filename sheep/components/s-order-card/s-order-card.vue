@@ -1,9 +1,12 @@
 <!-- 装修用户组件：用户订单 -->
 <template>
-  <view class="ss-order-menu-wrap ss-flex ss-col-center" :style="[style, { marginLeft: `${data.space}px` }]">
+  <view
+    class="ss-order-menu-wrap ss-flex ss-col-center"
+    :style="[style, { marginLeft: `${data.space}px` }]"
+  >
     <view
       class="menu-item ss-flex-1 ss-flex-col ss-row-center ss-col-center"
-      v-for="item in orderMap"
+      v-for="(item, index) in orderMap"
       :key="item.title"
       @tap="sheep.$router.go(item.path, { type: item.value })"
     >
@@ -12,8 +15,17 @@
         :text="numData.orderCount[item.count]"
         absolute="rightTop"
         size="small"
+        :custom-style="{
+          backgroundColor: 'var(--ui-BG-Main)',
+          borderColor: 'var(--ui-BG-Main)',
+          color: 'var(--ui-BG-Main-TC, #ffffff)',
+        }"
       >
-        <image class="item-icon" :src="sheep.$url.static(item.icon)" mode="aspectFit" />
+        <uni-icons
+          :type="['wallet', 'shop', 'chat', 'refreshempty', 'list'][index]"
+          size="24"
+          color="var(--shop-accent-text)"
+        />
       </uni-badge>
       <view class="menu-title ss-m-t-28">{{ item.title }}</view>
     </view>
@@ -69,29 +81,27 @@
   ];
   // 接收参数
   const props = defineProps({
-  	// 装修数据
-  	data: {
-  	  type: Object,
-  	  default: () => ({}),
-  	},
-  	// 装修样式
-  	styles: {
-  	  type: Object,
-  	  default: () => ({}),
-  	},
+    // 装修数据
+    data: {
+      type: Object,
+      default: () => ({}),
+    },
+    // 装修样式
+    styles: {
+      type: Object,
+      default: () => ({}),
+    },
   });
   // 设置角标
   const numData = computed(() => sheep.$store('user').numData);
   // 设置背景样式
   const style = computed(() => {
     // 直接从 props.styles 解构
-    const { bgType, bgImg, bgColor } = props.styles; 
+    const { bgType, bgImg, bgColor } = props.styles;
     // 根据 bgType 返回相应的样式
     return {
-  		background: bgType === 'img'
-  			? `url(${bgImg}) no-repeat top center / 100% 100%`
-  			: bgColor
-  	};
+      background: bgType === 'img' ? `url(${bgImg}) no-repeat top center / 100% 100%` : bgColor,
+    };
   });
 </script>
 
@@ -104,28 +114,11 @@
       .menu-title {
         font-size: 24rpx;
         line-height: 24rpx;
-        color: #333333;
+        color: var(--ui-TC, #303030);
       }
       .item-icon {
         width: 44rpx;
         height: 44rpx;
-      }
-      .num-icon {
-        position: absolute;
-        right: 18rpx;
-        top: 18rpx;
-        // width: 40rpx;
-        padding: 0 8rpx;
-        height: 26rpx;
-        background: #ff4d4f;
-        border-radius: 13rpx;
-        color: #fefefe;
-        display: flex;
-        align-items: center;
-        .num {
-          font-size: 24rpx;
-          transform: scale(0.8);
-        }
       }
     }
   }

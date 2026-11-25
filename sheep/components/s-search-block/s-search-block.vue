@@ -20,7 +20,7 @@
     >
       <view
         class="search-icon _icon-search"
-        :style="{ color: fontColor, margin: '0 10rpx' }"
+        :style="{ color: iconColor, margin: '0 16rpx 0 0' }"
       ></view>
       <view class="search-input ss-line-1" :style="{ color: fontColor }">
         {{ placeholder }}
@@ -39,6 +39,8 @@
       v-if="!navbar"
       class="ss-flex-1"
       :radius="data.borderRadius"
+      :bgColor="data.backgroundColor"
+      :textColor="data.textColor"
       :placeholder="data.placeholder"
       cancelButton="none"
       clearButton="none"
@@ -108,7 +110,7 @@
     },
     height: {
       type: Number,
-      default: 36,
+      default: 44,
     },
     // 图标颜色
     iconColor: {
@@ -118,7 +120,7 @@
     // 字体颜色
     fontColor: {
       type: String,
-      default: '#b0b3bf',
+      default: 'var(--ui-TC-2, #777777)',
     },
     // placeholder
     placeholder: {
@@ -276,7 +278,7 @@
 
 <style lang="scss" scoped>
   .border-content {
-    border: 2rpx solid #eee;
+    border: 2rpx solid var(--ui-Border, #eee);
   }
 
   .search-content {

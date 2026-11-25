@@ -489,7 +489,7 @@
     .total-box {
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: var(--ui-TC-2, $dark-9);
     }
 
     .date-btn {
@@ -499,11 +499,11 @@
       padding: 0 20rpx;
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: var(--ui-TC-2, $dark-6);
 
       .ss-seldate-icon {
         font-size: 50rpx;
-        color: $dark-9;
+        color: var(--ui-TC-2, $dark-9);
       }
     }
   }
@@ -554,12 +554,12 @@
 
       .title {
         font-size: 28rpx;
-        color: $dark-3;
+        color: var(--ui-TC, $dark-3);
         width: 400rpx;
       }
 
       .time {
-        color: $gray-c;
+        color: var(--ui-TC-2, $gray-c);
         font-size: 22rpx;
       }
     }
@@ -574,7 +574,7 @@
       }
 
       .minus {
-        color: $dark-3;
+        color: var(--ui-TC, $dark-3);
       }
     }
 
@@ -593,7 +593,7 @@
   .model-title {
     font-size: 36rpx;
     font-weight: bold;
-    color: #333333;
+    color: var(--ui-TC, #333333);
   }
 
   .model-subtitle {
@@ -616,7 +616,7 @@
 
     .unit {
       font-size: 48rpx;
-      color: #333;
+      color: var(--ui-TC, #333);
       font-weight: 500;
       line-height: normal;
     }

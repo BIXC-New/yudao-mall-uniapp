@@ -39,7 +39,7 @@
     height: inherit;
     .cicon-title {
       font-size: 30rpx;
-      color: #dfdfdf;
+      color: var(--ui-Border, #dfdfdf);
     }
     .activity-color {
       color: #60bd45;
@@ -47,18 +47,18 @@
     .line {
       width: 1px;
       height: 100%;
-      background: #dfdfdf;
+      background: var(--ui-Border, #dfdfdf);
     }
   }
   .text {
     font-size: 28rpx;
     font-weight: 500;
-    color: #333333;
+    color: var(--ui-TC, #303030);
   }
   .richtext {
     font-size: 24rpx;
     font-weight: 500;
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
     margin: 20rpx 0 0 0;
   }
   .content-img {
@@ -71,7 +71,7 @@
     font-size: 24rpx;
     font-family: OPPOSANS;
     font-weight: 400;
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
     margin-bottom: 40rpx;
   }
 

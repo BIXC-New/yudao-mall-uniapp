@@ -202,11 +202,13 @@
     &__content {
       display: flex;
       flex-direction: column;
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
       box-shadow: 0px -2px 4px 0px rgba(51, 51, 51, 0.06);
 
       &__item-wrapper {
-        height: 50px;
+        height: 56px;
+        box-sizing: border-box;
+        padding: 6px 12px;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -222,6 +224,10 @@
       bottom: -1px;
       left: 0;
       right: 0;
+    }
+
+    &__content__item-wrapper > * {
+      min-width: 0;
     }
   }
 </style>

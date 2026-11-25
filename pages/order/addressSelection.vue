@@ -138,7 +138,7 @@
 
 <style scoped lang="scss">
   .allAddress .font-color {
-    color: #e93323 !important;
+    color: var(--shop-accent-text, var(--ui-BG-Main)) !important;
   }
   .line2 {
     width: 504rpx;
@@ -160,19 +160,19 @@
 
   .address {
     padding: 28rpx;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     box-sizing: border-box;
   }
 
   .address .addressCon {
     width: 596rpx;
     font-size: 26rpx;
-    color: #666;
+    color: var(--ui-TC-1, #525252);
   }
 
   .address .addressCon .name {
     font-size: 30rpx;
-    color: #282828;
+    color: var(--ui-TC, #282828);
     font-weight: bold;
     margin-bottom: 10rpx;
   }
@@ -186,21 +186,18 @@
   }
 
   .address .addressCon .setaddress {
-    color: #333;
+    color: var(--ui-TC, #303030);
     font-size: 28rpx;
   }
 
   .address .iconfont {
     font-size: 35rpx;
-    color: #707070;
+    color: var(--ui-TC-2, #707070);
   }
 
   .allAddress {
     width: 100%;
-    background: linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
-    // background-image: linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
-    // background-image: -webkit-linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
-    // background-image: -moz-linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
+    background: linear-gradient(to bottom, var(--ui-BG-Main) 0%, var(--ui-BG-1) 100%);
     //padding: 100rpx 30rpx 0 30rpx;
     padding-top: 100rpx;
     padding-bottom: 10rpx;
@@ -230,7 +227,8 @@
     width: 336rpx;
     border-width: 0 20rpx 80rpx 0;
     border-style: none solid solid;
-    border-color: transparent transparent #fff;
+    border-color: transparent transparent var(--ui-BG);
+    color: var(--shop-accent-text, var(--ui-BG-Main));
     z-index: 2;
     border-radius: 14rpx 36rpx 0 0;
     text-align: center;
@@ -257,7 +255,8 @@
     width: 401rpx;
     border-width: 0 0 60rpx 60rpx;
     border-style: none solid solid;
-    border-color: transparent transparent #f7c1bd;
+    border-color: transparent transparent var(--ui-BG-Main-light);
+    color: var(--shop-accent-text, var(--ui-BG-Main));
     border-radius: 36rpx 14rpx 0 0;
     text-align: center;
     line-height: 60rpx;

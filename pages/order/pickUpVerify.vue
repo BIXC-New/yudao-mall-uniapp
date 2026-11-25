@@ -142,30 +142,30 @@
     border-radius: 14rpx !important;
   }
   .cart-color {
-    color: #e93323 !important;
-    border: 1px solid #e93323 !important;
+    color: var(--shop-accent-text, var(--ui-BG-Main)) !important;
+    border: 1px solid var(--shop-accent-text, var(--ui-BG-Main)) !important;
   }
   .order-details {
     border-radius: 10rpx;
     margin: 0 20rpx 20rpx 20rpx;
   }
   .order-details .writeOff {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     margin-top: 15rpx;
     padding-bottom: 50rpx;
   }
 
   .order-details .writeOff .title {
     font-size: 30rpx;
-    color: #282828;
+    color: var(--ui-TC, #282828);
     height: 87rpx;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--ui-Border, #f0f0f0);
     padding: 0 24rpx;
     line-height: 87rpx;
   }
 
   .order-details .writeOff .grayBg {
-    background-color: #f2f5f7;
+    background-color: var(--ui-BG-2, #f2f5f7);
     width: 590rpx;
     height: 384rpx;
     border-radius: 20rpx 20rpx 0 0;
@@ -176,6 +176,12 @@
   .order-details .writeOff .grayBg .pictrue {
     width: 290rpx;
     height: 290rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12rpx;
+    background-color: #ffffff;
   }
 
   .order-details .writeOff .grayBg .pictrue image {
@@ -195,10 +201,10 @@
   }
 
   .order-details .writeOff .num {
-    background-color: #f0c34c;
+    background-color: var(--ui-BG-Main);
     width: 590rpx;
     height: 84rpx;
-    color: #282828;
+    color: var(--ui-BG-Main-TC, #282828);
     font-size: 48rpx;
     margin: 0 auto;
     border-radius: 0 0 20rpx 20rpx;
@@ -208,7 +214,7 @@
 
   .order-details .writeOff .rules {
     margin: 46rpx 30rpx 0 30rpx;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid var(--ui-Border, #f0f0f0);
     padding-top: 10rpx;
   }
 
@@ -218,19 +224,19 @@
 
   .order-details .writeOff .rules .item .rulesTitle {
     font-size: 28rpx;
-    color: #282828;
+    color: var(--ui-TC, #282828);
   }
 
   .order-details .writeOff .rules .item .rulesTitle .iconfont {
     font-size: 30rpx;
-    color: #333;
+    color: var(--ui-TC, #303030);
     margin-right: 8rpx;
     margin-top: 5rpx;
   }
 
   .order-details .writeOff .rules .item .info {
     font-size: 28rpx;
-    color: #999;
+    color: var(--ui-TC-2, #777777);
     margin-top: 7rpx;
   }
 
@@ -241,11 +247,11 @@
   .order-details .map {
     height: 86rpx;
     font-size: 30rpx;
-    color: #282828;
+    color: var(--ui-TC, #282828);
     line-height: 86rpx;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--ui-Border, #f0f0f0);
     margin-top: 15rpx;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     padding: 0 24rpx;
   }
 

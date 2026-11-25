@@ -236,13 +236,13 @@
   }
 
   .files-border {
-    border-top: 1px #eee solid;
+    border-top: 1px var(--ui-Border, #eee) solid;
   }
 
   .files__name {
     flex: 1;
     font-size: 14px;
-    color: #666;
+    color: var(--ui-TC-1, #525252);
     margin-right: 25px;
     /* #ifndef APP-NVUE */
     word-break: break-all;
@@ -258,13 +258,13 @@
   }
 
   // .icon-files .icon-del {
-  // 	background-color: #333;
+  // 	background-color: var(--ui-BG-3, #333);
   // 	width: 12px;
   // 	height: 1px;
   // }
 
   .is-list-card {
-    border: 1px #eee solid;
+    border: 1px var(--ui-Border, #eee) solid;
     margin-bottom: 5px;
     border-radius: 5px;
     box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.1);
@@ -283,7 +283,7 @@
   }
 
   .is-text-box {
-    border: 1px #eee solid;
+    border: 1px var(--ui-Border, #eee) solid;
     border-radius: 5px;
   }
 
@@ -320,7 +320,7 @@
   .icon-del {
     width: 15px;
     height: 1px;
-    background-color: #333;
+    background-color: var(--ui-BG-3, #333);
     // border-radius: 1px;
   }
 

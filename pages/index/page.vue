@@ -3,19 +3,25 @@
   <s-layout
     :title="state.name"
     navbar="custom"
-    :bgStyle="state.page"
-    :navbarStyle="state.navigationBar"
+    :bgStyle="template.page"
+    :navbarStyle="template.navigationBar"
     onShareAppMessage
     showLeftButton
   >
-    <s-block v-for="(item, index) in state.components" :key="index" :styles="item.property.style">
+    <s-block
+      v-for="(item, index) in template.components"
+      :key="index"
+      :styles="item.property.style"
+    >
       <s-block-item :type="item.id" :data="item.property" :styles="item.property.style" />
     </s-block>
   </s-layout>
 </template>
 
 <script setup>
-  import { reactive } from 'vue';
+  import { computed, reactive } from 'vue';
+  import sheep from '@/sheep';
+  import { themePage } from '@/sheep/theme';
   import { onLoad, onPageScroll } from '@dcloudio/uni-app';
   import DiyApi from '@/sheep/api/promotion/diy';
 
@@ -25,8 +31,14 @@
     navigationBar: {},
     page: {},
   });
+  const template = computed(() =>
+    themePage(
+      state,
+      sheep.$store('app').template.basic?.tabbar?.themeConfig?.followTheme !== false,
+    ),
+  );
   onLoad(async (options) => {
-    let id = options.id
+    let id = options.id;
 
     // #ifdef MP
     // 小程序预览自定义页面

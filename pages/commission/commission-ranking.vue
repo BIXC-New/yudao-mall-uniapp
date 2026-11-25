@@ -168,7 +168,7 @@
 
     .wrapper {
       width: 710rpx;
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
       border-radius: 14rpx;
       margin: -76rpx auto 0 auto;
 
@@ -177,7 +177,7 @@
         border-bottom: 2.5rpx solid #f3f3f3;
         font-size: 30rpx;
         font-weight: bold;
-        color: #999;
+        color: var(--ui-TC-2, #999);
         line-height: 99rpx;
 
         .item.font-color {
@@ -199,7 +199,7 @@
           font-size: 28rpx;
 
           .num {
-            color: #666;
+            color: var(--ui-TC-2, #666);
             flex: 0.08;
             display: flex;
             justify-content: flex-start;
@@ -224,7 +224,7 @@
           }
 
           .text {
-            color: #333;
+            color: var(--ui-TC, #333);
             flex: 0.5;
           }
 

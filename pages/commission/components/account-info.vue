@@ -11,7 +11,7 @@
           >
             <uni-icons
               :type="state.showMoney ? 'eye-filled' : 'eye-slash-filled'"
-              color="#A57A55"
+              color="var(--shop-accent-text)"
               size="20"
             />
           </button>
@@ -73,28 +73,28 @@
     width: 694rpx;
     margin: 0 auto;
     padding: 2rpx;
-    background: linear-gradient(180deg, #ffffff 0.88%, #fff9ec 100%);
+    background: var(--ui-Border);
     border-radius: 12rpx;
     z-index: 3;
     position: relative;
 
     .account-card-box {
-      background: #ffefd6;
+      background: var(--ui-BG);
 
       .card-box-header {
         padding: 0 30rpx;
         height: 72rpx;
-        box-shadow: 0px 2px 6px #f2debe;
+        border-bottom: 1rpx solid var(--ui-Border);
 
         .header-title {
           font-size: 24rpx;
           font-weight: 500;
-          color: #a17545;
+          color: var(--ui-TC);
           line-height: 30rpx;
         }
 
         .cicon-play-arrow {
-          color: #a17545;
+          color: var(--shop-accent-text);
           font-size: 24rpx;
           line-height: 30rpx;
         }
@@ -102,12 +102,12 @@
 
       .card-content {
         height: 190rpx;
-        background: #fdfae9;
+        background: var(--ui-BG-2);
 
         .item-title {
           font-size: 24rpx;
           font-weight: 500;
-          color: #cba67e;
+          color: var(--ui-TC-2);
           line-height: 30rpx;
           margin-bottom: 24rpx;
         }
@@ -116,7 +116,7 @@
           font-size: 36rpx;
           font-family: OPPOSANS;
           font-weight: bold;
-          color: #692e04;
+          color: var(--shop-price);
           line-height: 30rpx;
         }
       }

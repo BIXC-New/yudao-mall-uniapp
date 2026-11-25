@@ -119,7 +119,7 @@
             placeholder="请选择银行"
             suffixIcon="right"
             disabled
-            :styles="{ disableColor: '#fff', borderColor: '#fff', color: '#333!important' }"
+            :styles="{ disableColor: 'var(--ui-BG)', borderColor: 'var(--ui-Border)', color: 'var(--ui-TC)' }"
           />
         </picker>
       </view>
@@ -386,11 +386,11 @@
         .empty-text {
           font-size: 28rpx;
           font-weight: 400;
-          color: $dark-9;
+          color: var(--ui-TC-2, $dark-9);
         }
 
         .cicon-forward {
-          color: $dark-9;
+          color: var(--ui-TC-2, $dark-9);
         }
       }
 
@@ -401,7 +401,7 @@
 
         .unit {
           font-size: 48rpx;
-          color: #333;
+          color: var(--ui-TC, #333);
           font-weight: 500;
         }
 
@@ -427,7 +427,7 @@
     .bind-box {
       .placeholder-text {
         font-size: 26rpx;
-        color: $dark-9;
+        color: var(--ui-TC-2, $dark-9);
       }
 
       .add-btn {
@@ -448,7 +448,7 @@
 
       .unit {
         font-size: 48rpx;
-        color: #333;
+        color: var(--ui-TC, #333);
         font-weight: 500;
       }
 
@@ -473,7 +473,7 @@
   // 提现说明
   .draw-notice {
     width: 684rpx;
-    background: #ffffff;
+    background: var(--ui-BG, #ffffff);
     border: 2rpx solid #fffaee;
     border-radius: 20rpx;
     margin: 20rpx 32rpx 0 32rpx;
@@ -482,13 +482,13 @@
 
     .title {
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #333333);
       font-size: 30rpx;
     }
 
     .draw-list {
       font-size: 24rpx;
-      color: #999999;
+      color: var(--ui-TC-2, #999999);
       line-height: 46rpx;
     }
   }

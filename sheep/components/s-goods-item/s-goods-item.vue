@@ -158,12 +158,13 @@
       font-size: 28rpx;
       font-weight: 500;
       line-height: 40rpx;
+      color: var(--ui-TC, #303030);
     }
 
     .spec-text {
       font-size: 24rpx;
       font-weight: 400;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
       min-width: 0;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -176,13 +177,14 @@
       font-size: 24rpx;
       font-weight: 500;
       font-family: OPPOSANS;
+      color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
     }
 
     .total-text {
       font-size: 24rpx;
       font-weight: 400;
       line-height: 24rpx;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
       margin-left: 8rpx;
     }
   }

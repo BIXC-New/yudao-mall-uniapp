@@ -61,12 +61,12 @@
       // 取消按钮的颜色
       cancelColor: {
         type: String,
-        default: '#909193',
+        default: 'var(--ui-TC-2, #666666)',
       },
       // 确认按钮的颜色
       confirmColor: {
         type: String,
-        default: '#3c9cff',
+        default: 'var(--shop-accent-text, #3c9cff)',
       },
       // 标题文字
       title: {
@@ -104,14 +104,14 @@
 
     &__wrapper {
       &__cancel {
-        color: #111111;
+        color: var(--ui-TC, #111111);
         font-size: 15px;
         padding: 0 15px;
       }
     }
 
     &__title {
-      color: #000000;
+      color: var(--ui-TC, #303030);
       padding: 0 60rpx;
       font-size: 16px;
       flex: 1;

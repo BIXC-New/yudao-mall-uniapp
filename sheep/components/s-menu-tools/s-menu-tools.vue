@@ -1,6 +1,12 @@
 <!-- 全局 - 快捷入口 -->
 <template>
-  <su-popup :show="show" type="top" round="20" backgroundColor="#F0F0F0" @close="closeMenuTools">
+  <su-popup
+    :show="show"
+    type="top"
+    round="20"
+    backgroundColor="var(--ui-BG, #24211f)"
+    @close="closeMenuTools"
+  >
     <su-status-bar />
     <view class="tools-wrap ss-m-x-30 ss-m-b-16">
       <view class="title ss-m-b-34 ss-p-t-20">快捷菜单</view>
@@ -11,7 +17,7 @@
               class="ss-reset-button list-image ss-flex ss-row-center ss-col-center"
               @tap="onClick(item)"
             >
-              <image v-if="show" :src="sheep.$url.static(item.icon)" class="list-icon" />
+              <uni-icons class="list-icon" :type="item.icon" size="28" color="var(--shop-accent-text)" />
             </button>
             <view class="list-title ss-m-t-20">{{ item.title }}</view>
           </view>
@@ -22,9 +28,9 @@
 </template>
 
 <script setup>
-  import { reactive, computed } from 'vue';
+  import { computed } from 'vue';
   import sheep from '@/sheep';
-  import { showMenuTools, closeMenuTools } from '@/sheep/hooks/useModal';
+  import { closeMenuTools } from '@/sheep/hooks/useModal';
 
   const show = computed(() => sheep.$store('modal').menu);
 
@@ -36,37 +42,37 @@
   const list = [
     {
       url: '/pages/index/index',
-      icon: '/static/img/shop/tools/home.png',
+      icon: 'home',
       title: '首页',
     },
     {
       url: '/pages/index/search',
-      icon: '/static/img/shop/tools/search.png',
+      icon: 'search',
       title: '搜索',
     },
     {
       url: '/pages/index/user',
-      icon: '/static/img/shop/tools/user.png',
+      icon: 'person',
       title: '个人中心',
     },
     {
       url: '/pages/index/cart',
-      icon: '/static/img/shop/tools/cart.png',
+      icon: 'cart',
       title: '购物车',
     },
     {
       url: '/pages/user/goods-log',
-      icon: '/static/img/shop/tools/browse.png',
+      icon: 'eye',
       title: '浏览记录',
     },
     {
       url: '/pages/user/goods-collect',
-      icon: '/static/img/shop/tools/collect.png',
+      icon: 'heart',
       title: '我的收藏',
     },
     {
       url: '/pages/chat/index',
-      icon: '/static/img/shop/tools/service.png',
+      icon: 'headphones',
       title: '客服',
     },
   ];
@@ -74,15 +80,10 @@
 
 <style lang="scss" scoped>
   .tools-wrap {
-    // background: #F0F0F0;
-    // box-shadow: 0px 0px 28rpx 7rpx rgba(0, 0, 0, 0.13);
-    // opacity: 0.98;
-    // border-radius: 0 0 20rpx 20rpx;
-
     .title {
       font-size: 36rpx;
       font-weight: bold;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
 
     .list-item {
@@ -92,18 +93,18 @@
         width: 104rpx;
         height: 104rpx;
         border-radius: 52rpx;
-        background: var(--ui-BG);
+        background: var(--ui-BG-Main-opacity-1, rgba(0, 0, 0, 0.08));
+        border: 1rpx solid var(--ui-BG-Main-opacity-1, rgba(0, 0, 0, 0.08));
+      }
 
-        .list-icon {
-          width: 54rpx;
-          height: 54rpx;
-        }
+      .list-icon {
+        line-height: 1;
       }
 
       .list-title {
         font-size: 26rpx;
         font-weight: 500;
-        color: #333333;
+        color: var(--ui-TC, #303030);
       }
     }
   }
@@ -113,6 +114,6 @@
   }
 
   :deep(.button-hover) {
-    background: #fafafa !important;
+    background: var(--ui-BG-Main-opacity-1, rgba(0, 0, 0, 0.08)) !important;
   }
 </style>

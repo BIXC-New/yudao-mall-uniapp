@@ -106,20 +106,20 @@
   }
 
   .info-color {
-    color: #333;
+    color: var(--ui-TC, #303030);
   }
 
   .subtitle-color {
-    color: #666;
+    color: var(--ui-TC-1, #525252);
   }
 
   .disabled-color {
-    color: #999;
+    color: var(--ui-TC-2, #777777);
   }
 
   .content {
     width: 100%;
-    background: #fff;
+    background: var(--ui-BG, #fff);
     border-radius: 20rpx 20rpx 0 0;
     -webkit-mask: radial-gradient(circle at 12rpx 100%, #0000 12rpx, red 0) -12rpx;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04);
@@ -174,7 +174,7 @@
 
   .desc {
     width: 100%;
-    background: #fff;
+    background: var(--ui-BG, #fff);
     -webkit-mask: radial-gradient(circle at 12rpx 0%, #0000 12rpx, red 0) -12rpx;
     box-shadow: rgba(#000, 0.1);
     box-sizing: border-box;
@@ -184,12 +184,12 @@
 
     .desc-title {
       font-size: 24rpx;
-      color: #999;
+      color: var(--ui-TC-2, #777777);
       font-weight: 400;
     }
   }
 
   .price-text {
-    color: #ff0000;
+    color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
   }
 </style>

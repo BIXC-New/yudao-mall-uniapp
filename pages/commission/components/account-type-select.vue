@@ -142,7 +142,7 @@
         border-bottom: 2rpx solid rgba(#dfdfdf, 0.5);
         font-size: 28rpx;
         font-weight: 500;
-        color: #333333;
+        color: var(--ui-TC, #333333);
 
         .container-icon {
           width: 36rpx;
@@ -159,7 +159,7 @@
         height: 80rpx;
         border-radius: 40rpx;
         background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-        color: $white;
+        color: var(--ui-BG-Main-TC, $white);
       }
     }
   }

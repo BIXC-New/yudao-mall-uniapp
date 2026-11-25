@@ -113,7 +113,7 @@
   .content {
     width: 100%;
     align-content: space-around;
-    border-top: 1px solid #dfdfdf;
+    border-top: 1px solid var(--ui-Border, #dfdfdf);
     padding: 20rpx 0 0;
 
     .emoji-swiper {
@@ -136,7 +136,7 @@
       height: 280rpx;
       text-align: center;
       font-size: 24rpx;
-      color: #333;
+      color: var(--ui-TC, #333);
       display: flex;
       flex-direction: column;
       align-items: center;

@@ -210,7 +210,7 @@
 <style lang="scss" scoped>
   // 钱包
   .header-box {
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     padding: 30rpx;
 
     .card-box {
@@ -268,7 +268,7 @@
         border-radius: 30px;
         font-size: 26rpx;
         font-weight: 500;
-        background-color: $white;
+        background-color: var(--ui-BG, #fff);
         color: var(--ui-BG-Main);
       }
     }
@@ -283,28 +283,28 @@
     .total-box {
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
     }
 
     .date-btn {
-      background-color: $white;
+      background-color: var(--ui-BG, #fff);
       line-height: 54rpx;
       border-radius: 27rpx;
       padding: 0 20rpx;
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: var(--ui-TC-1, #525252);
 
       .ss-seldate-icon {
         font-size: 50rpx;
-        color: $dark-9;
+        color: var(--ui-TC-2, #777777);
       }
     }
   }
 
   .tabs-box {
-    background: $white;
-    border-bottom: 2rpx solid #eeeeee;
+    background: var(--ui-BG, #fff);
+    border-bottom: 2rpx solid var(--ui-Border, #eeeeee);
   }
 
   // tab
@@ -337,7 +337,7 @@
   // 钱包记录
   .wallet-list {
     padding: 30rpx;
-    background-color: #ffff;
+    background-color: var(--ui-BG, #fff);
 
     .head-img {
       width: 70rpx;
@@ -353,12 +353,12 @@
 
       .title {
         font-size: 28rpx;
-        color: $dark-3;
+        color: var(--ui-TC, #303030);
         width: 400rpx;
       }
 
       .time {
-        color: $gray-c;
+        color: var(--ui-TC-2, $gray-c);
         font-size: 22rpx;
       }
     }
@@ -372,7 +372,7 @@
       }
 
       .minus {
-        color: $dark-3;
+        color: var(--ui-TC, #303030);
       }
     }
   }

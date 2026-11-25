@@ -357,12 +357,12 @@
 
 <style lang="scss" scoped>
   .l1 {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     height: 86rpx;
     line-height: 86rpx;
     font-size: 28rpx;
-    color: #282828;
-    border-bottom: 1rpx solid #eee;
+    color: var(--ui-TC, #282828);
+    border-bottom: 1rpx solid var(--ui-Border, #eee);
     border-top-left-radius: 14rpx;
     border-top-right-radius: 14rpx;
     display: flex;
@@ -383,14 +383,14 @@
     .team-data-box {
       .data-card {
         width: 305rpx;
-        background: #ffffff;
+        background: var(--ui-BG, #ffffff);
         border-radius: 20rpx;
         padding: 20rpx;
 
         .item-title {
           font-size: 22rpx;
           font-weight: 500;
-          color: #999999;
+          color: var(--ui-TC-2, #999999);
           line-height: 30rpx;
           margin-bottom: 10rpx;
         }
@@ -402,14 +402,14 @@
         .total-num {
           font-size: 38rpx;
           font-weight: 500;
-          color: #333333;
+          color: var(--ui-TC, #333333);
           font-family: OPPOSANS;
         }
 
         .category-num {
           font-size: 26rpx;
           font-weight: 500;
-          color: #333333;
+          color: var(--ui-TC, #333333);
           font-family: OPPOSANS;
         }
       }
@@ -425,7 +425,7 @@
     .time-text {
       font-size: 22rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #999999);
     }
 
     .tag-box {
@@ -466,12 +466,12 @@
   }
 
   .promoter-list .nav {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     height: 86rpx;
     line-height: 86rpx;
     font-size: 28rpx;
-    color: #282828;
-    border-bottom: 1rpx solid #eee;
+    color: var(--ui-TC, #282828);
+    border-bottom: 1rpx solid var(--ui-Border, #eee);
     border-top-left-radius: 14rpx;
     border-top-right-radius: 14rpx;
     margin-top: -30rpx;
@@ -486,7 +486,7 @@
 
   .promoter-list .search {
     width: 100%;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     height: 100rpx;
     padding: 0 24rpx;
     box-sizing: border-box;
@@ -498,7 +498,7 @@
     width: 592rpx;
     height: 60rpx;
     border-radius: 50rpx;
-    background-color: #f5f5f5;
+    background-color: var(--ui-BG-2, #f5f5f5);
     text-align: center;
     position: relative;
   }
@@ -511,13 +511,13 @@
   }
 
   .promoter-list .search .input .placeholder {
-    color: #bbb;
+    color: var(--ui-TC-2, #bbb);
   }
 
   .promoter-list .search .input .iconfont {
     position: absolute;
     right: 28rpx;
-    color: #999;
+    color: var(--ui-TC-2, #999);
     font-size: 28rpx;
     top: 50%;
     transform: translateY(-50%);
@@ -525,7 +525,7 @@
 
   .promoter-list .search .iconfont {
     font-size: 32rpx;
-    color: #515151;
+    color: var(--ui-TC, #515151);
     height: 60rpx;
     line-height: 60rpx;
   }
@@ -535,10 +535,10 @@
   }
 
   .promoter-list .list .sortNav {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     height: 76rpx;
-    border-bottom: 1rpx solid #eee;
-    color: #333;
+    border-bottom: 1rpx solid var(--ui-Border, #eee);
+    color: var(--ui-TC, #333);
     font-size: 28rpx;
     border-top-left-radius: 14rpx;
     border-top-right-radius: 14rpx;
@@ -557,12 +557,12 @@
   }
 
   .promoter-list .list .item {
-    background-color: #fff;
-    border-bottom: 1rpx solid #eee;
+    background-color: var(--ui-BG, #fff);
+    border-bottom: 1rpx solid var(--ui-Border, #eee);
     height: 152rpx;
     padding: 0 24rpx;
     font-size: 24rpx;
-    color: #666;
+    color: var(--ui-TC-2, #666);
   }
 
   .promoter-list .list .item .picTxt .pictrue {
@@ -583,20 +583,20 @@
   .promoter-list .list .item .picTxt .text {
     // width: 304rpx;
     font-size: 24rpx;
-    color: #666;
+    color: var(--ui-TC-2, #666);
     margin-left: 14rpx;
   }
 
   .promoter-list .list .item .picTxt .text .name {
     font-size: 28rpx;
-    color: #333;
+    color: var(--ui-TC, #333);
     margin-bottom: 13rpx;
   }
 
   .promoter-list .list .item .right {
     text-align: right;
     font-size: 22rpx;
-    color: #333;
+    color: var(--ui-TC, #333);
   }
 
   .promoter-list .list .item .right .num {

@@ -321,7 +321,7 @@
           border-radius: 50rpx;
           width: 4px;
           height: 4px;
-          background-color: #fff;
+          background-color: var(--ui-BG, #fff);
         }
       }
 

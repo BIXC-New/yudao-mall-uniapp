@@ -223,9 +223,9 @@
         type: Object,
         default() {
           return {
-            color: '#333',
-            disableColor: '#F7F6F6',
-            borderColor: '#e5e5e5'
+            color: 'var(--ui-TC, #333)',
+            disableColor: 'var(--ui-Input-BG, #F7F6F6)',
+            borderColor: 'var(--ui-Input-Border, #e5e5e5)'
           };
         }
       },
@@ -404,7 +404,7 @@
     flex: 1;
     position: relative;
     text-align: left;
-    color: #333;
+    color: var(--ui-TC, #333);
     font-size: 14px;
   }
 
@@ -432,7 +432,7 @@
     height: 56rpx;
   }
   .uni-easyinput__placeholder-class {
-    color: #bbbbbb;
+    color: var(--ui-TC-2, #bbbbbb);
     font-size: 28rpx;
     font-weight: 400;
     line-height: normal;
@@ -512,7 +512,7 @@
     margin-bottom: 0;
     padding: 10px 15px;
     // padding-bottom: 0;
-    border-top: 1px #eee solid;
+    border-top: 1px var(--ui-Border, #eee) solid;
   }
 
   .uni-easyinput-error {
@@ -530,7 +530,7 @@
 
   .is-disabled {
     border-color: red;
-    background-color: #f7f6f6;
+    background-color: var(--ui-BG-2, #f7f6f6);
     color: #d5d5d5;
     .uni-easyinput__placeholder-class {
       color: #d5d5d5;

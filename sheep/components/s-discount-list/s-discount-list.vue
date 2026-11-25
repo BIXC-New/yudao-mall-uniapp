@@ -65,7 +65,7 @@
   .modal-footer {
     width: 100%;
     height: 120rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
   }
 
   .confirm-btn {
@@ -74,7 +74,7 @@
     height: 80rpx;
     background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
     border-radius: 40rpx;
-    color: #fff;
+    color: var(--ui-BG-Main-TC, #fff);
   }
 
   .content-img {
@@ -87,7 +87,7 @@
   .subtitle {
     font-size: 28rpx;
     font-weight: 500;
-    color: #333333;
+    color: var(--ui-TC, #303030);
   }
 
   .price-text {

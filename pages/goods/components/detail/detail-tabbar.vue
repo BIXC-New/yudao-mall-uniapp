@@ -9,19 +9,11 @@
           @tap="onFavorite"
         >
           <block v-if="modelValue.favorite">
-            <image
-              class="item-icon"
-              :src="sheep.$url.static('/static/img/shop/goods/collect_1.gif')"
-              mode="aspectFit"
-            />
+            <text class="item-icon cicon-favorite" />
             <view class="item-title">已收藏</view>
           </block>
           <block v-else>
-            <image
-              class="item-icon"
-              :src="sheep.$url.static('/static/img/shop/goods/collect_0.png')"
-              mode="aspectFit"
-            />
+            <text class="item-icon cicon-favorite-o" />
             <view class="item-title">收藏</view>
           </block>
         </view>
@@ -30,11 +22,7 @@
           class="detail-tabbar-item ss-flex ss-flex-col ss-row-center ss-col-center"
           @tap="onChat"
         >
-          <image
-            class="item-icon"
-            :src="sheep.$url.static('/static/img/shop/goods/message.png')"
-            mode="aspectFit"
-          />
+          <text class="item-icon cicon-headset" />
           <view class="item-title">客服</view>
         </view>
         <view
@@ -42,11 +30,7 @@
           class="detail-tabbar-item ss-flex ss-flex-col ss-row-center ss-col-center"
           @tap="showShareModal"
         >
-          <image
-            class="item-icon"
-            :src="sheep.$url.static('/static/img/shop/goods/share.png')"
-            mode="aspectFit"
-          />
+          <text class="item-icon cicon-share-line-o" />
           <view class="item-title">分享</view>
         </view>
         <slot></slot>
@@ -148,7 +132,7 @@
   .ui-tabbar {
     display: flex;
     height: 50px;
-    background: #fff;
+    background: var(--ui-BG, #fff);
 
     .detail-tabbar-item {
       width: 100rpx;
@@ -156,6 +140,9 @@
       .item-icon {
         width: 40rpx;
         height: 40rpx;
+        font-size: 40rpx;
+        line-height: 40rpx;
+        color: var(--shop-accent-text);
       }
 
       .item-title {
@@ -163,6 +150,7 @@
         font-weight: 500;
         line-height: 20rpx;
         margin-top: 12rpx;
+        color: var(--ui-TC-2);
       }
     }
   }

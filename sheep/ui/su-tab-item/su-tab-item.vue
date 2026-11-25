@@ -159,7 +159,7 @@
   .item-subtitle {
     height: 2em;
     font-size: 22rpx;
-    color: $dark-9;
+    color: var(--ui-TC-2, #777777);
     margin-bottom: 0.6em;
   }
 

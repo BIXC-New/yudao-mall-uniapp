@@ -247,7 +247,7 @@
     height: v-bind(chatScrollHeight);
     width: 100%;
     position: relative;
-    background-color: #f8f8f8;
+    background-color: var(--ui-BG-2, #f8f8f8);
     z-index: 1;
   }
 
@@ -277,7 +277,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #999;
+    color: var(--ui-TC-2, #999);
     font-size: 14px;
   }
 
@@ -285,7 +285,7 @@
     .back-top-item {
       height: 30px;
       width: 100px;
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
       border-radius: 30px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }

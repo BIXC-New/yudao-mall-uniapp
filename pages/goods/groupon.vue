@@ -41,11 +41,7 @@
                 </view>
                 <view class="tig ss-flex ss-col-center">
                   <view class="tig-icon ss-flex ss-col-center ss-row-center">
-                    <view class="groupon-tag">
-                      <image
-                        :src="sheep.$url.static('/static/img/shop/goods/groupon-tag.png')"
-                      ></image>
-                    </view>
+                    <uni-icons type="wallet" size="16" color="var(--shop-accent-text, var(--ui-BG-Main))" />
                   </view>
                   <view class="tig-title">拼团价</view>
                 </view>
@@ -161,10 +157,6 @@
   import SpuApi from '@/sheep/api/product/spu';
   import { SharePageEnum } from '@/sheep/helper/const';
 
-  const headerBg = sheep.$url.css('/static/img/shop/goods/groupon-bg.png');
-  const btnBg = sheep.$url.css('/static/img/shop/goods/groupon-btn.png');
-  const disabledBtnBg = sheep.$url.css('/static/img/shop/goods/activity-btn-disabled.png');
-  const grouponBg = sheep.$url.css('/static/img/shop/goods/groupon-tip-bg.png');
 
   onPageScroll(() => {});
   const state = reactive({
@@ -310,7 +302,7 @@
 
 <style lang="scss" scoped>
   .detail-card {
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     margin: 14rpx 20rpx;
     border-radius: 10rpx;
     overflow: hidden;
@@ -323,14 +315,13 @@
     // height: 320rpx;
     background-size: 100% 100%;
     border-radius: 10rpx;
-    background-image: v-bind(headerBg);
-    background-repeat: no-repeat;
+    background-color: var(--ui-BG-Main);
 
     .price-box {
       .price-text {
         font-size: 30rpx;
         font-weight: 500;
-        color: #fff;
+        color: var(--ui-BG-Main-TC, #ffffff);
         line-height: normal;
         font-family: OPPOSANS;
 
@@ -343,7 +334,7 @@
     .origin-price {
       font-size: 24rpx;
       font-weight: 400;
-      color: #fff;
+      color: var(--ui-BG-Main-TC, #ffffff);
       opacity: 0.7;
 
       .origin-price-text {
@@ -358,17 +349,17 @@
     }
 
     .tig {
-      border: 2rpx solid #ffffff;
-      border-radius: 4rpx;
-      width: 126rpx;
-      height: 38rpx;
+      width: fit-content;
+      min-height: 40rpx;
+      padding: 0 12rpx;
+      gap: 8rpx;
+      box-sizing: border-box;
+      border: 1px solid var(--shop-accent-text, var(--ui-BG-Main));
+      border-radius: 999rpx;
 
       .tig-icon {
-        margin-left: -2rpx;
-        width: 40rpx;
-        height: 40rpx;
-        background: #ffffff;
-        border-radius: 4rpx 0 0 4rpx;
+        display: flex;
+        align-items: center;
 
         .groupon-tag {
           width: 32rpx;
@@ -380,8 +371,7 @@
         font-size: 24rpx;
         font-weight: 500;
         line-height: normal;
-        color: #ffffff;
-        width: 86rpx;
+        color: var(--shop-accent-text, var(--ui-BG-Main));
         display: flex;
         justify-content: center;
         align-items: center;
@@ -391,18 +381,18 @@
     .countdown-title {
       font-size: 26rpx;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--ui-BG-Main-TC, #ffffff);
     }
 
     .countdown-time {
       font-size: 26rpx;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--ui-BG-Main-TC, #ffffff);
       .countdown-h {
         font-size: 24rpx;
         font-family: OPPOSANS;
         font-weight: 500;
-        color: #ffffff;
+        color: var(--ui-BG-Main-TC, #ffffff);
         padding: 0 4rpx;
         height: 40rpx;
         background: rgba(#000000, 0.1);
@@ -412,7 +402,7 @@
         font-size: 24rpx;
         font-family: OPPOSANS;
         font-weight: 500;
-        color: #ffffff;
+        color: var(--ui-BG-Main-TC, #ffffff);
         width: 40rpx;
         height: 40rpx;
         background: rgba(#000000, 0.1);
@@ -424,13 +414,13 @@
       font-size: 30rpx;
       font-weight: bold;
       line-height: 42rpx;
-      color: #fff;
+      color: var(--ui-BG-Main-TC, #ffffff);
     }
 
     .subtitle-text {
       font-size: 26rpx;
       font-weight: 400;
-      color: #ffffff;
+      color: var(--ui-BG-Main-TC, #ffffff);
       line-height: 42rpx;
       opacity: 0.9;
     }
@@ -447,10 +437,8 @@
       font-size: 24rpx;
       font-weight: 600;
       margin-left: -36rpx;
-      background-image: v-bind(btnBg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      color: #ffffff;
+      background: var(--ui-BG-Main);
+      color: var(--ui-BG-Main-TC, #ffffff);
       line-height: normal;
       border-radius: 0px 40rpx 40rpx 0px;
     }
@@ -460,10 +448,8 @@
       font-size: 24rpx;
       font-weight: 600;
       margin-left: -36rpx;
-      background-image: v-bind(disabledBtnBg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      color: #999999;
+      background: var(--ui-BG-3);
+      color: var(--ui-TC-2, #777777);
       line-height: normal;
       border-radius: 0px 40rpx 40rpx 0px;
     }
@@ -471,8 +457,8 @@
     .origin-price-btn {
       width: 236rpx;
       height: 80rpx;
-      background: rgba(#ff5651, 0.1);
-      color: #ff6000;
+      background: var(--shop-promo-bg, var(--ui-BG-2));
+      color: var(--shop-promo-text, var(--shop-accent-text));
       border-radius: 40rpx 0px 0px 40rpx;
       line-height: normal;
       font-size: 24rpx;
@@ -495,19 +481,18 @@
         height: 58rpx;
         font-size: 26rpx;
         font-weight: 500;
-        color: #999999;
+        color: var(--ui-TC-2, #777777);
         border-radius: 10rpx;
       }
       .more-item-hover {
-        background: rgba(#ffefe5, 0.32);
-        color: #ff6000;
+        background: var(--ui-BG-Main-light);
+        color: var(--shop-accent-text, var(--ui-BG-Main));
       }
     }
   }
 
   .groupon-box {
-    background: v-bind(grouponBg) no-repeat;
-    background-size: 100% 100%;
+    background: var(--shop-promo-bg, var(--ui-BG-2));
   }
 
   //活动卡片
@@ -520,7 +505,7 @@
     .activity-title {
       font-size: 26rpx;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--shop-promo-text, var(--ui-TC));
       line-height: 42rpx;
 
       .activity-icon {
@@ -532,10 +517,10 @@
     .activity-go {
       width: 70rpx;
       height: 32rpx;
-      background: #ffffff;
+      background: var(--ui-BG-2);
       border-radius: 16rpx;
       font-weight: 500;
-      color: #ff6000;
+      color: var(--shop-accent-text, var(--ui-BG-Main));
       font-size: 24rpx;
       line-height: normal;
     }
@@ -545,13 +530,13 @@
     .title {
       font-size: 36rpx;
       font-weight: bold;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
 
     .subtitle {
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
   }
 

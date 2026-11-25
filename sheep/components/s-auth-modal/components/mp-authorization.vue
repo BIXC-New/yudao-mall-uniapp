@@ -75,8 +75,8 @@
     },
     rules: {},
     disabledStyle: {
-      color: '#999',
-      disableColor: '#fff',
+      color: 'var(--ui-TC)',
+      disableColor: 'var(--ui-Input-BG)',
     },
   });
 
@@ -134,7 +134,7 @@
     height: 80rpx;
     background-color: var(--ui-BG-Main);
     border-radius: 40rpx;
-    color: #fff;
+    color: var(--ui-BG-Main-TC, #fff);
   }
   .avatar-img {
     width: 72rpx;
@@ -143,7 +143,7 @@
   }
   .cicon-forward {
     font-size: 30rpx;
-    color: #595959;
+    color: var(--ui-TC, #595959);
   }
   .avatar-btn {
     width: 100%;

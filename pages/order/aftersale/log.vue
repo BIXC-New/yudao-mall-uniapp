@@ -33,6 +33,6 @@
 <style lang="scss" scoped>
   .log-box {
     padding: 24rpx 24rpx 24rpx 40rpx;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
   }
 </style>

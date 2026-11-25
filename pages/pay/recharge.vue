@@ -174,7 +174,7 @@
     .input-label {
       font-size: 30rpx;
       font-weight: 500;
-      color: #333;
+      color: var(--ui-TC, #333);
     }
 
     .unit {
@@ -234,7 +234,7 @@
         left: -2rpx;
         padding: 0 16rpx;
         font-size: 22rpx;
-        color: $white;
+        color: var(--ui-BG-Main-TC, $white);
         font-family: OPPOSANS;
       }
 

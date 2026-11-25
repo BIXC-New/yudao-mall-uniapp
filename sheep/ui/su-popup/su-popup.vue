@@ -36,7 +36,7 @@
           <uni-icons
             v-if="showClose"
             class="close-icon"
-            color="#F6F6F6"
+            color="var(--ui-TC-2, #666666)"
             type="closeempty"
             size="32"
             @click="close"

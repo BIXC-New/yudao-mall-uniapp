@@ -57,17 +57,17 @@
   .goods-img {
     width: 100%;
     height: 100%;
-    background-color: #f5f5f5;
+    background-color: var(--ui-BG-1, #f6f6f6);
   }
 
   .sales-text {
     font-size: 20rpx;
-    color: #c4c4c4;
+    color: var(--ui-TC-2, #c4c4c4);
   }
 
   .goods-origin-price {
     font-size: 20rpx;
-    color: #c4c4c4;
+    color: var(--ui-TC-2, #c4c4c4);
     text-decoration: line-through;
   }
 
@@ -76,7 +76,7 @@
     width: 344rpx;
     position: relative;
     z-index: 1;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     box-shadow: 0 0 20rpx 4rpx rgba(199, 199, 199, 0.22);
     border-radius: 20rpx;
 
@@ -87,7 +87,7 @@
 
     .md-goods-title {
       font-size: 26rpx;
-      color: #333;
+      color: var(--ui-TC, #303030);
     }
     .md-goods-subtitle {
       background-color: var(--ui-BG-Main-tag);

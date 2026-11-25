@@ -167,7 +167,7 @@
 		},
 		color: {
 			type: String,
-			default: '#000',
+			default: 'var(--ui-TC, #000)',
 		},
 	});
 
@@ -253,7 +253,7 @@
 
 		.menu-title {
 			font-size: 24rpx;
-			color: #333;
+			color: var(--ui-TC, #303030);
 		}
 	}
 
@@ -295,7 +295,7 @@
 					border-radius: 50rpx;
 					width: 4px;
 					height: 4px;
-					background-color: #fff;
+					background-color: var(--ui-BG, #fff);
 				}
 			}
 

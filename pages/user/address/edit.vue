@@ -41,7 +41,7 @@
             v-model="state.model.areaName"
             disabled
             :inputBorder="false"
-            :styles="{ disableColor: '#fff', color: '#333' }"
+            :styles="{ disableColor: 'var(--ui-BG)', color: 'var(--ui-TC)' }"
             placeholderStyle="color:#BBBBBB;font-size:30rpx;font-weight:400;line-height:normal"
             placeholder="请选择省市区"
           >
@@ -243,20 +243,20 @@
   :deep() {
     .uni-forms-item__label .label-text {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: var(--ui-TC, #333333) !important;
       line-height: normal !important;
     }
 
     .uni-easyinput__content-input {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: var(--ui-TC, #333333) !important;
       line-height: normal !important;
       padding-left: 0 !important;
     }
 
     .uni-easyinput__content-textarea {
       font-size: 28rpx !important;
-      color: #333333 !important;
+      color: var(--ui-TC, #333333) !important;
       line-height: normal !important;
       margin-top: 8rpx !important;
     }
@@ -270,7 +270,7 @@
     }
 
     .is-disabled {
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
   }
 
@@ -281,7 +281,7 @@
 
     .default-box-title {
       font-size: 28rpx;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       line-height: normal;
     }
   }
@@ -292,7 +292,7 @@
       height: 80rpx;
       border-radius: 40rpx;
       background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-      color: $white;
+      color: var(--ui-BG-Main-TC, $white);
     }
 
     .cancel-btn {

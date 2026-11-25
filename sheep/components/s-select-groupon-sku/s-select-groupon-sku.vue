@@ -111,7 +111,6 @@
   import sheep from '@/sheep';
   import { convertProductPropertyList, initDefaultSelect, fen2yuan } from '@/sheep/hooks/useGoods';
 
-  const headerBg = sheep.$url.css('/static/img/shop/goods/groupon-btn-long.png');
   const emits = defineEmits(['change', 'addCart', 'buy', 'close', 'ladder']);
   const props = defineProps({
     show: {
@@ -326,8 +325,8 @@
     width: 100%;
     height: 80rpx;
     border-radius: 40rpx;
-    background: linear-gradient(90deg, #ff6000, #fe832a);
-    color: #fff;
+    background: var(--ui-BG-Main);
+    color: var(--ui-BG-Main-TC, #fff);
   }
   .btn-tox {
     width: 382rpx;
@@ -335,10 +334,8 @@
     font-size: 24rpx;
     font-weight: 600;
     margin-left: -50rpx;
-    background-image: v-bind(headerBg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    color: #ffffff;
+    background: var(--ui-BG-Main);
+    color: var(--ui-BG-Main-TC, #ffffff);
     line-height: normal;
     border-radius: 0px 40rpx 40rpx 0px;
 
@@ -353,8 +350,8 @@
   .origin-price-btn {
     width: 370rpx;
     height: 80rpx;
-    background: rgba(#ff5651, 0.1);
-    color: #ff6000;
+    background: var(--shop-promo-bg, var(--ui-BG-Main-tag));
+    color: var(--shop-promo-text, var(--shop-accent-text));
     border-radius: 40rpx 0px 0px 40rpx;
     line-height: normal;
     font-size: 24rpx;
@@ -403,9 +400,10 @@
         font-size: 28rpx;
         font-weight: 500;
         line-height: 42rpx;
+        color: var(--ui-TC, #303030);
         position: relative;
         .tig {
-          border: 2rpx solid #ff6000;
+          border: 2rpx solid var(--ui-BG-Main);
           border-radius: 4rpx;
           width: 126rpx;
           height: 38rpx;
@@ -416,7 +414,7 @@
           .tig-icon {
             width: 40rpx;
             height: 40rpx;
-            background: #ff6000;
+            background: var(--ui-BG-Main);
             margin-left: -2rpx;
             border-radius: 4rpx 0 0 4rpx;
 
@@ -430,7 +428,7 @@
             font-size: 24rpx;
             font-weight: 500;
             line-height: normal;
-            color: #ff6000;
+            color: var(--shop-accent-text, var(--ui-BG-Main));
             width: 86rpx;
             display: flex;
             justify-content: center;
@@ -445,7 +443,7 @@
       .price-text {
         font-size: 30rpx;
         font-weight: 500;
-        color: $red;
+        color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)));
         font-family: OPPOSANS;
 
         &::before {
@@ -456,7 +454,7 @@
 
       .stock-text {
         font-size: 26rpx;
-        color: #999999;
+        color: var(--ui-TC-2, #777777);
       }
     }
 
@@ -469,6 +467,7 @@
         .label-text {
           font-size: 26rpx;
           font-weight: 500;
+          color: var(--ui-TC, #303030);
         }
 
         .buy-num-box {
@@ -479,24 +478,24 @@
           height: 60rpx;
           min-width: 100rpx;
           padding: 0 30rpx;
-          background: #f4f4f4;
+          background: var(--ui-BG-2, #f4f4f4);
           border-radius: 30rpx;
-          color: #434343;
+          color: var(--ui-TC, #434343);
           font-size: 26rpx;
           margin-right: 10rpx;
           margin-bottom: 10rpx;
         }
 
         .checked-btn {
-          background: linear-gradient(90deg, #ff6000, #fe832a);
+          background: var(--ui-BG-Main);
           font-weight: 500;
-          color: #ffffff;
+          color: var(--ui-BG-Main-TC, #ffffff);
         }
 
         .disabled-btn {
           font-weight: 400;
-          color: #c6c6c6;
-          background: #f8f8f8;
+          color: var(--ui-TC-2, #c6c6c6);
+          background: var(--ui-BG-1, #f6f6f6);
         }
       }
     }

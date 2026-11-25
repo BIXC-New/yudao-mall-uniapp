@@ -146,7 +146,7 @@
       font-size: 30rpx;
       font-weight: 500;
       line-height: 80rpx;
-      color: $white;
+      color: var(--ui-BG-Main-TC, $white);
       position: relative;
       z-index: 1;
     }
@@ -154,11 +154,11 @@
     .sync-wxaddress {
       flex: 1;
       line-height: 80rpx;
-      background: $white;
+      background: var(--ui-BG, #fff);
       border-radius: 80rpx;
       font-size: 30rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: var(--ui-TC-1, #525252);
       margin-right: 18rpx;
     }
   }

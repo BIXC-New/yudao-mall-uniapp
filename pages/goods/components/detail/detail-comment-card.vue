@@ -1,7 +1,7 @@
 <!-- 商品评论的卡片 -->
 <template>
   <view class="detail-comment-card bg-white">
-    <view class="card-header ss-flex ss-col-center ss-row-between ss-p-b-30">
+    <view class="card-header ss-flex ss-col-center ss-row-between">
       <view class="ss-flex ss-col-center">
         <view class="line"></view>
         <view class="title ss-m-l-20 ss-m-r-10">评价</view>
@@ -18,7 +18,7 @@
     </view>
     <!-- 评论列表 -->
     <view class="card-content">
-      <view class="comment-box ss-p-y-30" v-for="item in state.commentList" :key="item.id">
+      <view class="comment-box" v-for="item in state.commentList" :key="item.id">
         <comment-item :item="item" />
       </view>
       <s-empty
@@ -62,8 +62,9 @@
 
 <style lang="scss" scoped>
   .detail-comment-card {
-    margin: 0 20rpx 20rpx 20rpx;
-    padding: 20rpx 20rpx 0 20rpx;
+    margin: 0 32rpx 24rpx;
+    padding: 28rpx 28rpx 0;
+    border-radius: var(--lux-radius, 24rpx);
     .card-header {
       .line {
         width: 6rpx;
@@ -76,29 +77,31 @@
         font-size: 30rpx;
         font-weight: bold;
         line-height: normal;
+        color: var(--ui-TC, #303030);
       }
 
       .des {
         font-size: 24rpx;
-        color: $dark-9;
+        color: var(--ui-TC-2, #777777);
       }
 
       .more-btn {
         font-size: 24rpx;
-        color: var(--ui-BG-Main);
+        color: var(--shop-accent-text, var(--ui-BG-Main));
         line-height: normal;
       }
 
       .cicon-forward {
         font-size: 24rpx;
         line-height: normal;
-        color: var(--ui-BG-Main);
+        color: var(--shop-accent-text, var(--ui-BG-Main));
         margin-top: 4rpx;
       }
     }
   }
   .comment-box {
-    border-bottom: 2rpx solid #eeeeee;
+    padding: 36rpx 0;
+    border-bottom: 1px solid var(--ui-Border, #eeeeee);
     &:last-child {
       border: none;
     }

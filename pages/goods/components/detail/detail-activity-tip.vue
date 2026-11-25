@@ -1,7 +1,6 @@
 <template>
-  <su-fixed bottom placeholder :val="44">
-    <view>
-      <view v-for="activity in props.activityList" :key="activity.id">
+  <view class="activity-list detail-card">
+      <view v-for="activity in props.activityList" :key="`${activity.type}-${activity.id}`">
         <view
           class="activity-box ss-p-x-38 ss-flex ss-row-between ss-col-center"
           :class="activity.type === 1 ? 'seckill-box' : 'groupon-box'"
@@ -21,18 +20,15 @@
             </view>
             <view>该商品正在参与{{ activity.name }}活动</view>
           </view>
-          <button class="ss-reset-button activity-go" @tap="onActivity(activity)"> GO </button>
+          <button v-if="[1, 3].includes(activity.type)" class="ss-reset-button activity-go" @tap="onActivity(activity)">查看</button>
         </view>
       </view>
-    </view>
-  </su-fixed>
+  </view>
 </template>
 
 <script setup>
   import sheep from '@/sheep';
 
-  const seckillBg = sheep.$url.css('/static/img/shop/goods/seckill-tip-bg.png');
-  const grouponBg = sheep.$url.css('/static/img/shop/goods/groupon-tip-bg.png');
 
   const props = defineProps({
     activityList: {
@@ -56,17 +52,29 @@
 </script>
 
 <style lang="scss" scoped>
+  .activity-list {
+    padding: 12rpx 20rpx;
+    border-radius: 10rpx;
+    margin: 14rpx 20rpx;
+  }
+
   .activity-box {
     width: 100%;
-    height: 80rpx;
+    min-height: 72rpx;
     box-sizing: border-box;
-    margin-bottom: 10rpx;
+    gap: 16rpx;
+    padding: 12rpx 0;
+    border-bottom: 1px solid var(--ui-Border);
+
+    &:last-child { border-bottom: 0; }
 
     .activity-title {
+      flex: 1;
+      min-width: 0;
       font-size: 26rpx;
       font-weight: 500;
-      color: #ffffff;
-      line-height: 42rpx;
+      color: var(--ui-TC);
+      line-height: 1.45;
 
       .activity-icon {
         width: 38rpx;
@@ -76,24 +84,15 @@
 
     .activity-go {
       width: 70rpx;
-      height: 32rpx;
-      background: #ffffff;
+      height: 48rpx;
+      flex: 0 0 70rpx;
+      background: var(--ui-BG-Main);
       border-radius: 16rpx;
       font-weight: 500;
-      color: #ff6000;
+      color: var(--ui-BG-Main-TC);
       font-size: 24rpx;
       line-height: normal;
     }
   }
 
-  //秒杀卡片
-  .seckill-box {
-    background: v-bind(seckillBg) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .groupon-box {
-    background: v-bind(grouponBg) no-repeat;
-    background-size: 100% 100%;
-  }
 </style>

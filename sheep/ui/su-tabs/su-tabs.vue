@@ -127,7 +127,7 @@
         type: [String, Object],
         default() {
           return {
-            color: '#303133',
+            color: 'var(--shop-accent-text, #303133)',
           };
         },
       },
@@ -136,7 +136,7 @@
         type: [String, Object],
         default() {
           return {
-            color: '#606266',
+            color: 'var(--ui-TC-2, #606266)',
           };
         },
       },
@@ -378,8 +378,8 @@
 
 <style lang="scss" scoped>
   .u-tabs {
-    background: #fff;
-    border-bottom: 2rpx solid #eee;
+    background: var(--ui-BG, #fff);
+    border-bottom: 2rpx solid var(--ui-Border, #eee);
 
     &__wrapper {
       @include flex;

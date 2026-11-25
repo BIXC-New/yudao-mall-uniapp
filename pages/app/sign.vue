@@ -63,7 +63,7 @@
       </view>
 
       <!-- 签到说明 -->
-      <view class="bg-white ss-m-t-16 ss-p-t-30 ss-p-b-60 ss-p-x-40">
+      <view class="activity-card ss-m-t-16 ss-p-t-30 ss-p-b-60 ss-p-x-40">
         <view class="activity-title ss-m-b-30">签到说明</view>
         <view class="activity-des">1.已累计签到{{ state.signInfo.totalDay }}天</view>
         <view class="activity-des">
@@ -102,8 +102,6 @@
   import { onReady } from '@dcloudio/uni-app';
   import { reactive } from 'vue';
   import SignInApi from '@/sheep/api/member/signin';
-
-  const headerBg = sheep.$url.css('/static/img/shop/app/sign.png');
 
   const state = reactive({
     loading: true,
@@ -164,33 +162,33 @@
 
 <style lang="scss" scoped>
   .header-box {
-    border-top: 2rpx solid rgba(#dfdfdf, 0.5);
+    border-top: 2rpx solid var(--ui-Border);
   }
 
   // 日历
   .calendar {
-    background: #fff;
+    background: var(--ui-BG, #fff);
 
     .sign-everyday {
       height: 100rpx;
-      background: rgba(255, 255, 255, 1);
-      border: 2rpx solid rgba(223, 223, 223, 0.4);
+      background: var(--ui-BG);
+      border: 2rpx solid var(--ui-Border);
 
       .sign-everyday-title {
         font-size: 32rpx;
-        color: rgba(51, 51, 51, 1);
+        color: var(--ui-TC);
         font-weight: 500;
       }
 
       .sign-num-box {
         font-size: 26rpx;
         font-weight: 500;
-        color: rgba(153, 153, 153, 1);
+        color: var(--ui-TC-2);
 
         .sign-num {
           font-size: 30rpx;
           font-weight: 600;
-          color: #ff6000;
+          color: var(--shop-accent-text);
           padding: 0 10rpx;
           font-family: OPPOSANS;
         }
@@ -205,7 +203,7 @@
         font-size: 30rpx;
         font-family: OPPOSANS;
         font-weight: 500;
-        color: #333333;
+        color: var(--ui-TC, #333333);
         line-height: normal;
       }
     }
@@ -213,14 +211,14 @@
     .cicon-back {
       margin-top: 6rpx;
       font-size: 30rpx;
-      color: #c4c4c4;
+      color: var(--ui-TC-2, #c4c4c4);
       line-height: normal;
     }
 
     .cicon-forward {
       margin-top: 6rpx;
       font-size: 30rpx;
-      color: #c4c4c4;
+      color: var(--ui-TC-2, #c4c4c4);
       line-height: normal;
     }
 
@@ -229,7 +227,7 @@
       .week-item {
         font-size: 24rpx;
         font-weight: 500;
-        color: rgba(153, 153, 153, 1);
+        color: var(--ui-TC-2);
         flex: 1;
       }
     }
@@ -244,7 +242,7 @@
         height: 80rpx;
         font-size: 26rpx;
         font-weight: 400;
-        color: rgba(51, 51, 51, 1);
+        color: var(--ui-TC);
       }
     }
   }
@@ -274,7 +272,7 @@
     font-size: 24rpx;
     font-family: OPPOSANS;
     font-weight: 500;
-    color: #333333;
+    color: var(--ui-TC, #333333);
     line-height: normal;
   }
 
@@ -283,7 +281,7 @@
     right: -10rpx;
     top: -6rpx;
     font-size: 20rpx;
-    color: red;
+    color: var(--ui-Error);
   }
 
   // 签到按钮
@@ -297,9 +295,9 @@
       border-radius: 35rpx;
       font-size: 30rpx;
       font-weight: 500;
-      box-shadow: 0 0.2em 0.5em rgba(#ff6000, 0.4);
-      background: linear-gradient(90deg, #ff6000, #fe832a);
-      color: #fff;
+      box-shadow: 0 0.2em 0.5em var(--ui-BG-Main-light);
+      background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
+      color: var(--ui-BG-Main-TC);
     }
 
     .already-btn {
@@ -308,14 +306,15 @@
       border-radius: 35rpx;
       font-size: 30rpx;
       font-weight: 500;
+      background: var(--ui-BG-3);
+      color: var(--ui-TC-2);
     }
   }
 
   .model-box {
     width: 520rpx;
     // height: 590rpx;
-    background: linear-gradient(177deg, #ff6000 0%, #fe832a 100%);
-    // background: linear-gradient(177deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
+    background: linear-gradient(177deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
     border-radius: 10rpx;
 
     .cicon-check-round {
@@ -327,43 +326,42 @@
       font-size: 34rpx;
       font-family: OPPOSANS;
       font-weight: 500;
-      color: #fcff00;
+      color: var(--ui-BG-Main-TC);
     }
 
     .model-title {
       font-size: 28rpx;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--ui-BG-Main-TC);
     }
 
     .model-bg {
       width: 520rpx;
       height: 344rpx;
-      background-size: 100% 100%;
-      background-image: v-bind(headerBg);
-      background-repeat: no-repeat;
+      background: var(--ui-BG-1);
+      border-top: 1rpx solid var(--ui-Border);
       border-radius: 0 0 10rpx 10rpx;
 
       .title {
         font-size: 34rpx;
         font-weight: bold;
-        color: var(--ui-BG-Main-TC);
+        color: var(--ui-TC);
       }
 
       .subtitle {
         font-size: 26rpx;
         font-weight: 500;
-        color: #999999;
+        color: var(--ui-TC-2, #999999);
       }
 
       .cancel-btn {
         width: 220rpx;
         height: 70rpx;
-        border: 2rpx solid #ff6000;
+        border: 2rpx solid var(--ui-BG-Main);
         border-radius: 35rpx;
         font-size: 28rpx;
         font-weight: 500;
-        color: #ff6000;
+        color: var(--shop-accent-text);
         line-height: normal;
         margin-right: 10rpx;
       }
@@ -371,12 +369,12 @@
       .confirm-btn {
         width: 220rpx;
         height: 70rpx;
-        background: linear-gradient(90deg, #ff6000, #fe832a);
-        box-shadow: 0 0.2em 0.5em rgba(#ff6000, 0.4);
+        background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
+        box-shadow: 0 0.2em 0.5em var(--ui-BG-Main-light);
         border-radius: 35rpx;
         font-size: 28rpx;
         font-weight: 500;
-        color: #ffffff;
+        color: var(--ui-BG-Main-TC);
         line-height: normal;
       }
     }
@@ -386,14 +384,19 @@
   .activity-title {
     font-size: 32rpx;
     font-weight: 500;
-    color: #333333;
+    color: var(--ui-TC, #333333);
     line-height: normal;
+  }
+
+  .activity-card {
+    background: var(--ui-BG);
+    border-top: 1rpx solid var(--ui-Border);
   }
 
   .activity-des {
     font-size: 26rpx;
     font-weight: 500;
-    color: #666666;
+    color: var(--ui-TC-2, #666666);
     line-height: 40rpx;
   }
 
@@ -406,7 +409,7 @@
   .rewardTxt {
     width: 74rpx;
     height: 32rpx;
-    background-color: #f4b409;
+    background-color: var(--ui-BG-Main);
     border-radius: 16rpx;
     font-size: 20rpx;
     color: var(--ui-BG-Main-TC);
@@ -447,6 +450,6 @@
   }
 
   .on {
-    color: #f4b409;
+    color: var(--shop-accent-text);
   }
 </style>

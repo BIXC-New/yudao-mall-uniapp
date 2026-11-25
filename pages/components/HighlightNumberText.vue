@@ -70,12 +70,12 @@
 
 <style scoped>
   .highlight-number {
-    color: #ff5722;
+    color: var(--shop-accent-text, var(--ui-BG-Main));
     font-weight: bold;
   }
 
   .phone-number {
-    color: #007AFF;
+    color: var(--shop-accent-text, var(--ui-BG-Main));
     text-decoration: underline;
   }
 </style>

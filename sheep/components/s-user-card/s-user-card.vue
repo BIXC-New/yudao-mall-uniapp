@@ -4,16 +4,25 @@
     <view class="ss-flex ss-col-center ss-row-between ss-m-b-20">
       <view class="left-box ss-flex ss-col-center ss-m-l-36">
         <view class="avatar-box ss-m-r-24">
-          <image class="avatar-img" :src="
+          <image
+            class="avatar-img"
+            :src="
               isLogin && userInfo.avatar
                 ? sheep.$url.cdn(userInfo.avatar)
-                : sheep.$url.static('/static/img/shop/default_avatar.png')"
-                 mode="aspectFill" @tap="sheep.$router.go('/pages/user/info')">
+                : '/static/theme/avatar.svg'
+            "
+            mode="aspectFill"
+            @tap="sheep.$router.go('/pages/user/info')"
+          >
           </image>
         </view>
         <view>
           <view class="nickname-box ss-flex ss-col-center">
-            <view class="nick-name ss-m-r-20">{{ userInfo?.nickname || nickname }}</view>
+            <view
+              class="nick-name ss-m-r-20"
+              @tap="isLogin ? sheep.$router.go('/pages/user/info') : showAuthModal()"
+              >{{ isLogin ? userInfo?.nickname || '我的账户' : nickname }}</view
+            >
           </view>
         </view>
       </view>
@@ -55,10 +64,7 @@
    */
   import { computed } from 'vue';
   import sheep from '@/sheep';
-  import {
-    showShareModal,
-    showAuthModal,
-  } from '@/sheep/hooks/useModal';
+  import { showShareModal, showAuthModal } from '@/sheep/hooks/useModal';
 
   // 用户信息
   const userInfo = computed(() => sheep.$store('user').userInfo);
@@ -107,9 +113,7 @@
 
     // 根据 bgType 返回相应的样式
     return {
-      background: bgType === 'img'
-        ? `url(${bgImg}) no-repeat top center / 100% 100%`
-        : bgColor,
+      background: bgType === 'img' ? `url(${bgImg}) no-repeat top center / 100% 100%` : bgColor,
     };
   });
 
@@ -138,7 +142,7 @@
     .nick-name {
       font-size: 34rpx;
       font-weight: 400;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       line-height: normal;
     }
 
@@ -157,7 +161,7 @@
     height: 84rpx;
     padding: 0 34rpx 0 44rpx;
     box-sizing: border-box;
-    background: #ffffff;
+    background: var(--ui-BG, #fff);
     box-shadow: 0px -8rpx 9rpx 0px rgba(#e0e0e0, 0.3);
 
     .cicon-mobile-o {

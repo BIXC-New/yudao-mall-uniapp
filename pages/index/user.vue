@@ -22,13 +22,19 @@
   import { computed } from 'vue';
   import { onShow, onPageScroll, onPullDownRefresh } from '@dcloudio/uni-app';
   import sheep from '@/sheep';
+  import { themePage } from '@/sheep/theme';
 
   // 隐藏原生tabBar
   uni.hideTabBar({
     fail: () => {},
   });
 
-  const template = computed(() => sheep.$store('app').template.user);
+  const template = computed(() =>
+    themePage(
+      sheep.$store('app').template.user,
+      sheep.$store('app').template.basic?.tabbar?.themeConfig?.followTheme !== false,
+    ),
+  );
 
   onShow(() => {
     sheep.$store('user').updateUserData();

@@ -84,7 +84,7 @@
     },
     titleColor: {
       type: String,
-      default: '#333',
+      default: 'var(--ui-TC, #333)',
     },
     subTitleColor: {
       type: String,
@@ -131,7 +131,7 @@
     height: 424rpx;
     position: relative;
     z-index: 1;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     .icon-box {
       position: absolute;
       left: 20rpx;
@@ -169,13 +169,13 @@
 
     .md-goods-title {
       font-size: 26rpx;
-      color: #333;
+      color: var(--ui-TC, #303030);
       width: 100%;
     }
     .md-goods-subtitle {
       font-size: 24rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
     }
   }
   .sl-goods-card {
@@ -184,7 +184,7 @@
     z-index: 1;
     width: 100%;
     height: 400rpx;
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     .icon-box {
       position: absolute;
       left: 20rpx;
@@ -222,13 +222,13 @@
 
     .sl-goods-title {
       font-size: 26rpx;
-      color: #333;
+      color: var(--ui-TC, #303030);
       width: 100%;
     }
     .sl-goods-subtitle {
       font-size: 24rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
     }
   }
 </style>

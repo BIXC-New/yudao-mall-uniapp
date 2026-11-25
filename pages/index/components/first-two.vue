@@ -39,7 +39,7 @@
 
     .goods-content {
       width: 100%;
-      background: #ffffff;
+      background: var(--ui-BG, #ffffff);
       box-shadow: 0px 0px 20rpx 4rpx rgba(199, 199, 199, 0.22);
       padding: 20rpx 0 32rpx 16rpx;
       box-sizing: border-box;
@@ -48,7 +48,7 @@
       .goods-title {
         font-size: 26rpx;
         font-weight: bold;
-        color: #333333;
+        color: var(--ui-TC, #333333);
       }
 
       .goods-price {

@@ -230,7 +230,7 @@
   .cart-box {
     .cart-header {
       height: 70rpx;
-      background-color: #f6f6f6;
+      background-color: var(--ui-BG-1, #f6f6f6);
       width: 100%;
       position: fixed;
       left: 0;
@@ -241,7 +241,7 @@
 
     .cart-footer {
       height: 100rpx;
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
 
       .pay-btn {
         height: 80rpx;
@@ -258,7 +258,7 @@
       box-sizing: border-box;
       margin-top: 70rpx;
       .goods-box {
-        background-color: #fff;
+        background-color: var(--ui-BG, #fff);
         &:last-child {
           margin-bottom: 40rpx;
         }
@@ -286,17 +286,17 @@
     .title-text {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
 
     .params-box {
       .params-title {
         height: 38rpx;
-        background: #f4f4f4;
+        background: var(--ui-BG-2, #f4f4f4);
         border-radius: 2rpx;
         font-size: 24rpx;
         font-weight: 400;
-        color: #666666;
+        color: var(--ui-TC-1, #525252);
       }
     }
 

@@ -356,7 +356,7 @@
   }
 
   .list-filter-tabs {
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
   }
 
   .filter-list-box {
@@ -365,7 +365,7 @@
     .filter-item {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       line-height: normal;
       margin-bottom: 24rpx;
 

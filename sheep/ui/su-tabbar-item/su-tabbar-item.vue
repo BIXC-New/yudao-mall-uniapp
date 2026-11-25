@@ -216,13 +216,20 @@
     &__icon {
       display: flex;
       position: relative;
-      width: 150rpx;
+      width: 100%;
+      height: 22px;
+      align-items: center;
       justify-content: center;
     }
 
     &__text {
-      margin-top: 2px;
+      max-width: 100%;
+      margin-top: 3px;
       font-size: 12px;
+      line-height: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       color: var(--textSize);
     }
   }

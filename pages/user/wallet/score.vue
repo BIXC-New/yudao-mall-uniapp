@@ -222,36 +222,36 @@
     .total-box {
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
     }
 
     .date-btn {
-      background-color: $white;
+      background-color: var(--ui-BG, #fff);
       line-height: 54rpx;
       border-radius: 27rpx;
       padding: 0 20rpx;
       font-size: 24rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: var(--ui-TC-1, #525252);
 
       .ss-seldate-icon {
         font-size: 50rpx;
-        color: $dark-9;
+        color: var(--ui-TC-2, #777777);
       }
     }
   }
 
   .list-box {
     .list-item {
-      background: #fff;
-      border-bottom: 1rpx solid #dfdfdf;
+      background: var(--ui-BG, #fff);
+      border-bottom: 1rpx solid var(--ui-Border, #dfdfdf);
       padding: 30rpx;
 
       .name {
         font-size: 28rpx;
 
         font-weight: 500;
-        color: rgba(102, 102, 102, 1);
+        color: var(--ui-TC-2);
         line-height: 28rpx;
         margin-bottom: 20rpx;
       }
@@ -275,7 +275,7 @@
         font-size: 30rpx;
 
         font-weight: 500;
-        color: $dark-3;
+        color: var(--ui-TC, #303030);
       }
     }
   }

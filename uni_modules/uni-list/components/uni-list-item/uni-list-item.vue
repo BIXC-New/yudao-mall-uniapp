@@ -185,7 +185,7 @@ export default {
 			default() {
 				return {
 					type: '',
-					color: '#000000',
+					color: 'var(--ui-TC-2, #666666)',
 					size: 20
 				};
 			}
@@ -312,7 +312,7 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 	opacity: 0.3;
 }
 .uni-list-item--hover {
-	background-color: $uni-bg-color-hover;
+	background-color: var(--ui-BG-2, #f1f1f1);
 }
 .uni-list-item__container {
 	position: relative;
@@ -362,7 +362,7 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 	/* #endif */
 	padding-right: 8px;
 	flex: 1;
-	color: #3b4144;
+	color: var(--ui-TC, #3b4144);
 	// overflow: hidden;
 	flex-direction: column;
 	justify-content: space-between;
@@ -373,12 +373,12 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 }
 .uni-list-item__content-title {
 	font-size: $uni-font-size-base;
-	color: #3b4144;
+	color: var(--ui-TC, #3b4144);
 	overflow: hidden;
 }
 .uni-list-item__content-note {
 	margin-top: 6rpx;
-	color: $uni-text-color-grey;
+	color: var(--ui-TC-2, #777777);
 	font-size: $uni-font-size-sm;
 	overflow: hidden;
 }
@@ -443,7 +443,7 @@ $list-item-pd: $uni-spacing-col-lg $uni-spacing-row-lg;
 	width: $uni-img-size-sm;
 }
 .uni-list-item__extra-text {
-	color: $uni-text-color-grey;
+	color: var(--ui-TC-2, #777777);
 	font-size: $uni-font-size-sm;
 }
 .uni-ellipsis-1 {

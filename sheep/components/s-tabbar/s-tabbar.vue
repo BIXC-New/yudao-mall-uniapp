@@ -5,8 +5,8 @@
       :fixed="true"
       :placeholder="true"
       :safeAreaInsetBottom="true"
-      :inactiveColor="tabbar.style.color"
-      :activeColor="tabbar.style.activeColor"
+      :inactiveColor="followTheme ? 'var(--ui-TC-2)' : tabbar.style.color"
+      :activeColor="followTheme ? 'var(--shop-accent-text)' : tabbar.style.activeColor"
       :midTabBar="tabbar.mode === 2"
       :customStyle="tabbarStyle"
     >
@@ -14,7 +14,7 @@
         v-for="(item, index) in tabbar.items"
         :key="item.text"
         :text="item.text"
-        :name="item.url"
+        :name="item.url.split('?')[0]"
         :badge="item.badge"
         :dot="item.dot"
         :badgeStyle="tabbar.badgeStyle"
@@ -23,10 +23,26 @@
         @click="sheep.$router.go(item.url)"
       >
         <template v-slot:active-icon>
-          <image class="u-page__item__slot-icon" :src="sheep.$url.cdn(item.activeIconUrl)"></image>
+          <uni-icons
+            v-if="followTheme && getThemeIcon(item.iconUrl)"
+            :type="getThemeIcon(item.iconUrl)"
+            size="24"
+            color="var(--shop-accent-text)"
+          />
+          <image
+            v-else
+            class="u-page__item__slot-icon"
+            :src="sheep.$url.cdn(item.activeIconUrl)"
+          ></image>
         </template>
         <template v-slot:inactive-icon>
-          <image class="u-page__item__slot-icon" :src="sheep.$url.cdn(item.iconUrl)"></image>
+          <uni-icons
+            v-if="followTheme && getThemeIcon(item.iconUrl)"
+            :type="getThemeIcon(item.iconUrl)"
+            size="24"
+            color="var(--ui-TC-2)"
+          />
+          <image v-else class="u-page__item__slot-icon" :src="sheep.$url.cdn(item.iconUrl)"></image>
         </template>
       </su-tabbar-item>
     </su-tabbar>
@@ -36,13 +52,16 @@
 <script setup>
   import { computed, unref } from 'vue';
   import sheep from '@/sheep';
+  import { getThemeIcon } from '@/sheep/theme';
   import SuTabbar from '@/sheep/ui/su-tabbar/su-tabbar.vue';
 
   const tabbar = computed(() => {
     return sheep.$store('app').template.basic?.tabbar;
   });
 
+  const followTheme = computed(() => tabbar.value?.themeConfig?.followTheme !== false);
   const tabbarStyle = computed(() => {
+    if (followTheme.value) return { background: 'var(--ui-BG)' };
     const backgroundStyle = tabbar.value.style;
     if (backgroundStyle.bgType === 'color') {
       return { background: backgroundStyle.bgColor };
@@ -57,7 +76,7 @@
 
   const getTabbarCenter = (index) => {
     if (unref(tabbar).mode !== 2) return false;
-    return unref(tabbar).items % 2 > 0
+    return unref(tabbar).items.length % 2 > 0
       ? Math.ceil(unref(tabbar).items.length / 2) === index + 1
       : false;
   };
@@ -75,7 +94,7 @@
     &__item {
       &__title {
         color: var(--textSize);
-        background-color: #fff;
+        background-color: var(--ui-BG, #fff);
         padding: 15px;
         font-size: 15px;
 

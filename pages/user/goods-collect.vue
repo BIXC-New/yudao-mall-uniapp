@@ -195,7 +195,7 @@
   .cart-box {
     .cart-header {
       height: 70rpx;
-      background-color: #f6f6f6;
+      background-color: var(--ui-BG-1, #f6f6f6);
       width: 100%;
       position: fixed;
       left: 0;
@@ -206,7 +206,7 @@
 
     .cart-footer {
       height: 100rpx;
-      background-color: #fff;
+      background-color: var(--ui-BG, #fff);
 
       .pay-btn {
         height: 80rpx;
@@ -223,7 +223,7 @@
       padding: 0 20rpx;
       box-sizing: border-box;
       .goods-box {
-        background-color: #fff;
+        background-color: var(--ui-BG, #fff);
         &:last-child {
           margin-bottom: 40rpx;
         }

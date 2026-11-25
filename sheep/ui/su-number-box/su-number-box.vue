@@ -85,7 +85,7 @@
       },
       color: {
         type: String,
-        default: '#333',
+        default: 'var(--ui-TC, #333)',
       },
       disabled: {
         type: Boolean,
@@ -186,7 +186,7 @@
 </script>
 <style lang="scss" scoped>
   .uni-numbox .uni-numbox--disabled {
-    color: #c0c0c0 !important;
+    color: var(--ui-TC-2, #c0c0c0) !important;
     /* #ifdef H5 */
     cursor: not-allowed;
     /* #endif */
@@ -216,10 +216,10 @@
   }
 
   .groupon-btn {
-    color: #ff6000;
+    color: var(--shop-accent-text, var(--ui-BG-Main));
   }
 
   .seckill-btn {
-    color: #ff5854;
+    color: var(--shop-accent-text, var(--ui-BG-Main));
   }
 </style>

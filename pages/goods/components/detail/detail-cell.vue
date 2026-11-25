@@ -41,20 +41,20 @@
     .label-text {
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
       margin-right: 38rpx;
     }
 
     .cell-content {
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: var(--ui-TC-1, #525252);
     }
 
     .right-forwrad-icon {
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
     }
   }
 </style>

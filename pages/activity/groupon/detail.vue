@@ -24,7 +24,7 @@
           :img="state.data.headRecord.picUrl"
           :title="state.data.headRecord.spuName"
           :price="state.data.headRecord.combinationPrice"
-          priceColor="#E1212B"
+          priceColor="var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main)))"
           @tap="
             sheep.$router.go('/pages/goods/groupon', {
               id: state.data.headRecord.activityId,
@@ -210,7 +210,6 @@
   import SpuApi from '@/sheep/api/product/spu';
   import { SharePageEnum } from '@/sheep/helper/const';
 
-  const headerBg = sheep.$url.css('/static/img/shop/user/withdraw_bg.png');
   const statusBarHeight = sheep.$platform.device.statusBarHeight * 2;
   const state = reactive({
     data: {}, // 拼团详情
@@ -348,8 +347,7 @@
   .recharge-box {
     position: relative;
     margin-bottom: 120rpx;
-    background: v-bind(headerBg) center/750rpx 100% no-repeat,
-      linear-gradient(115deg, #f44739 0%, #ff6600 100%);
+    background: var(--ui-BG-Main);
     border-radius: 0 0 5% 5%;
     height: 100rpx;
 
@@ -363,58 +361,58 @@
 
     .sales-title {
       height: 32rpx;
-      background: rgba(#ffe0e2, 0.29);
+      background: var(--ui-BG-Main-light, rgba(255, 255, 255, 0.16));
       border-radius: 16rpx;
       font-size: 24rpx;
       font-weight: 400;
       padding: 6rpx 20rpx;
-      color: #f7979c;
+      color: var(--ui-BG-Main-TC, #ffffff);
     }
 
     .num-title {
       font-size: 24rpx;
       font-weight: 400;
-      color: #999999;
+      color: var(--ui-TC-2, #999999);
     }
   }
 
   .countdown-time {
     font-size: 26rpx;
     font-weight: 500;
-    color: #383a46;
+    color: var(--ui-TC, #383a46);
     .countdown-h {
       font-size: 24rpx;
       font-family: OPPOSANS;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--ui-BG-Main-TC, #ffffff);
       padding: 0 4rpx;
       margin-left: 16rpx;
       height: 40rpx;
-      background: linear-gradient(90deg, #ff6000 0%, #fe832a 100%);
+      background: var(--ui-BG-Main);
       border-radius: 6rpx;
     }
     .countdown-num {
       font-size: 24rpx;
       font-family: OPPOSANS;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--ui-BG-Main-TC, #ffffff);
       width: 40rpx;
       height: 40rpx;
-      background: linear-gradient(90deg, #ff6000 0%, #fe832a 100%);
+      background: var(--ui-BG-Main);
       border-radius: 6rpx;
     }
   }
 
   .countdown-box {
     // height: 364rpx;
-    background: #ffffff;
+    background: var(--ui-BG, #ffffff);
     border-radius: 10rpx;
     box-sizing: border-box;
 
     .countdown-title {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #333333);
 
       .cicon-check-round {
         color: #42b111;
@@ -427,14 +425,14 @@
       }
 
       .num {
-        color: #ff6000;
+        color: var(--shop-accent-text, var(--ui-BG-Main));
       }
     }
 
     .header-avatar {
       width: 86rpx;
       height: 86rpx;
-      background: #ececec;
+      background: var(--ui-BG-2, #ececec);
       border-radius: 50%;
       border: 4rpx solid #edc36c;
       position: relative;
@@ -461,7 +459,7 @@
     .default-avatar {
       width: 86rpx;
       height: 86rpx;
-      background: #ececec;
+      background: var(--ui-BG-2, #ececec);
       border-radius: 50%;
       .avatar-img {
         width: 100%;
@@ -473,16 +471,16 @@
     .user-avatar {
       width: 86rpx;
       height: 86rpx;
-      background: #ececec;
+      background: var(--ui-BG-2, #ececec);
       border-radius: 50%;
     }
   }
   .order-btn {
     width: 668rpx;
     height: 70rpx;
-    border: 2rpx solid #dfdfdf;
+    border: 2rpx solid var(--ui-Border, #dfdfdf);
     border-radius: 35rpx;
-    color: #999999;
+    color: var(--ui-TC-2, #999999);
     font-weight: 500;
     font-size: 26rpx;
     line-height: normal;
@@ -491,9 +489,9 @@
   .disabled-btn {
     width: 668rpx;
     height: 70rpx;
-    background: #dddddd;
+    background: var(--ui-BG-3, #dddddd);
     border-radius: 35rpx;
-    color: #999999;
+    color: var(--ui-TC-2, #999999);
     font-weight: 500;
     font-size: 28rpx;
     line-height: normal;
@@ -502,10 +500,10 @@
   .join-btn {
     width: 668rpx;
     height: 70rpx;
-    background: linear-gradient(90deg, #ff6000 0%, #fe832a 100%);
-    box-shadow: 0px 8rpx 6rpx 0px rgba(255, 104, 4, 0.22);
+    background: var(--ui-BG-Main);
+    box-shadow: 0 8rpx 12rpx rgba(0, 0, 0, 0.12);
     border-radius: 35rpx;
-    color: #fff;
+    color: var(--ui-BG-Main-TC, #ffffff);
     font-weight: 500;
     font-size: 28rpx;
     line-height: normal;
@@ -515,8 +513,8 @@
     width: 100%;
     padding: 10rpx 20rpx;
     box-sizing: border-box;
-    border-top: 2rpx solid #dfdfdf;
-    background-color: #fff;
+    border-top: 2rpx solid var(--ui-Border, #dfdfdf);
+    background-color: var(--ui-BG, #fff);
     // min-height: 60rpx;
 
     .label-text {
@@ -527,13 +525,13 @@
     .cell-content {
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-6;
+      color: var(--ui-TC-2, $dark-6);
     }
 
     .right-forwrad-icon {
       font-size: 28rpx;
       font-weight: 500;
-      color: $dark-9;
+      color: var(--ui-TC-2, $dark-9);
     }
   }
 </style>

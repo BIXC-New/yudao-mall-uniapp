@@ -84,7 +84,7 @@
     .skeleton-banner {
       width: 100%;
       height: calc(100vh - 882rpx);
-      background: #f4f4f4;
+      background: var(--ui-BG-2, #f4f4f4);
     }
 
     .container-box {
@@ -170,7 +170,7 @@
 
         border-radius: 0 40rpx 40rpx 0;
         background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-        color: $white;
+        color: var(--ui-BG-Main-TC, $white);
       }
     }
   }

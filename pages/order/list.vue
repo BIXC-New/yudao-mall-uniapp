@@ -1,7 +1,7 @@
 <!-- 订单列表 -->
 <template>
   <s-layout title="我的订单">
-    <su-sticky bgColor="#fff">
+    <su-sticky bgColor="var(--ui-BG)">
       <su-tabs
         :list="tabMaps"
         :scrollable="false"
@@ -37,7 +37,9 @@
             <view class="discounts-title pay-color"
               >共 {{ order.productCount }} 件商品,总金额:</view
             >
-            <view class="discounts-money pay-color"> ￥{{ fen2yuan(order.payPrice) }} </view>
+            <view class="discounts-money pay-color price-emphasis">
+              ￥{{ fen2yuan(order.payPrice) }}
+            </view>
           </view>
         </view>
         <view
@@ -376,9 +378,10 @@
   .tool-btn {
     width: 160rpx;
     height: 60rpx;
-    background: #f6f6f6;
+    background: var(--ui-BG-1, #f6f6f6);
     font-size: 26rpx;
     border-radius: 30rpx;
+    color: var(--ui-TC, #303030);
     margin-right: 10rpx;
 
     &:last-of-type {
@@ -389,8 +392,9 @@
   .delete-btn {
     width: 160rpx;
     height: 56rpx;
-    color: #ff3000;
-    background: #fee;
+    color: var(--shop-accent-text, var(--ui-BG-Main));
+    background: var(--ui-BG-Main-opacity-1, rgba(0, 0, 0, 0.08));
+    border: 1rpx solid var(--ui-Border, #443d33);
     border-radius: 28rpx;
     font-size: 26rpx;
     margin-right: 10rpx;
@@ -401,12 +405,16 @@
     }
   }
 
+  .price-emphasis {
+    color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main))) !important;
+  }
+
   .apply-btn {
     width: 140rpx;
     height: 50rpx;
     border-radius: 25rpx;
     font-size: 24rpx;
-    border: 2rpx solid #dcdcdc;
+    border: 2rpx solid var(--ui-Border, #dcdcdc);
     line-height: normal;
     margin-left: 16rpx;
   }
@@ -427,9 +435,24 @@
       .order-no {
         font-size: 26rpx;
         font-weight: 500;
+        color: var(--ui-TC, #303030);
       }
 
       .order-state {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42rpx;
+        padding: 0 14rpx;
+        border-radius: 22rpx;
+        font-size: 23rpx;
+        line-height: 1.4;
+        background: var(--ui-BG-Main-opacity-1, rgba(0, 0, 0, 0.06));
+        color: var(--shop-accent-text, var(--ui-BG-Main));
+      }
+
+      .order-state.danger-color {
+        background: var(--ui-BG-2, rgba(127, 127, 127, 0.12));
+        color: var(--ui-TC-2, #777777);
       }
     }
 
@@ -437,18 +460,18 @@
       .discounts-title {
         font-size: 24rpx;
         line-height: normal;
-        color: #999999;
+        color: var(--ui-TC-2, #777777);
       }
 
       .discounts-money {
         font-size: 24rpx;
         line-height: normal;
-        color: #999;
+        color: var(--ui-TC-2, #777777);
         font-family: OPPOSANS;
       }
 
       .pay-color {
-        color: #333;
+        color: var(--ui-TC, #303030);
       }
     }
 
@@ -468,13 +491,13 @@
       }
 
       .more-btn {
-        color: $dark-9;
+        color: var(--ui-TC-2, #777777);
         font-size: 24rpx;
       }
 
       .content {
         width: 154rpx;
-        color: #333333;
+        color: var(--ui-TC, #303030);
         font-size: 26rpx;
         font-weight: 500;
       }
@@ -498,6 +521,6 @@
   }
 
   .info-color {
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
   }
 </style>

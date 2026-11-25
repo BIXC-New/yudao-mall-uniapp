@@ -35,7 +35,7 @@
         <view class="order-item ss-flex ss-col-center ss-row-between">
           <view class="item-title">商品金额</view>
           <view class="ss-flex ss-col-center">
-            <text class="item-value ss-m-r-24">
+            <text class="item-value price-emphasis ss-m-r-24">
               ￥{{ fen2yuan(state.orderInfo.price.totalPrice) }}
             </text>
           </view>
@@ -75,8 +75,11 @@
             </text>
             <checkbox-group @change="changeIntegral" v-if="!state.orderPayload.pointActivityId">
               <checkbox
+                class="integral-checkbox"
                 :checked="state.pointStatus"
                 :disabled="!state.orderInfo.totalPoint || state.orderInfo.totalPoint <= 0"
+                color="var(--shop-accent-text, var(--ui-BG-Main))"
+                style="transform: scale(0.78)"
               />
             </checkbox-group>
           </view>
@@ -88,10 +91,10 @@
         >
           <view class="item-title">运费</view>
           <view class="ss-flex ss-col-center">
-            <text class="item-value ss-m-r-24" v-if="state.orderInfo.price.deliveryPrice > 0">
+            <text class="item-value price-emphasis ss-m-r-24" v-if="state.orderInfo.price.deliveryPrice > 0">
               +￥{{ fen2yuan(state.orderInfo.price.deliveryPrice) }}
             </text>
-            <view class="item-value ss-m-r-24" v-else>免运费</view>
+            <view class="item-value price-emphasis ss-m-r-24" v-else>免运费</view>
           </view>
         </view>
         <!-- 门店自提时，需要填写姓名和手机号 -->
@@ -132,14 +135,14 @@
         >
           <view class="item-title">优惠券</view>
           <view class="ss-flex ss-col-center" @tap="state.showCoupon = true">
-            <text class="item-value text-red" v-if="state.orderPayload.couponId > 0">
+            <text class="item-value price-emphasis" v-if="state.orderPayload.couponId > 0">
               -￥{{ fen2yuan(state.orderInfo.price.couponPrice) }}
             </text>
             <text
               class="item-value"
               :class="
                 state.couponInfo.filter((coupon) => coupon.match).length > 0
-                  ? 'text-red'
+                  ? 'price-emphasis'
                   : 'text-disabled'
               "
               v-else
@@ -159,7 +162,7 @@
         >
           <view class="item-title">活动优惠</view>
           <view class="ss-flex ss-col-center" @tap="state.showDiscount = true">
-            <text class="item-value text-red">
+            <text class="item-value price-emphasis">
               -￥{{ fen2yuan(state.orderInfo.price.discountPrice) }}
             </text>
             <text class="_icon-forward item-icon" />
@@ -171,7 +174,7 @@
         >
           <view class="item-title">会员优惠</view>
           <view class="ss-flex ss-col-center">
-            <text class="item-value text-red">
+            <text class="item-value price-emphasis">
               -￥{{ fen2yuan(state.orderInfo.price.vipPrice) }}
             </text>
           </view>
@@ -182,7 +185,7 @@
           共{{ state.orderInfo.items.reduce((acc, item) => acc + item.count, 0) }}件
         </view>
         <view>合计：</view>
-        <view class="total-num text-red"> ￥{{ fen2yuan(state.orderInfo.price.payPrice) }}</view>
+        <view class="total-num price-emphasis"> ￥{{ fen2yuan(state.orderInfo.price.payPrice) }}</view>
       </view>
     </view>
 
@@ -205,7 +208,7 @@
     <su-fixed bottom :opacity="false" bg="bg-white" placeholder :noFixed="false" :index="200">
       <view class="footer-box border-top ss-flex ss-row-between ss-p-x-20 ss-col-center">
         <view class="total-box-footer ss-flex ss-col-center">
-          <view class="total-num ss-font-30 text-red">
+          <view class="total-num ss-font-30 price-emphasis">
             ￥{{ fen2yuan(state.orderInfo.price.payPrice) }}
           </view>
         </view>
@@ -421,7 +424,7 @@
 
       .uni-input-input {
         font-weight: 500;
-        color: #333333;
+        color: var(--ui-TC, #303030);
         font-size: 26rpx;
         height: 32rpx;
         margin-top: 4rpx;
@@ -435,6 +438,21 @@
     }
   }
 
+  :deep(.integral-checkbox .uni-checkbox-input),
+  :deep(.integral-checkbox .wx-checkbox-input) {
+    border-color: var(--ui-Border, #443d33) !important;
+    background-color: var(--ui-BG, #24211e) !important;
+    border-radius: 8rpx !important;
+  }
+
+  :deep(.integral-checkbox .uni-checkbox-input svg path) {
+    fill: var(--shop-accent-text, var(--ui-BG-Main)) !important;
+  }
+
+  :deep(.integral-checkbox .wx-checkbox-input::before) {
+    color: var(--shop-accent-text, var(--ui-BG-Main)) !important;
+  }
+
   .score-img {
     width: 36rpx;
     height: 36rpx;
@@ -443,10 +461,12 @@
 
   .order-item {
     height: 80rpx;
+    color: var(--ui-TC, #303030);
 
     .item-title {
       font-size: 28rpx;
       font-weight: 400;
+      color: var(--ui-TC, #303030);
     }
 
     .item-value {
@@ -456,11 +476,11 @@
     }
 
     .text-disabled {
-      color: #bbbbbb;
+      color: var(--ui-TC-2, #bbbbbb);
     }
 
     .item-icon {
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
     }
 
     .remark-input {
@@ -468,17 +488,22 @@
     }
 
     .item-placeholder {
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
       font-size: 26rpx;
       text-align: right;
     }
   }
 
+  .price-emphasis {
+    color: var(--shop-price, var(--shop-accent-text, var(--ui-BG-Main))) !important;
+  }
+
   .total-box-footer {
     height: 90rpx;
+    color: var(--ui-TC, #303030);
 
     .total-num {
-      color: #333333;
+      color: var(--ui-TC, #303030);
       font-family: OPPOSANS;
     }
   }
@@ -501,20 +526,20 @@
       width: 240rpx;
       height: 80rpx;
       font-size: 26rpx;
-      background-color: #e5e5e5;
-      color: $dark-9;
+      background-color: var(--ui-BG-2, #e5e5e5);
+      color: var(--ui-TC-2, #777777);
     }
   }
 
   .title {
     font-size: 36rpx;
     font-weight: bold;
-    color: #333333;
+    color: var(--ui-TC, #303030);
   }
 
   .subtitle {
     font-size: 28rpx;
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
   }
 
   .cicon-checkbox {
@@ -524,6 +549,6 @@
 
   .cicon-box {
     font-size: 36rpx;
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
   }
 </style>

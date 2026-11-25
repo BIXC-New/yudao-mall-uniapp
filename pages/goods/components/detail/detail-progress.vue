@@ -28,7 +28,7 @@
   .progress-box {
     width: 168rpx;
     height: 18rpx;
-    background: #f6f6f6;
+    background: var(--ui-BG-1, #f6f6f6);
     border-radius: 9rpx;
   }
 

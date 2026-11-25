@@ -65,7 +65,7 @@
     .title {
       font-size: 28rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #333333);
       line-height: 30rpx;
       max-width: 688rpx;
     }
@@ -108,11 +108,11 @@
   }
 
   .content {
-    border-bottom: 1rpx solid #dfdfdf;
+    border-bottom: 1rpx solid var(--ui-Border, #dfdfdf);
 
     .text {
       font-size: 26rpx;
-      color: #666666;
+      color: var(--ui-TC-2, #666666);
     }
   }
 </style>

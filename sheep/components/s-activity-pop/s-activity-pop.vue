@@ -114,7 +114,7 @@
       font-size: 36rpx;
       height: 80rpx;
       font-weight: bold;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
   }
 
@@ -129,7 +129,7 @@
       // background: rgba(#ff6911, 0.1);
       font-size: 35rpx;
       font-weight: 500;
-      color: #ff6911;
+      color: var(--shop-accent-text, var(--ui-BG-Main));
       line-height: 150rpx;
       width: 200rpx;
       height: 150rpx;
@@ -143,13 +143,13 @@
       height: 150rpx;
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
       overflow: hidden;
     }
 
     .cicon-forward {
       font-size: 28rpx;
-      color: #999999;
+      color: var(--ui-TC-2, #777777);
       margin: 0 auto;
     }
   }
@@ -163,7 +163,8 @@
   .actBox {
     width: 700rpx;
     height: 150rpx;
-    background-color: #fff2f2;
+    background-color: var(--shop-promo-bg, var(--ui-BG-2));
+    color: var(--ui-TC, #303030);
     margin: 10rpx auto;
     border-radius: 10rpx;
   }
@@ -188,13 +189,13 @@
     height: 70rpx;
     line-height: 70rpx;
     font-size: 25rpx;
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
   }
 
   .model-content-tag2 {
     font-size: 35rpx;
     font-weight: 500;
-    color: #ff6911;
+    color: var(--shop-accent-text, var(--ui-BG-Main));
     width: 200rpx;
     height: 150rpx;
     text-align: center;
@@ -220,7 +221,7 @@
     height: 150rpx;
     font-size: 26rpx;
     font-weight: 500;
-    color: #333333;
+    color: var(--ui-TC, #303030);
     overflow: hidden;
   }
 
@@ -228,8 +229,8 @@
     width: 150rpx;
     height: 50rpx;
     line-height: 50rpx;
-    background-color: rgb(255, 68, 68);
-    color: white;
+    background-color: var(--ui-BG-Main);
+    color: var(--ui-BG-Main-TC, #ffffff);
     border-radius: 30rpx;
     text-align: center;
     font-size: 25rpx;
@@ -239,8 +240,8 @@
     width: 150rpx;
     height: 50rpx;
     line-height: 50rpx;
-    background-color: rgb(203, 192, 191);
-    color: white;
+    background-color: var(--ui-BG-3);
+    color: var(--ui-TC-2, #777777);
     border-radius: 30rpx;
     text-align: center;
     font-size: 25rpx;
@@ -251,6 +252,6 @@
     font-size: 25rpx;
     line-height: 300rpx;
     text-align: center;
-    color: #999999;
+    color: var(--ui-TC-2, #777777);
   }
 </style>

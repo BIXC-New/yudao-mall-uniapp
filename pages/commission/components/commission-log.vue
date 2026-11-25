@@ -2,7 +2,6 @@
 <template>
   <view class="distribution-log-wrap">
     <view class="header-box">
-      <image class="header-bg" :src="sheep.$url.static('/static/img/shop/commission/title2.png')" />
       <view class="ss-flex header-title">
         <view class="title">实时动态</view>
         <text class="cicon-forward" />
@@ -42,7 +41,7 @@
       <uni-load-more
         v-if="state.pagination.total > 0"
         :status="state.loadStatus"
-        color="#333333"
+        color="var(--ui-TC)"
         @tap="loadmore"
       />
     </scroll-view>
@@ -106,11 +105,8 @@
       width: 690rpx;
       height: 76rpx;
       position: relative;
-
-      .header-bg {
-        width: 690rpx;
-        height: 76rpx;
-      }
+      background: var(--ui-BG-3);
+      border-radius: 12rpx 12rpx 0 0;
 
       .header-title {
         position: absolute;
@@ -121,21 +117,22 @@
       .title {
         font-size: 28rpx;
         font-weight: 500;
-        color: #ffffff;
+        color: var(--ui-TC);
         line-height: 30rpx;
       }
 
       .cicon-forward {
         font-size: 30rpx;
         font-weight: 400;
-        color: #ffffff;
+        color: var(--shop-accent-text);
         line-height: 30rpx;
       }
     }
 
     .log-scroll {
       height: 600rpx;
-      background: #fdfae9;
+      background: var(--ui-BG);
+      color: var(--ui-TC);
       padding: 10rpx 20rpx 0;
       box-sizing: border-box;
       border-radius: 0 0 12rpx 12rpx;
@@ -149,7 +146,7 @@
           font-size: 24rpx;
           font-family: OPPOSANS;
           font-weight: 400;
-          color: #c4c4c4;
+          color: var(--ui-TC-2);
         }
       }
 
@@ -173,7 +170,7 @@
           max-width: 480rpx;
           font-size: 24rpx;
           font-weight: 500;
-          color: #333333;
+          color: var(--ui-TC);
         }
       }
     }

@@ -1,7 +1,7 @@
 <!-- 优惠券中心  -->
 <template>
   <s-layout :bgStyle="{ color: '#f2f2f2' }" title="优惠券">
-    <su-sticky bgColor="#fff">
+    <su-sticky bgColor="var(--ui-BG)">
       <su-tabs
         :list="tabMaps"
         :scrollable="false"
@@ -204,19 +204,19 @@
     height: 50rpx;
     border-radius: 40rpx;
     background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
-    color: #ffffff;
+    color: var(--ui-BG-Main-TC, #ffffff);
     font-size: 24rpx;
     font-weight: 400;
   }
 
   .border-btn {
-    background: linear-gradient(90deg, var(--ui-BG-Main-opacity-4), var(--ui-BG-Main-light));
-    color: #fff !important;
+    background: var(--shop-promo-bg, var(--ui-BG-2));
+    color: var(--shop-promo-text, var(--shop-accent-text)) !important;
   }
 
   .disabled-btn {
     background: #cccccc;
     background-color: #cccccc !important;
-    color: #fff !important;
+    color: #303030 !important;
   }
 </style>

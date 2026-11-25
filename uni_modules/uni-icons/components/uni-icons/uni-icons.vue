@@ -42,7 +42,7 @@
 			},
 			color: {
 				type: String,
-				default: '#333333'
+				default: 'var(--ui-TC-2, #333333)'
 			},
 			size: {
 				type: [Number, String],

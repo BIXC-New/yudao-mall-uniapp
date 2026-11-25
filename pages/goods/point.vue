@@ -133,8 +133,6 @@
   import PointApi from '@/sheep/api/promotion/point';
 
   const headerBg = sheep.$url.css('/static/img/shop/goods/score-bg.png');
-  const btnBg = sheep.$url.css('/static/img/shop/goods/seckill-btn.png');
-  const disabledBtnBg = sheep.$url.css('/static/img/shop/goods/activity-btn-disabled.png');
   const seckillBg = sheep.$url.css('/static/img/shop/goods/seckill-tip-bg.png');
   const grouponBg = sheep.$url.css('/static/img/shop/goods/groupon-tip-bg.png');
 
@@ -270,11 +268,11 @@
 
 <style lang="scss" scoped>
   .disabled-btn-box[disabled] {
-    background-color: transparent;
+    background: var(--ui-BG-3);
   }
 
   .detail-card {
-    background-color: $white;
+    background-color: var(--ui-BG, #fff);
     margin: 14rpx 20rpx;
     border-radius: 10rpx;
     overflow: hidden;
@@ -299,7 +297,7 @@
       .point-text {
         font-size: 42rpx;
         font-weight: 500;
-        color: #ff3000;
+        color: var(--shop-price, var(--ui-BG-Main));
         line-height: 36rpx;
         font-family: OPPOSANS;
       }
@@ -307,7 +305,7 @@
       .price-text {
         font-size: 42rpx;
         font-weight: 500;
-        color: #ff3000;
+        color: var(--shop-price, var(--ui-BG-Main));
         line-height: 36rpx;
         font-family: OPPOSANS;
       }
@@ -317,14 +315,14 @@
       font-size: 26rpx;
       font-weight: 400;
       text-decoration: line-through;
-      color: $gray-c;
+      color: var(--ui-TC-2, $gray-c);
       font-family: OPPOSANS;
     }
 
     .sales-text {
       font-size: 26rpx;
       font-weight: 500;
-      color: $gray-c;
+      color: var(--ui-TC-2, $gray-c);
     }
 
     .discounts-box {
@@ -362,7 +360,7 @@
     .subtitle-text {
       font-size: 26rpx;
       font-weight: 400;
-      color: $dark-9;
+      color: var(--ui-TC-2, #777777);
       line-height: 42rpx;
     }
   }
@@ -375,10 +373,8 @@
       font-size: 24rpx;
       font-weight: 600;
       margin-left: -36rpx;
-      background-image: v-bind(btnBg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      color: #ffffff;
+      background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
+      color: var(--ui-BG-Main-TC);
       line-height: normal;
       border-radius: 0px 40rpx 40rpx 0px;
     }
@@ -389,10 +385,9 @@
       font-size: 24rpx;
       font-weight: 600;
       margin-left: -36rpx;
-      background-image: v-bind(disabledBtnBg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      color: #999999;
+      background: var(--ui-BG-3);
+      border: 1rpx solid var(--ui-Border);
+      color: var(--ui-Disabled-TC);
       line-height: normal;
       border-radius: 0px 40rpx 40rpx 0px;
     }
@@ -408,8 +403,8 @@
     .origin-price-btn {
       width: 236rpx;
       height: 80rpx;
-      background: rgba(#ff5651, 0.1);
-      color: #ff6000;
+      background: var(--ui-BG-Main-light);
+      color: var(--shop-accent-text);
       border-radius: 40rpx 0px 0px 40rpx;
       line-height: normal;
       font-size: 24rpx;
@@ -458,10 +453,10 @@
     .activity-go {
       width: 70rpx;
       height: 32rpx;
-      background: #ffffff;
+      background: var(--ui-BG, #fff);
       border-radius: 16rpx;
       font-weight: 500;
-      color: #ff6000;
+      color: var(--shop-accent-text);
       font-size: 24rpx;
       line-height: normal;
     }
@@ -471,13 +466,13 @@
     .title {
       font-size: 36rpx;
       font-weight: bold;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
 
     .subtitle {
       font-size: 26rpx;
       font-weight: 500;
-      color: #333333;
+      color: var(--ui-TC, #303030);
     }
   }
 </style>

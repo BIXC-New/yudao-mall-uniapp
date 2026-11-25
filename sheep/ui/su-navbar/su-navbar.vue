@@ -281,7 +281,7 @@
     color: #fff !important;
   }
   .icon-box {
-    background: #ffffff;
+    background: var(--ui-BG, #fff);
     box-shadow: 0px 0px 4rpx rgba(51, 51, 51, 0.08), 0px 4rpx 6rpx 2rpx rgba(102, 102, 102, 0.12);
     border-radius: 30rpx;
     width: 134rpx;
@@ -294,15 +294,15 @@
     }
     .sicon-back {
       font-size: 32rpx;
-      color: #000;
+      color: var(--ui-TC, #303030);
     }
     .sicon-home {
       font-size: 32rpx;
-      color: #000;
+      color: var(--ui-TC, #303030);
     }
     .sicon-more {
       font-size: 32rpx;
-      color: #000;
+      color: var(--ui-TC, #303030);
     }
     .icon-button {
       width: 67rpx;
@@ -344,7 +344,7 @@
 
   .uni-navbar__content {
     position: relative;
-    // background-color: #fff;
+    // background-color: var(--ui-BG, #fff);
     // box-sizing: border-box;
     background-color: transparent;
   }
@@ -462,7 +462,7 @@
   .uni-navbar--border {
     border-bottom-width: 1rpx;
     border-bottom-style: solid;
-    border-bottom-color: #eee;
+    border-bottom-color: var(--ui-Border, #eee);
   }
 
   .uni-ellipsis-1 {

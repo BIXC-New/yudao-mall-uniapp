@@ -17,15 +17,9 @@
 
 <script setup>
 	import sheep from '@/sheep';
-	import { computed, reactive } from 'vue';
+	import { computed } from 'vue';
 
 	const userInfo = computed(() => sheep.$store('user').userInfo);
-	const headerBg = sheep.$url.css('/static/img/shop/commission/background.png');
-
-	const state = reactive({
-		showMoney: false,
-	});
-
 </script>
 
 <style lang="scss" scoped>
@@ -36,8 +30,7 @@
 		margin: 0 auto;
 		margin-top: -88rpx;
 		padding-top: 88rpx;
-		background: v-bind(headerBg) no-repeat;
-		background-size: 100% 100%;
+		background: var(--ui-BG-1);
 
 		.head-img-box {
 			margin-right: 20rpx;
@@ -45,7 +38,7 @@
 			height: 100rpx;
 			border-radius: 50%;
 			position: relative;
-			background: #fce0ad;
+			background: var(--ui-BG-3);
 
 			.head-img {
 				width: 92rpx;
@@ -65,7 +58,7 @@
 			.user-name {
 				font-size: 32rpx;
 				font-weight: bold;
-				color: #692e04;
+				color: var(--ui-TC);
 				line-height: 30rpx;
 				margin-bottom: 20rpx;
 			}
@@ -90,7 +83,7 @@
 
 		.user-info-box {
 			.tag-box {
-				background: #ff6000;
+				background: var(--ui-BG-Main);
 				border-radius: 18rpx;
 				line-height: 36rpx;
 
@@ -106,7 +99,7 @@
 					padding: 0 10rpx;
 					font-weight: 500;
 					line-height: 36rpx;
-					color: #fff;
+					color: var(--ui-BG-Main-TC);
 				}
 			}
 		}

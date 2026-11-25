@@ -60,7 +60,7 @@
   };
 
   const state = reactive({
-    iconColor: '#000',
+    iconColor: 'var(--nav-action-color)',
     searchVal: '',
   });
 

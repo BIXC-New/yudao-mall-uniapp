@@ -16,7 +16,7 @@
     // 线条颜色
     lineColor: {
       type: String,
-      default: '#000',
+      default: 'var(--ui-TC, #000)',
     },
     // 线条样式：'dotted', 'solid', 'double', 'dashed'
     borderType: {

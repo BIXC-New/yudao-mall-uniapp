@@ -200,7 +200,7 @@
 
   .storeBox {
     width: 100%;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     padding: 0 30rpx;
   }
 
@@ -211,7 +211,7 @@
     align-items: center;
     padding: 23rpx 0;
     justify-content: space-between;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--ui-Border, #eee);
   }
 
   .store-cent {
@@ -239,14 +239,14 @@
   }
 
   .store-name {
-    color: #282828;
+    color: var(--ui-TC, #282828);
     font-size: 30rpx;
     margin-bottom: 22rpx;
     font-weight: 800;
   }
 
   .store-address {
-    color: #666666;
+    color: var(--ui-TC-1, #525252);
     font-size: 24rpx;
   }
 

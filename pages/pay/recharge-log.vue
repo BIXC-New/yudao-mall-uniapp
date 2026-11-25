@@ -118,7 +118,7 @@
       .title {
         font-size: 28rpx;
         font-weight: 500;
-        color: $dark-3;
+        color: var(--ui-TC, $dark-3);
       }
 
       .num {
@@ -131,7 +131,7 @@
       padding: 0 30rpx 10rpx;
 
       .item-icon {
-        color: $gray-d;
+        color: var(--ui-TC-2, $gray-d);
         font-size: 36rpx;
         margin-right: 8rpx;
       }
@@ -140,7 +140,7 @@
         width: 180rpx;
         font-size: 24rpx;
         font-weight: 400;
-        color: #666666;
+        color: var(--ui-TC-2, #666666);
       }
 
       .status-text {
@@ -151,7 +151,7 @@
       .time {
         font-size: 24rpx;
         font-weight: 400;
-        color: #c0c0c0;
+        color: var(--ui-TC-2, #c0c0c0);
       }
     }
   }

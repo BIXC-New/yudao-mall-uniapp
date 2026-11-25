@@ -46,7 +46,7 @@
   });
 
   const bgStyle = {
-    color: '#F7D598',
+    color: 'var(--ui-BG-1)',
   };
 </script>
 

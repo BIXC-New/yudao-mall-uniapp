@@ -221,7 +221,7 @@
     bottom: 0;
     left: 0;
     margin: 5px;
-    border: 1px #eee solid;
+    border: 1px var(--ui-Border, #eee) solid;
     border-radius: 5px;
     overflow: hidden;
   }
@@ -271,7 +271,7 @@
   .icon-add {
     width: 50px;
     height: 5px;
-    background-color: #f1f1f1;
+    background-color: var(--ui-BG-2, #f1f1f1);
     border-radius: 2px;
   }
 
@@ -300,7 +300,7 @@
   .icon-del {
     width: 15px;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--ui-BG, #fff);
     border-radius: 2px;
   }
 </style>

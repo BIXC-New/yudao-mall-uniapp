@@ -17,7 +17,7 @@
             open-type="share"
             @tap="onShareByForward"
           >
-            <image class="share-img" :src="sheep.$url.static('/static/img/shop/share/share_wx.png')" mode="" />
+            <text class="share-img cicon-weixin" />
             <text class="share-title">微信好友</text>
           </button>
 
@@ -27,11 +27,7 @@
             class="share-item share-btn ss-flex-col ss-col-center"
             @tap="onShareByPoster"
           >
-            <image
-              class="share-img"
-              :src="sheep.$url.static('/static/img/shop/share/share_poster.png')"
-              mode=""
-            />
+            <text class="share-img cicon-image-text-o" />
             <text class="share-title">生成海报</text>
           </button>
 
@@ -41,7 +37,7 @@
             class="share-item share-btn ss-flex-col ss-col-center"
             @tap="onShareByCopyLink"
           >
-            <image class="share-img" :src="sheep.$url.static('/static/img/shop/share/share_link.png')" mode="" />
+            <text class="share-img cicon-file-copy-o" />
             <text class="share-title">复制链接</text>
           </button>
         </view>
@@ -149,16 +145,16 @@
 
   // 分享tool
   .share-box {
-    background: $white;
+    background: var(--ui-BG, #fff);
     width: 750rpx;
     border-radius: 30rpx 30rpx 0 0;
     padding-top: 30rpx;
 
     .share-foot {
       font-size: 24rpx;
-      color: $gray-b;
+      color: var(--ui-TC-2, $gray-b);
       height: 80rpx;
-      border-top: 1rpx solid $gray-e;
+      border-top: 1rpx solid var(--ui-Border);
     }
 
     .share-list-box {
@@ -180,14 +176,20 @@
         .share-img {
           width: 70rpx;
           height: 70rpx;
-          background: $gray-f;
+          background: var(--ui-BG-2);
           border-radius: 50%;
           margin-bottom: 20rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 38rpx;
+          line-height: 1;
+          color: var(--shop-accent-text);
         }
 
         .share-title {
           font-size: 24rpx;
-          color: $dark-6;
+          color: var(--ui-TC-1, #525252);
         }
       }
     }

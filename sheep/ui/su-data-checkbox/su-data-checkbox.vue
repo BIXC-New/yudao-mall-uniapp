@@ -543,7 +543,7 @@
     align-items: center;
     height: 36px;
     padding-left: 10px;
-    color: #999;
+    color: var(--ui-TC-2, #777777);
   }
 
   .uni-data-checklist {
@@ -582,7 +582,7 @@
           justify-content: space-between;
           .checklist-text {
             font-size: 14px;
-            color: #666;
+            color: var(--ui-TC-1, #525252);
             margin-left: 5px;
             line-height: 14px;
           }
@@ -614,7 +614,7 @@
           height: 16px;
           border: 1px solid $border-color;
           border-radius: 4px;
-          background-color: #fff;
+          background-color: var(--ui-BG, #fff);
           z-index: 1;
           .checkbox__inner-icon {
             position: absolute;
@@ -653,7 +653,7 @@
           height: 16px;
           border: 1px solid $border-color;
           border-radius: 16px;
-          background-color: #fff;
+          background-color: var(--ui-BG, #fff);
           z-index: 1;
 
           .radio__inner-icon {
@@ -672,7 +672,7 @@
             cursor: not-allowed;
             /* #endif */
             .checkbox__inner {
-              background-color: #f2f6fc;
+              background-color: var(--ui-BG-2, #f2f6fc);
               border-color: $border-color;
               /* #ifdef H5 */
               cursor: not-allowed;
@@ -680,11 +680,11 @@
             }
 
             .radio__inner {
-              background-color: #f2f6fc;
+              background-color: var(--ui-BG-2, #f2f6fc);
               border-color: $border-color;
             }
             .checklist-text {
-              color: #999;
+              color: var(--ui-TC-2, #777777);
             }
           }
 
@@ -738,24 +738,24 @@
             /* #ifdef H5 */
             cursor: not-allowed;
             /* #endif */
-            border: 1px #eee solid;
+            border: 1px var(--ui-Border, #eee) solid;
             opacity: $disable;
             .checkbox__inner {
-              background-color: #f2f6fc;
+              background-color: var(--ui-BG-2, #f2f6fc);
               border-color: $border-color;
               /* #ifdef H5 */
               cursor: not-allowed;
               /* #endif */
             }
             .radio__inner {
-              background-color: #f2f6fc;
+              background-color: var(--ui-BG-2, #f2f6fc);
               border-color: $border-color;
               /* #ifdef H5 */
               cursor: not-allowed;
               /* #endif */
             }
             .checklist-text {
-              color: #999;
+              color: var(--ui-TC-2, #777777);
             }
           }
 
@@ -796,11 +796,11 @@
           padding: 5px 10px;
           border: 1px $border-color solid;
           border-radius: 3px;
-          background-color: #f5f5f5;
+          background-color: var(--ui-BG-1, #f6f6f6);
 
           .checklist-text {
             margin: 0;
-            color: #666;
+            color: var(--ui-TC-1, #525252);
           }
 
           // 禁用
@@ -830,7 +830,7 @@
           margin: 0;
 
           &.is-list-border {
-            border-top: 1px #eee solid;
+            border-top: 1px var(--ui-Border, #eee) solid;
           }
 
           // 禁用
@@ -839,14 +839,14 @@
             cursor: not-allowed;
             /* #endif */
             .checkbox__inner {
-              background-color: #f2f6fc;
+              background-color: var(--ui-BG-2, #f2f6fc);
               border-color: $border-color;
               /* #ifdef H5 */
               cursor: not-allowed;
               /* #endif */
             }
             .checklist-text {
-              color: #999;
+              color: var(--ui-TC-2, #777777);
             }
           }
 

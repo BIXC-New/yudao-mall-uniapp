@@ -126,7 +126,7 @@
     position: relative;
     z-index: 3;
     margin: -190rpx 20rpx 0 20rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
     border-radius: 20rpx 20rpx 0 0;
     .content-header {
       width: 100%;
@@ -146,7 +146,7 @@
           top: 0;
           font-size: 24rpx;
           font-weight: 400;
-          color: #999999;
+          color: var(--ui-TC-2, #999999);
           line-height: 30rpx;
         }
 

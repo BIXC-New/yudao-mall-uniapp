@@ -2,7 +2,6 @@
 <template>
   <view class="menu-box ss-flex-col">
     <view class="header-box">
-      <image class="header-bg" :src="sheep.$url.static('/static/img/shop/commission/title1.png')" />
       <view class="ss-flex header-title">
         <view class="title">功能专区</view>
         <text class="cicon-forward"></text>
@@ -92,11 +91,8 @@
     width: 690rpx;
     height: 76rpx;
     position: relative;
-
-    .header-bg {
-      width: 690rpx;
-      height: 76rpx;
-    }
+    background: var(--ui-BG-3);
+    border-radius: 12rpx 12rpx 0 0;
 
     .header-title {
       position: absolute;
@@ -107,21 +103,22 @@
     .title {
       font-size: 28rpx;
       font-weight: 500;
-      color: #ffffff;
+      color: var(--ui-TC);
       line-height: 30rpx;
     }
 
     .cicon-forward {
       font-size: 30rpx;
       font-weight: 400;
-      color: #ffffff;
+      color: var(--shop-accent-text);
       line-height: 30rpx;
     }
   }
 
   .menu-list {
     padding: 50rpx 0 10rpx 0;
-    background: #fdfae9;
+    background: var(--ui-BG);
+    color: var(--ui-TC);
     border-radius: 0 0 12rpx 12rpx;
   }
 
@@ -133,7 +130,7 @@
   .menu-icon {
     width: 68rpx;
     height: 68rpx;
-    background: #ffffff;
+    background: transparent;
     border-radius: 50%;
   }
 

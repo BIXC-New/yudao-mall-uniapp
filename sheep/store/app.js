@@ -181,10 +181,21 @@ const adaptTenant = async () => {
 
 /** 初始化装修模版 */
 const adaptTemplate = async (appTemplate, templateId) => {
-  const { data: diyTemplate } = templateId
+  let { data: diyTemplate } = templateId
     ? // 查询指定模板，一般是预览时使用
       await DiyApi.getDiyTemplate(templateId)
     : await DiyApi.getUsedDiyTemplate();
+  // #ifdef H5
+  // Development-only, opt-in fixture. Normal visits always load the server template.
+  if (
+    import.meta.env.DEV &&
+    new URLSearchParams(window.location.search).get('themePreview') === 'blackGold'
+  ) {
+    diyTemplate = await fetch('/static/theme/black-gold-demo.json').then((response) =>
+      response.json(),
+    );
+  }
+  // #endif
   // 模板不存在
   if (!diyTemplate) {
     $router.error('TemplateError');

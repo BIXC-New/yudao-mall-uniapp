@@ -59,7 +59,7 @@
     fontSize: `${props.data.titleSize}px`,
     fontWeight: `${props.data.titleWeight}`,
     // add by 芋艿：shopro 是在 props.styles.height，我们是在 props.data.height
-    height: `${props.data.height || 40}px`,
+    minHeight: `${props.data.height || 40}px`,
   };
 
   // 标题样式
@@ -76,32 +76,36 @@
     color: props.data.descriptionColor,
     textAlign: props.data.textAlign,
     fontSize: `${props.data.descriptionSize}px`,
-    fontWeight: `${props.data.descriptionWeight}px`,
+    fontWeight: `${props.data.descriptionWeight || 400}`,
     marginLeft: `${props.data.marginLeft || 0}px`,
   };
 </script>
 
 <style lang="scss" scoped>
   .ss-title-wrap {
-    height: 80rpx;
+    min-height: 80rpx;
+    box-sizing: border-box;
+    padding: 12rpx 0;
     position: relative;
 
     .title-content {
+      min-width: 0;
+      flex: 1;
       .title-text {
         font-size: 30rpx;
-        color: #333;
+        color: var(--ui-TC, #303030);
       }
 
       .sub-title-text {
         font-size: 22rpx;
-        color: #999;
+        color: var(--ui-TC-2, #777777);
       }
     }
 
     .more-box {
       white-space: nowrap;
       font-size: 22rpx;
-      color: #999;
+      color: var(--ui-TC-2, #777777);
       position: absolute;
       top: 50%;
       transform: translateY(-50%);

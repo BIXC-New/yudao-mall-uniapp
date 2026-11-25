@@ -258,7 +258,7 @@
           width: 100%;
           height: 110%;
           position: absolute;
-          background-color: #000000;
+          background-color: var(--ui-BG-3, #333);
           top: 5%;
           left: 0;
           filter: blur(15px);

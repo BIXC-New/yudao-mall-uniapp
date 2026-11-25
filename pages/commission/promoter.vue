@@ -157,7 +157,7 @@
         line-height: 60rpx;
 
         &.active {
-          color: #333;
+          color: var(--ui-TC, #333);
           background-color: white;
         }
       }

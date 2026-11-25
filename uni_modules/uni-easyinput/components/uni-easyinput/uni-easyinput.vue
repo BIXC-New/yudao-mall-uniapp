@@ -2,7 +2,7 @@
 	<view
 		class="uni-easyinput"
 		:class="{ 'uni-easyinput-error': msg }"
-		:style="{ color: inputBorder && msg ? '#e43d33' : styles.color }"
+		:style="{ color: inputBorder && msg ? 'var(--ui-Error, #e43d33)' : styles.color }"
 	>
 		<view
 			class="uni-easyinput__content"
@@ -13,7 +13,7 @@
 				'is-disabled': disabled
 			}"
 			:style="{
-				'border-color': inputBorder && msg ? '#dd524d' : styles.borderColor,
+				'border-color': inputBorder && msg ? 'var(--ui-Error, #dd524d)' : styles.borderColor,
 				'background-color': disabled ? styles.disableColor : ''
 			}"
 		>
@@ -221,9 +221,9 @@ export default {
 			type: Object,
 			default() {
 				return {
-					color: '#333',
-					disableColor: '#F7F6F6',
-					borderColor: '#e5e5e5'
+					color: 'var(--ui-TC, #333)',
+					disableColor: 'var(--ui-Input-BG, #F7F6F6)',
+					borderColor: 'var(--ui-Input-Border, #e5e5e5)'
 				};
 			}
 		},
@@ -402,7 +402,7 @@ $uni-border-1: #dcdfe6 !default;
 	flex: 1;
 	position: relative;
 	text-align: left;
-	color: #333;
+	color: var(--ui-TC, #333);
 	font-size: 14px;
 }
 
@@ -430,7 +430,7 @@ $uni-border-1: #dcdfe6 !default;
 	height: 56rpx;
 }
 .uni-easyinput__placeholder-class {
-	color: #bbbbbb;
+	color: var(--ui-Placeholder, #bbbbbb);
 	font-size: 28rpx;
 	font-weight: 400;
 	line-height: normal;
@@ -488,7 +488,7 @@ $uni-border-1: #dcdfe6 !default;
 	bottom: -17px;
 	left: 0;
 	line-height: 12px;
-	color: $uni-error;
+	color: var(--ui-Error, #e43d33);
 	font-size: 12px;
 	text-align: left;
 }
@@ -500,7 +500,7 @@ $uni-border-1: #dcdfe6 !default;
 }
 
 .is-input-error-border {
-	border-color: $uni-error;
+	border-color: var(--ui-Error, #e43d33);
 	.uni-easyinput__placeholder-class {
 		// color: mix(#fff, $uni-error, 50%);
 	}
@@ -527,11 +527,11 @@ $uni-border-1: #dcdfe6 !default;
 }
 
 .is-disabled {
-	border-color: red;
-	background-color: #f7f6f6;
-	color: #d5d5d5;
+	border-color: var(--ui-Border, #e5e5e5);
+	background-color: var(--ui-Input-BG, #f7f6f6);
+	color: var(--ui-Disabled-TC, #777777);
 	.uni-easyinput__placeholder-class {
-		color: #d5d5d5;
+		color: var(--ui-Placeholder, #777777);
 		font-size: 12px;
 	}
 }

@@ -72,7 +72,7 @@
 <style scoped lang="scss">
   .send-wrap {
     padding: 18rpx 20rpx;
-    background: #fff;
+    background: var(--ui-BG, #fff);
 
     .left {
       height: 64rpx;
@@ -103,7 +103,7 @@
       border-radius: 30rpx;
       background: linear-gradient(90deg, var(--ui-BG-Main), var(--ui-BG-Main-gradient));
       font-size: 26rpx;
-      color: #fff;
+      color: var(--ui-BG-Main-TC, #fff);
       margin-left: 11rpx;
     }
   }
